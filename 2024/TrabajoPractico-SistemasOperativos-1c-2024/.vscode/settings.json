@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "config.h": "c",
+        "log.h": "c",
+        "rr.h": "c",
+        "fifo.h": "c",
+        "planificacion_corto_plazo.h": "c",
+        "vrr.h": "c"
+    }
+}
