@@ -1,0 +1,72 @@
+import platos.*
+import comensales.*
+import parrillaMiguelito.*
+
+describe "Tests Parrilladas" {
+
+
+const provoletaCeliaca = new Provoleta(peso = 50, tieneEmpanado = false)
+const hamburguesaCeliaca = new HamburguesaDeCarne(pesoMedallon = 100, tipoPan = panDeMaiz)
+const vacio = new CorteCarne(tipoCorte = "vacio", coccion = "APunto", peso = 300)
+const parrilladaCeliaca = new Parrillada(platos = [vacio, provoletaCeliaca, hamburguesaCeliaca])
+
+const hamburguesaConGlutenDoble = new HamburguesaDoble(pesoMedallon = 100, tipoPan = panIndustrial)
+const parrilladaConGlutenEspecial = new Parrillada(platos = [vacio, hamburguesaConGlutenDoble, provoletaConGluten])
+const parrilladaMenosDe3Componentes = new Parrillada(platos = [hamburguesaConGlutenDoble, provoletaConGluten])
+
+const parrillaPesoLiviano = new Parrillada(platos = [provoletaCeliaca, provoletaCeliaca, provoletaCeliaca])
+
+	test "la parrillada con todos los componentes cliacos es celiaca" {
+		assert.that(parrilladaCeliaca.esAptoCeliaco())
+	}
+	
+	test "la parrillada con 3 o mas componentes es especial que pesa mas de 250" {
+		assert.that(parrilladaConGlutenEspecial.esEspecial())
+	}
+	
+	test "la parrillada que pesa mas de 250 pero tiene menos de 3 componentes no es especial" {
+		assert.notThat(parrilladaMenosDe3Componentes.esEspecial())
+	}
+	
+	test "la parrillada que pesa menos de 250 y tiene menos de 3 componentes no es especial" {
+		assert.notThat(parrillaPesoLiviano.esEspecial())
+	}
+	
+	test "valoracion de una parrillada" { 
+		assert.equals(100, parrilladaCeliaca.valoracion())
+	}
+	
+	test "peso de una parrillada" { 
+		assert.equals(150, parrillaPesoLiviano.peso())
+	}
+	
+}
+
+describe "Tests comensales se dan el gusto" {
+
+const comensalCeliaco = new Comensal(dinero = 100, tipoComensal = celiaco)
+const comensalTodoTerreno = new Comensal(dinero = 37000, tipoComensal = todoTerreno)
+
+	test "cuando el comensal no puede comprar ningun plato da error" {
+
+		assert.throwsExceptionWithMessage("La parrilla de Miguelito no tiene en oferta ningun plato que le agrade y le alcance para pagar al comensal",{comensalCeliaco.darseUnGusto()})
+    
+	}
+	
+	test "cuando el comensal se da un gusto compra el plato que le agrade, le alcance y tenga mas valoracion" {
+        comensalTodoTerreno.darseUnGusto()
+        //como compra el plato se le resta el dinero
+		assert.equals(1000, comensalTodoTerreno.dinero())
+
+	}
+}
+
+describe "Tests cambios de habitos con efectos" {
+
+const comensalTodoTerreno = new Comensal(dinero = 30000, tipoComensal = todoTerreno)
+    
+	test "como el comensal todoTerreno se volvio celiaco ya no puede comprar ningun plato de la parrilla de miguelito" {
+        comensalTodoTerreno.tenerProblemasGastricos()
+		assert.throwsExceptionWithMessage("La parrilla de Miguelito no tiene en oferta ningun plato que le agrade y le alcance para pagar al comensal",{comensalTodoTerreno.darseUnGusto()})
+	}
+}

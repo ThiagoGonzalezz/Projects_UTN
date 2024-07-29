@@ -1,0 +1,9 @@
+import wollok.game.*
+import managerGeneral.*
+ 
+program land_thio{
+    managerGeneral.configurarJuego()
+    managerGeneral.configMenuInicial()
+    game.start()
+}
+ 
