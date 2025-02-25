@@ -1,0 +1,12 @@
+color[200, 0, 0](
+	grupo(
+		escala[1, 0.8](
+			grupo(
+				circulo[210 @ 250, 100],
+				circulo[390 @ 250, 100]
+			)
+		),
+		rectangulo[200 @ 170, 400 @ 300],
+		triangulo[113 @ 225, 487 @ 225, 300 @ 450]
+	)
+)

@@ -1,0 +1,63 @@
+color[100, 100, 100](
+grupo(
+color[0, 0, 0](
+grupo(
+color[201, 176, 55](
+triangulo[0 @ 0, 650 @ 0, 0 @ 750]
+),
+color[215, 215, 215](
+triangulo[650 @ 750, 650 @ 0, 0 @ 750]
+),
+color[255, 255, 255](
+grupo(
+rectangulo[230 @ 150, 350 @ 180],
+rectangulo[110 @ 150, 470 @ 390]
+)
+),
+color[255, 0, 0](
+grupo(
+rectangulo[170 @ 60, 410 @ 150],
+rectangulo[350 @ 60, 380 @ 180],
+rectangulo[200 @ 60, 230 @ 180],
+rectangulo[260 @ 300, 320 @ 330],
+rectangulo[170 @ 390, 410 @ 480]
+)
+),
+rectangulo[200 @ 180, 380 @ 210],
+rectangulo[230 @ 240, 260 @ 300],
+rectangulo[320 @ 240, 350 @ 300],
+rectangulo[200 @ 30, 380 @ 60],
+rectangulo[170 @ 60, 200 @ 90],
+rectangulo[380 @ 60, 410 @ 90],
+rectangulo[140 @ 90, 170 @ 150],
+rectangulo[410 @ 90, 440 @ 150],
+rectangulo[110 @ 150, 200 @ 180],
+rectangulo[110 @ 180, 170 @ 210],
+rectangulo[140 @ 210, 170 @ 240],
+rectangulo[80 @ 210, 110 @ 270],
+rectangulo[110 @ 270, 170 @ 330],
+rectangulo[110 @ 300, 200 @ 330],
+rectangulo[80 @ 330, 110 @ 390],
+rectangulo[110 @ 390, 200 @ 420],
+rectangulo[140 @ 420, 170 @ 480],
+rectangulo[200 @ 420, 260 @ 450],
+rectangulo[320 @ 420, 380 @ 450],
+rectangulo[260 @ 390, 320 @ 420],
+rectangulo[170 @ 330, 410 @ 390],
+rectangulo[170 @ 480, 260 @ 510],
+rectangulo[260 @ 450, 320 @ 480],
+rectangulo[320 @ 480, 410 @ 510],
+rectangulo[410 @ 420, 440 @ 480],
+rectangulo[380 @ 390, 470 @ 420],
+rectangulo[470 @ 330, 500 @ 390],
+rectangulo[380 @ 300, 470 @ 330],
+rectangulo[410 @ 270, 470 @ 330],
+rectangulo[470 @ 210, 500 @ 270],
+rectangulo[410 @ 210, 440 @ 240],
+rectangulo[410 @ 180, 470 @ 210],
+rectangulo[380 @ 150, 470 @ 180],
+rectangulo[380 @ 150, 470 @ 180]
+)
+)
+)
+)
