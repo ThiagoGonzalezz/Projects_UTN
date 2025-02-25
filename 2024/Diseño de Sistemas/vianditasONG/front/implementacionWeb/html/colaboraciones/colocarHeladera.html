@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/notificaciones.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/registro/formulariosRegistro.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboraciones/distribucionVianda.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboraciones/colocarHeladera.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Colación Heladera</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../colaboradores/menuPersonaJuridica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../reporteFallaTecnica/reportar_falla_tecnica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/herramienta.png" alt="Inicio">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../catalogoOfertas/catalogoOfertas.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <div class="notification-dot"></div> <!-- Punto de notificación -->
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+            <h2>Notificaciones</h2>
+            <button id="close-chat" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p id="no-notifications">No hay notificaciones pendientes</p>
+            <!-- Acá se agregarían los mensajes -->
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="form-container">
+            <div class="form-title-container">
+                <h3>Colocar una nueva heladera</h3>
+            </div>
+
+            <div class="form-y-envio-container">
+                <form class="heladera-form" id="registro-form" action="index.html" method="post">
+                    <div class="grid-item">
+                        <label for="tipo-de-heladera" required>Modelo *</label>
+                        <select id="tipo-de-heladera" name="tipo-de-heladera[]" required>
+                            <option value="-1" disabled selected>Seleccione un modelo de heladera</option>
+                            <option value="1">Whirlpool WRS571CIDM</option>
+                            <option value="2">Bosch KGN39XW30</option>
+                            <option value="3">Electrolux ETE4507S</option>
+                        </select>
+                    </div>
+                    <div class="grid-item">
+                        <label for="nombre">Nombre *</label>
+                        <input id="nombre" type="text" name="nombre" value=""
+                            placeholder="Ingrese el nombre de la heladera" class="text-input" required>
+                    </div>
+                    <div class="grid-item grid-item-mapa">
+                        <label for="punto-colocacion">Punto de colocación *</label>
+                        <div class="grid-item">
+                            <label>Seleccione en el mapa el punto donde desea colocar su heladera. Recuerde que puede
+                                solicitar una recomendación haciendo <a href="#" id="recommend-link">click
+                                    aquí</a>.</label>
+                        </div>
+                        <div id="mapid-destino" style="height: 400px;"></div>
+                        <label for="punto-colocacion-direccion">Dirección de la Heladera:</label>
+                        <input type="text" id="punto-colocacion-direccion" name="punto-colocacion-direccion" required>
+                    </div>
+                </form>
+
+                <div class="footer-form" id="footer-form-container">
+                    <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+                    <div id="btn-envio-form-container">
+                        <button type="submit" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar
+                            formulario</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contáctanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>En unos instantes recibirá una notificación con las direcciones recomendadas.</p>
+            <!-- Botón de aceptar -->
+            <button id="accept-button" class="modal-button">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../../../../src/main/resources/public/js/colaboraciones/seleccionarPunto.js"></script>
+    <script src="js/utils/formularios/envioFormGenerico.js"></script>
+    <script src="../../../../src/main/resources/public/js/colaboraciones/recomendarPunto.js"></script>
+
+</html>

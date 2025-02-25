@@ -1,0 +1,109 @@
+/* Título del Menú */
+.menu-title-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 4vw;
+    margin-left: 4vw;
+}
+
+.menu-title-container h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #262626;
+    margin-bottom: 2rem;
+}
+
+/* Contenedor del menú de opciones */
+.opcionAdmin-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px; 
+    justify-items: center;
+    gap:20px; 
+}
+
+/* Tarjetas del menú */
+.opcionAdmin-card {
+    background-color: #ebebeb; 
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    width: 250px; 
+    height: 250px; 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.opcionAdmin-card img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+
+/* Título de cada tarjeta */
+.opcionAdmin-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #262626; 
+    margin: 0;
+}
+
+/* Efecto hover en las tarjetas */
+.opcionAdmin-card:hover {
+    transform: translateY(-5px);
+    background-color: #f1f1f1;
+}
+
+/* Posicionamiento de las tarjetas en la grilla */
+.opcionAdmin-card:nth-child(1) { grid-column: 1; }
+.opcionAdmin-card:nth-child(2) { grid-column: 3; }
+.opcionAdmin-card:nth-child(3) { grid-column: 5; }
+.opcionAdmin-card:nth-child(4) { grid-column: 7; }
+.opcionAdmin-card:nth-child(5) { grid-column: 2; }
+.opcionAdmin-card:nth-child(6) { grid-column: 4; }
+.opcionAdmin-card:nth-child(7) { grid-column: 6; }
+
+
+/* Responsividad */
+@media (max-width: 1200px) {
+    .opcionAdmin-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .opcionAdmin-card {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .opcionAdmin-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    }
+    .opcionAdmin-card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .opcionAdmin-container {
+        grid-template-columns: 1fr;
+    }
+    .opcionAdmin-card {
+        width: 80%;
+        height: auto;
+    }
+}
+
+.opcionAdmin-container a{
+    text-decoration: none;
+}

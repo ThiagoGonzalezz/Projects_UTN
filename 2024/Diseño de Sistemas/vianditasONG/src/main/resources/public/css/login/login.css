@@ -1,0 +1,263 @@
+/* ------------------------------------------------------------------------------------------
+// -- Main Container --
+// -----------------------------------------------------------------------------------------*/
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap; /* Para mejor responsividad */
+}
+
+.mapa-container {
+    position: relative;
+    padding: 1rem;
+    background-color: #0c9db3;
+    border-radius: 10vw;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Cambiado a 100% para adaptabilidad */
+    max-width: 60vw; /* Limitar el ancho máximo */
+    min-width: 40vw;
+    max-height: 35vw; /* Limitar la altura máxima */
+    margin-bottom: 4vw;
+}
+
+.mapa-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.mapa-y-titulo-container h3 {
+    font-family: "Monserrat", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #0c9db3;
+    font-size: 1.8rem; /* Ajustado para mejor escalabilidad */
+    margin-bottom: 2rem;
+    margin: auto;
+    text-align: center;
+    align-self: center;
+    margin-top: 5vw;
+    text-shadow: rgb(68, 66, 66) 0px 1px 3px;
+}
+
+#mapid {
+    height: 30vw; /* Ajustado para mejor escalabilidad */
+    width: 55vw;
+    max-width: 50vw; /* Limitar el ancho máximo */
+    margin: auto;
+    border-radius: 10vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    min-width: 80%;
+}
+
+#mapid:hover {
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Login Container --
+// -----------------------------------------------------------------------------------------*/
+
+.cuadro-log-in-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 100%; /* Cambiado a 100% para adaptabilidad */
+    max-width: 400px; /* Limitar el ancho máximo */
+    min-width: 30vw;
+    margin-left: auto;
+    margin-right: auto; /* Centrar horizontalmente */
+    justify-content: center;
+    margin-top: 3%;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+    text-align: center;
+    height: calc(30vw + 10px); /* Ajuste de altura basado en el mapa, más un pequeño margen */
+    min-height: 500px; /* Mínima altura para asegurar que el contenido sea visible */
+    display: flex; /* Asegura que el contenedor use Flexbox */
+    flex-direction: column; /* Organiza el contenido en una columna */
+    align-items: center; /* Centra horizontalmente el contenido */
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.cuadro-log-in-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #ff9900;
+    font-size: 2rem; /* Ajustado para mejor escalabilidad */
+    margin-bottom: 1rem;
+    margin-top:-3rem
+}
+
+.login-label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ff9900;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #ff9900;
+    margin-top: -15px;
+}
+
+.login-input {
+    width: 100%;
+    background-color: #e0fbff;
+    border: solid 1.5px #e2e2e2;
+    font-size: 1rem;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease-in-out;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.login-input:focus {
+    border-color: #ff9900;
+    outline: none;
+}
+
+.btn {
+    border-radius: 20px;
+    background-color: #ff9900;
+    color: #ffffff;
+    font-size: 1rem; /* Ajustado para mejor escalabilidad */
+    cursor: pointer;
+    border: none;
+    width: 150px; /* Cambiado a 100% para adaptabilidad */
+    max-width: 200px;
+    min-width: 200px; /* Limitar el ancho máximo */
+    height: auto;
+    padding: 0.5rem 1rem; /* Cambiar tamaño en lugar de usar altura fija */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 1.5vw;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top:-10px
+}
+
+.nav-btn {
+    border-radius: 20px;
+    background-color: #ff9900;
+    color: #ffffff;
+    font-size: 1rem; /* Ajustado para mejor escalabilidad */
+    cursor: pointer;
+    border: none;
+    max-width: 170px;
+    min-width: 170px; /* Limitar el ancho máximo */
+    height: auto;
+    padding: 0.5rem 1rem; /* Cambiar tamaño en lugar de usar altura fija */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 1.5vw;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    margin-top:-10px
+}
+
+.btn:hover, .nav-btn:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+.registro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#leyenda-sin-usuario {
+    margin: 0.5rem 0;
+    color: #ff9900;
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin-bottom:15px;
+    margin-top: -8px;
+}
+
+footer{
+    margin-top: 30px;
+}
+
+footer h2{
+    margin-top: 0px;
+}
+
+#password-label{
+    margin-top: -15px;
+}
+
+/* Estilo para el borde y el texto del input en caso de error */
+.input-error {
+    border: solid 1px red;
+    color: red;
+}
+
+.input-error:focus {
+    border-color: red;
+    outline: none;
+}
+
+/* Estilo del mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo del icono de error */
+.icono-error {
+    margin-right: 5px;
+    color: red;
+    font-size: 1rem;
+}
+
+.label-error{
+    color: red;
+}
+
+/* Estilo del icono de ojo */
+.icono-ojo {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #ff9900;
+}

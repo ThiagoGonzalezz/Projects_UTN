@@ -1,0 +1,53 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="/css/reporteFallaTecnica/historialFallas.css">
+    <title>Historial de Fallas Técnicas</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-persona">
+            <img src="/img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+
+{{#partial "contenido-pagina-colaborador"}}
+    <main>
+        <section class="historial-fallas-content">
+            <h3>Historial de Fallas Técnicas</h3>
+
+            <div class="historial-fallas-list" id="fallaList">
+                {{#each fallasTecnicas}}
+                    <div class="historial-fallas-item">
+                        <div class="falla-row">
+                            <div class="dato-contenedor"><strong>ID:</strong> {{this.id}}</div>
+                            <div class="dato-contenedor"><strong>Descripción:</strong> {{this.descripcion}}</div>
+                            <div class="dato-contenedor"><strong>Fecha Reporte:</strong> {{this.fechaYHora}}</div>
+                            <div class="dato-contenedor"><strong>Estado:</strong> {{this.estadoReporte}}</div>
+                            {{#if this.foto}}
+                                <button class="ver-foto-btn" data-id="{{this.id}}">Ver Foto</button>
+                                <div class="historial-fallas-foto" id="foto-{{this.id}}" style="display: none;">
+                                    <img src="{{this.foto}}" alt="Foto de la falla">
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+    </main>
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="/js/reporteFallaTecnica/historialFallas.js"></script>
+{{/partial}}
+
+{{> templates/bases/base_colaborador}}
+
+
+
+
+

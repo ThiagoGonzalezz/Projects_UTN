@@ -1,0 +1,160 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/gestionHeladeras/styles.css">
+    <title>Gestión de Heladeras</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+        <section class="gestion-heladeras-content">
+            <h2>Gestión de Heladeras</h2>
+
+            <div class="gestion-heladeras-filter-container">
+                <label for="searchInput"></label>
+                <input type="text" id="searchInput" placeholder="Filtrar por ID de Heladera">
+                <button id="addButton">AÑADIR HELADERA</button>
+            </div>
+
+            <div class="gestion-heladeras-list" id="heladeraList">
+                {{#each heladeras}}
+                    <button class="gestion-heladeras-item" data-id="{{this.id}}">
+                        Heladera {{this.id}}
+                    </button>
+                    <div class="gestion-heladeras-details" id="details-{{this.id}}" style="display: none;">
+                        <div><strong>Modelo:</strong> {{this.modeloId}}</div>
+                        <div><strong>Ubicación:</strong> {{this.nombrePuntoEstrategico}}</div>
+                        <div><strong>Estado:</strong> {{this.estadoHeladera}}</div>
+                        <div><strong>Viandas:</strong> {{this.cantidadViandas}}</div>
+                        <div><strong>Temperatura Actual:</strong> {{this.temperatura}} °C</div>
+                        <div><strong>Días Desactivada:</strong> {{this.diasDesactivada}}</div>
+                        <div><strong>Última Desactivación:</strong> {{this.fechaUltimaDesactivacion}}</div>
+                        <div><strong>Encargado:</strong>{{this.encargadoHeladera}}</div>
+                        <div class="gestion-heladeras-actions">
+                            <button class="edit-btn" data-id="{{this.id}}">Modificar</button>
+                            <button class="delete-btn" data-id="{{this.id}}">Eliminar</button>
+                            <button class="ver-incidentes-btn" data-id="{{this.id}}">Ver incidentes</button>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+
+        <!-- Pop-up para mostrar incidentes -->
+        <div id="popup-incidentes" class="popup">
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <h3>Incidentes de la Heladera</h3>
+                <div id="incidentes-list">
+                    <!-- Los incidentes se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+
+        <div id="addHeladeraModal" class="gestion-heladeras-modal">
+            <div class="gestion-heladeras-modal-content">
+                <span class="close">&times;</span>
+                <h2>Añadir Heladera</h2>
+                <form id="addHeladeraForm">
+                    <label for="heladeraNombre">Nombre de la Heladera:</label>
+                    <input type="text" id="heladeraNombre" name="heladeraNombre" required>
+
+                    <label for="heladeraModelo">Modelo de Heladera:</label>
+                    <select id="heladeraModelo" name="heladeraModelo" required>
+                        {{#each modelos}}
+                            <option value="{{this.id}}">{{this.descripcion}}</option>
+                        {{/each}}
+                    </select>
+
+                    <label for="nombrePuntoEstrategico">Nombre del Punto Estratégico:</label>
+                    <input type="text" id="nombrePuntoEstrategico" name="nombrePuntoEstrategico" required>
+
+                    <label for="localidad">Localidad:</label>
+                    <select id="localidad" name="localidad" required>
+                        {{#each localidades}}
+                            <option value="{{this.id}}">{{this.nombre}}</option>
+                        {{/each}}
+                    </select>
+
+                    <label for="calle">Calle:</label>
+                    <input type="text" id="calle" name="calle" required>
+
+                    <label for="altura">Altura:</label>
+                    <input type="text" id="altura" name="altura" required>
+
+                    <label for="personaJuridica">Posibles encargados:</label>
+                    <select id="personaJuridica" name="personaJuridica" required>
+                        {{#each personasJuridicas}}
+                            <option value="{{this.id}}">{{this.razonSocial}}</option>
+                        {{/each}}
+                    </select>
+
+                    <button type="submit">Añadir</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="editHeladeraModal" class="gestion-heladeras-modal">
+            <div class="gestion-heladeras-modal-content">
+                <span class="close-edit">&times;</span>
+                <h2>Modificar Heladera</h2>
+                <form id="editHeladeraForm">
+                    <label for="editHeladeraId">ID de Heladera:</label>
+                    <input type="text" id="editHeladeraId" required readonly>
+
+                    <label for="editHeladeraNombre">Nombre de la Heladera:</label>
+                    <input type="text" id="editHeladeraNombre" required>
+
+                    <label for="editHeladeraModelo">Modelo de Heladera:</label>
+                    <select id="editHeladeraModelo" name="editHeladeraModelo" required>
+                        {{#each modelos}}
+                            <option value="{{this.id}}">{{this.descripcion}}</option>
+                        {{/each}}
+                    </select>
+
+                    <label for="editHeladeraUbicacion">Nombre del Punto Estratégico:</label>
+                    <input type="text" id="editHeladeraUbicacion" name="editHeladeraUbicacion" required>
+
+                    <label for="editLocalidad">Localidad:</label>
+                    <select id="editLocalidad" required>
+                        {{#each localidades}}
+                            <option value="{{this.id}}">{{this.nombre}}</option>
+                        {{/each}}
+                    </select>
+
+                    <label for="editCalle">Calle:</label>
+                    <input type="text" id="editCalle" name="editCalle" required>
+
+                    <label for="editAltura">Altura:</label>
+                    <input type="text" id="editAltura" name="editAltura" required>
+
+                    <label for="editHeladeraEstado">Estado de Heladera:</label>
+                    <select id="editHeladeraEstado">
+                        <option value="ACTIVA">Activa</option>
+                        <option value="DESCONECTADA">Desconectada</option>
+                        <option value="TEMPERATURA_INADECUADA">Temperatura inadecuada</option>
+                        <option value="BLOQUEADA_POR_FRAUDE">Bloqueada por fraude</option>
+                        <option value="CON_FALLA_TECNICA">Con falla técnica</option>
+                    </select>
+
+                    <label for="editHeladeraViandas">Cantidad de Viandas:</label>
+                    <input type="number" id="editHeladeraViandas" name="editHeladeraViandas" required>
+
+                    <label for="editTemperaturaHeladera">Temperatura de Heladera</label>
+                    <input type="number" id="editTemperaturaHeladera" name="editTemperaturaHeladera" required>
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+{{/partial}}
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/gestionHeladeras/scripts.js"></script>
+{{/partial}}
+
+{{> templates/bases/base_admin}}
+
+
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/admin/general/header.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/admin/general/footer.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/admin/general/notificacionesAdmin.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboraciones/distribucionVianda.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/admin/menuAdmin.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menú Administrador</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container-header">
+                <div class="header-left">
+                    <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                    <h1>VIANDITAS ONG</h1>
+                </div>
+                <nav class="main-nav">
+                    <div class="nav-item">
+                        <a href="../admin/menuAdmin.html">
+                            <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                            <p>Inicio</p>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#">
+                            <img src="../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                            <p>Configuración</p>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#">
+                            <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                            <p>Soporte</p>
+                        </a>
+                    </div>
+                    <div class="nav-item" id="notifications">
+                        <a href="#">
+                            <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                            <p>Notificaciones</p>
+                        </a>
+                    </div>
+                    <div class="nav-item" id="user-profile">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/user-profile.png" alt="Perfil de Usuario" class="circular-image">
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <div id="chat-container" class="chat-container">
+            <div class="chat-header">
+                <h2>Notificaciones</h2>
+                <button id="close-chat" aria-label="Cerrar chat">×</button>
+            </div>
+            <div class="chat-body">
+                <p id="no-notifications">No hay notificaciones pendientes</p>
+                <!-- Acá se agregarían los mensajes -->
+            </div>
+        </div>
+
+        <div class="menu-title-container">
+            <h3>Menú Administrador</h3>
+        </div>
+
+        <main>
+            <div class="opcionAdmin-container">
+                <a href="../../html/admin/visualizarReportes.html" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoVisualizarReportes.png" alt="Visualizar Reportes">
+                    <div class="text-container">
+                        <h4>Visualizar Reportes</h4>
+                    </div>
+                </a>
+                <a href="../../html/admin/importarColaboraciones/importarColaboraciones.html" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoImportarColab.png" alt="Importar Colaboraciones">
+                    <div class="text-container">
+                        <h4>Importar Colaboraciones</h4>
+                    </div>
+                </a>
+                <a href="../../html/admin/gestionHeladeras/index.html" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoGestionHeladeras.png" alt="Gestionar Heladeras">
+                    <div class="text-container">
+                        <h4>Gestionar Heladeras</h4>
+                    </div>
+                </a>
+                <a href="" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoAltaPersonaVulnerable.png" alt="Dar de alta Persona en Situación Vulnerable">
+                    <div class="text-container">
+                        <h4>Dar de alta Persona en Situación Vulnerable</h4>
+                    </div>
+                </a>
+                <a href="" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoFormulario.png" alt="Gestionar Formularios">
+                    <div class="text-container">
+                        <h4>Gestionar Formularios</h4>
+                    </div>
+                </a>
+                <a href="" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoTecnico.png" alt="Gestionar Técnicos">
+                    <div class="text-container">
+                        <h4>Gestionar Técnicos</h4>
+                    </div>
+                </a>
+                <a href="" class="opcionAdmin-card">
+                    <img src="../../../../src/main/resources/public/img/iconosAdmin/iconoGestionColab.png" alt="Gestionar Colaboradores">
+                    <div class="text-container">
+                        <h4>Gestionar Colaboradores</h4>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
+    </div>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+
+        
+        <footer>
+            <div class="footer-content">
+                <h2>Contactanos</h2>
+                <p>Ante cualquier inconveniente o consulta acerca del sistema, por favor comunicarse a través de los medios brindados.</p>
+            </div>
+
+            <div class="nuestros-contactos-container">
+                <div class="contacto-nuestro">
+                    <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                    <div class="contact-info">
+                        <h3>Teléfono</h3>
+                        <p>+54 9 11 3808 5884</p>
+                    </div>
+                </div>
+                <div class="contacto-nuestro">
+                    <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                    <div class="contact-info">
+                        <h3>Mail</h3>
+                        <p>VONGSoporte@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+   
+    </div>
+
+        <script src="../../../../src/main/resources/public/js/notificaciones/notificaciones.js"></script>
+
+    </body>
+
+</html>

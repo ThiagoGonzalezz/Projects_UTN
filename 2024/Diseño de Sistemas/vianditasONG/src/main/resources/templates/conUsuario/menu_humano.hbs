@@ -1,0 +1,225 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="css/colaboradores/colaboradores.css">
+    <link rel="stylesheet" href="css/colaboraciones/distribucionVianda.css">
+    <link rel="stylesheet" href="css/colaboradores/menuHumano.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Menú Humano</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-persona">
+            <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+    <div class="menu-title-container">
+        <h3>¡Ayudá con tu colaboración!</h3>
+    </div>
+
+    <div class="collaboration-container">
+        {{#each formas-de-colaboracion}}
+            <div class="collaboration-card {{#if this.activada}}active{{else}}disabled{{/if}}" data-href="{{this.href}}">
+                <a href="{{#if this.activada}}{{this.href}}{{else}}#{{/if}}">
+                    <img src="{{this.imagen}}" alt="Icono {{this.nombre}}">
+                    <h4>{{this.nombre}}</h4>
+                </a>
+                <p>{{this.descripcion}}</p>
+                <script type="text/javascript">
+                    const tieneDireccion = {{#if tieneDireccion}}true{{else}}false{{/if}};
+                </script>
+                {{#unless this.activada}}
+                    <div class="overlay"></div>
+                    <div class="interest-banner">También te podría interesar</div>
+                    <form action="/menu-persona" method="POST" onsubmit="return handleCollaboration(this);">
+                        <input type="hidden" name="stringEnum" value="{{this.stringEnum}}">
+                        <button type="submit" class="enableCardButton">Añadir forma de colaboración</button>
+                    </form>
+                {{/unless}}
+            </div>
+        {{/each}}
+    </div>
+    <div class="pop-up-container" id="address-popup" style="display:none;">
+        <div class="pop-up-content">
+            <h2>Ingrese su dirección</h2>
+
+            <!-- Selección de provincia -->
+            <div class="form-y-envio-container">
+                <div class="grid-item">
+                    <label class="label-domicilio" for="provincia">Provincia* <div class="modalidad-domicilio"></div></label>
+                    <select id="provincia" name="provincia" class="input-domicilio" oninput="cargarLocalidades()">
+                        <option value="-1" disabled selected class="opcion-placeholder">Seleccione la provincia de su domicilio</option>
+                        <option value="BUENOS_AIRES">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
+                        <option value="CATAMARCA">Catamarca</option>
+                        <option value="CHACO">Chaco</option>
+                        <option value="CHUBUT">Chubut</option>
+                        <option value="CORDOBA">Córdoba</option>
+                        <option value="CORRIENTES">Corrientes</option>
+                        <option value="ENTRE_RIOS">Entre Ríos</option>
+                        <option value="FORMOSA">Formosa</option>
+                        <option value="JUJUY">Jujuy</option>
+                        <option value="LA_PAMPA">La Pampa</option>
+                        <option value="LA_RIOJA">La Rioja</option>
+                        <option value="MENDOZA">Mendoza</option>
+                        <option value="MISIONES">Misiones</option>
+                        <option value="NEUQUEN">Neuquén</option>
+                        <option value="RIO_NEGRO">Río Negro</option>
+                        <option value="SALTA">Salta</option>
+                        <option value="SAN_JUAN">San Juan</option>
+                        <option value="SAN_LUIS">San Luis</option>
+                        <option value="SANTA_CRUZ">Santa Cruz</option>
+                        <option value="SANTA_FE">Santa Fe</option>
+                        <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                        <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                        <option value="TUCUMAN">Tucumán</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="select-localidad" class="label-domicilio">Localidad* <div class="modalidad-domicilio"></div></label>
+                    <select id="select-localidad" class="input-domicilio" name="localidad">
+                        <option value="-1" disabled selected>Ingrese la localidad de su domicilio</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="calle" class="label-domicilio">Calle* <div class="modalidad-domicilio"></div></label>
+                    <input id="calle" class="input-domicilio" type="text" name="calle" placeholder="Ingrese la calle de su domicilio">
+                </div>
+
+                <div class="grid-item">
+                    <label for="altura" class="label-domicilio">Altura* <div class="modalidad-domicilio"></div></label>
+                    <input id="altura" class="input-domicilio" type="text" name="altura" placeholder="Ingrese la altura de su domicilio">
+                </div>
+            </div>
+
+            <input type="hidden" id="popup-stringEnum">
+            <div class="button-container">
+                <button class="pop-up-btn" onclick="submitAddress()">Enviar</button>
+                <button class="pop-up-btn cancel" onclick="closePopup()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <div class="menu-title-container">
+        <h3>Suscríbete a una heladera</h3>
+    </div>
+    <p class="texto-suscripcion">Forma parte de nuestra red solidaria y mantente informado sobre el estado de las
+        heladeras comunitarias que ayudan a alimentar a quienes más
+        lo necesitan. Al suscribirte, recibirás notificaciones sobre situaciones importantes, como la disponibilidad de
+        viandas, necesidades urgentes para
+        llenar las heladeras o cualquier problema técnico que pueda afectar su funcionamiento. ¡Tu compromiso nos
+        permite asegurar que ninguna heladera
+        quede vacía y que las viandas lleguen a su destino a tiempo!</p>
+    <div class="map-suscripciones-container">
+        <div class="mapa-box">
+            <div class="grid-item grid-item-mapa">
+                <div id="mapid-destino"></div>
+            </div>
+        </div>
+        <div class="suscripciones-container">
+            <div class="menu-title-container">
+                <h4 class="suscripciones-title">Suscripciones Activas</h4>
+            </div>
+            <div class="suscripciones-list">
+                {{#each suscripciones}}
+                    <div class="suscripcion-item">
+                        <div class="suscripcion-info">
+                            <h4>{{this.heladeraId}}</h4>
+                            <p>Tipo de Suscripción: {{this.tipoSuscripcion}}</p>
+                            {{#if this.cantViandasMin}}
+                                <p>Número de Viandas Mínimas: {{this.cantViandasMin}}</p>
+                            {{/if}}
+                            {{#if this.cantViandasMax}}
+                                <p>Número de Viandas Máximas: {{this.cantViandasMax}}</p>
+                            {{/if}}
+                            <p>Contacto: {{this.contacto}}</p>
+                        </div>
+                        <button class="delete-button"
+                                onclick="showConfirmPopup('{{this.idSuscripcion}}', '{{this.tipoSuscripcion}}')">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+    <div id="confirmModal" class="confirm-modal" style="display:none;">
+        <div class="confirm-modal-content">
+            <p>¿Seguro que desea anular la suscripción?</p>
+            <button id="cancelButton">Cancelar</button>
+            <button id="confirmButton">Aceptar</button>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{#partial "suscripciones"}}
+    <div id="suscripcionModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>Selecciona un medio de contacto para recibir las notificaciones</h2>
+            <form id="notificationForm" action="/suscribirse-a-heladera" method="POST">
+                <select name="contacto" id="contactoSelect" required>
+                    <option value="" disabled selected>Seleccione un contacto</option>
+                    {{#each contactos}}
+                        <option value="{{this.tipoContacto}}_{{this.detalleContacto}}">{{this.tipoContacto}} | {{this.detalleContacto}}</option>
+                    {{/each}}
+                </select>
+                <h2>Selecciona en qué casos deseas ser notificado</h2>
+                <input type="hidden" name="heladeraId" id="heladeraId">
+                <label>
+                    <input type="checkbox" name="notificaciones[]" value="Viandas Disponibles">
+                    Quedan únicamente
+                    <input type="number" name="nViandasDisponibles" min="1" placeholder="Número de viandas">
+                    viandas disponibles en la heladera
+                </label>
+                <label>
+                    <input type="checkbox" name="notificaciones[]" value="Viandas Faltantes">
+                    Faltan
+                    <input type="number" name="nViandasFaltantes" min="1" placeholder="Número de viandas">
+                    viandas para que la heladera esté llena
+                </label>
+                <label>
+                    <input type="checkbox" name="notificaciones[]" value="Desperfectos">
+                    La heladera sufrió un desperfecto
+                </label>
+                <button type="button" class="modal-button" onclick="closeModal()">Cancelar</button>
+                <button type="submit" class="modal-button">Confirmar suscripción </button>
+            </form>
+        </div>
+    </div>
+
+    <dialog id="pop-up-bienvenido">
+        <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+            <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+            <h2> ¡Gracias por suscribirte!</h2>
+            <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+            <nav> <a href="menu-persona" class="pop-up-btn"> Volver al inicio  </a></nav>
+        </div>
+    </dialog>
+{{/partial}}
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/colaboradores/menuColaborador.js"></script>
+    <script src="js/colaboraciones/suscribirseAHeladera.js"></script>
+    <script src="js/colaboraciones/colaboracionCompletada.js" ></script>
+    <script src="js/colaboraciones/anularSuscripcion.js" ></script>
+{{/partial}}
+{{>templates/bases/base_colaborador}}

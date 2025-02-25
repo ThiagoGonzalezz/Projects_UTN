@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/notificaciones.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboradores/colaboradores.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboraciones/distribucionVianda.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menú Humano</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png"
+                    alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+
+                <div class="nav-item">
+                    <a href="../colaboradores/menuHumano.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../reporteFallaTecnica/reportar_falla_tecnica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/herramienta.png" alt="Inicio">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../catalogoOfertas/catalogoOfertas.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/config.png"
+                            alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png"
+                            alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+            <h2>Notificaciones</h2>
+            <button id="close-chat" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p id="no-notifications">No hay notificaciones pendientes</p>
+            <!-- Acá se agregarían los mensajes -->
+        </div>
+    </div>
+
+    <div class="menu-title-container">
+        <h3>¡Ayudá con tu colaboración!</h3>
+    </div>
+
+    <div class="collaboration-container collaboration-container-humano">
+        <div class="collaboration-card collaboration-card-humano">
+            <a href="../colaboraciones/donacionViandas.html">
+                <img src="../../../../src/main/resources/public/img/iconosDonaciones/iconoDonarVianda.png"
+                    alt="Icono donación de vianda">
+                <h4>Donar Vianda</h4>
+            </a>
+            <p>Tu donación de viandas nos ayuda a proporcionar comidas nutritivas a quienes más lo necesitan. Cada
+                vianda puede marcar una gran diferencia en la vida de las personas que enfrentan dificultades.</p>
+        </div>
+        <div class="collaboration-card collaboration-card-humano">
+            <a href="../colaboraciones/FormularioRegistroPersonaVulnerable.html">
+                <img src="../../../../src/main/resources/public/img/iconosDonaciones/iconoRegistroPersonaVulnerable.png"
+                    alt="Icono registro de persona vulnerable">
+                <h4>Registrar Persona en Situación Vulnerable</h4>
+            </a>
+            <p>Registra a personas en situación vulnerable para asegurarnos de que reciban el apoyo adecuado. Tu
+                registro permite que se les brinden recursos y asistencia en momentos críticos.</p>
+        </div>
+        <div class="collaboration-card collaboration-card-humano">
+            <a href="../colaboraciones/donacionDinero.html">
+                <img src="../../../../src/main/resources/public/img/iconosDonaciones/iconoDonarDinero.png"
+                    alt="Icono donar dinero">
+                <h4>Donar Dinero</h4>
+            </a>
+            <p>Tu donación económica nos permite adquirir alimentos, mantener nuestros programas y extender nuestra
+                ayuda a más personas cada día. Con tu apoyo financiero, construimos un futuro más brillante para todos.
+            </p>
+        </div>
+        <div class="collaboration-card collaboration-card-humano">
+            <a href="../colaboraciones/distribucionVianda.html">
+                <img src="../../../../src/main/resources/public/img/iconosDonaciones/iconoRedistribuirVianda.png"
+                    alt="Icono distribución de viandas">
+                <h4>Distribuir Viandas</h4>
+            </a>
+            <p>Con tu colaboración en la distribución de viandas, aseguramos que las comidas lleguen a quienes más lo
+                necesitan. Este esfuerzo garantiza que las viandas se entreguen de manera eficiente y oportuna.</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="menu-title-container">
+        <h3>Suscríbete a una heladera</h3>
+    </div>
+    <p class="texto-suscripcion">Forma parte de nuestra red solidaria y mantente informado sobre el estado de las
+        heladeras comunitarias que ayudan a alimentar a quienes más
+        lo necesitan. Al suscribirte, recibirás notificaciones sobre situaciones importantes, como la disponibilidad de
+        viandas, necesidades urgentes para
+        llenar las heladeras o cualquier problema técnico que pueda afectar su funcionamiento. ¡Tu compromiso nos
+        permite asegurar que ninguna heladera
+        quede vacía y que las viandas lleguen a su destino a tiempo!</p>
+    <div class="mapa-box">
+        <div class="grid-item grid-item-mapa">
+            <div id="mapid-destino"></div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    </div>
+
+
+    </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contáctanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail"
+                    id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal de Notificación -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <h2>Selecciona en qué casos deseas ser notificado</h2>
+            <form id="notificationForm">
+                <label>
+                    <input type="checkbox" name="notification" value="Viandas Disponibles">
+                    Quedan únicamente <input type="number" name="nViandasDisponibles" min="1"
+                        placeholder="Número de viandas"> viandas disponibles en la heladera
+                </label><br>
+                <label>
+                    <input type="checkbox" name="notification" value="Viandas Faltantes">
+                    Faltan <input type="number" name="nViandasFaltantes" min="1" placeholder="Número de viandas">
+                    viandas para que la heladera esté llena
+                </label><br>
+                <label>
+                    <input type="checkbox" name="notification" value="Desperfectos">
+                    La heladera sufrió un desperfecto
+                </label><br>
+                <button type="button" class="modal-button" onclick="confirmSubscription()">Confirmar
+                    suscripción</button>
+                <button type="button" class="modal-button" onclick="closeModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Suscripción Confirmada!</h2>
+            <p>Te has suscrito a las notificaciones para los siguientes casos:</p>
+            <ul id="confirmationList"></ul>
+            <button type="button" class="modal-button" onclick="closeConfirmationModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../../../../src/main/resources/public/js/colaboraciones/suscribirseAHeladera.js"></script>
+    <script src="../../../../src/main/resources/public/js/notificaciones/notificaciones.js"></script>
+
+</body>
+
+</html>

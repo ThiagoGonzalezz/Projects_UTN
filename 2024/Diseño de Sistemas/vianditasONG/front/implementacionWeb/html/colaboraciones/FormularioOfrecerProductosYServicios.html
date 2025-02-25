@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/reset.css">
+    <link rel="stylesheet" href="../../css\registro\formulariosRegistro.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Oferta</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../colaboradores/menuPersonaJuridica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../reporteFallaTecnica/reportar_falla_tecnica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/herramienta.png" alt="Inicio">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../catalogoOfertas/catalogoOfertas.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <div class="form-container">
+
+            <div class="form-title-container">
+                <h3>Formulario para ofrecer productos y servicios</h3>
+
+            </div>
+
+            <div class="form-y-envio-container">
+
+                <form class="form-grid" action="index.html" method="" post>
+                    <div class="grid-item">
+                        <label for="">Descripción *</label>
+                        <input type="text" name="" value="" placeholder="Ingrese descripción de la oferta"
+                            class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Rubro *</label>
+
+                        <select id="miSelect" name="rubro[]" required>
+                            <option value="-1" disabled selected>Seleccione rubro<div class="flecha-despegable">▼</div>
+                            </option>
+                            <option value="1">Electrodomestico</option>
+                            <option value="2">Cocina</option>
+                            <option value="3">Tecnología</option>
+                            <option value="4">Ropa</option>
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Puntos necesarios *</label>
+                        <input type="text" name="" value="" placeholder="Ingrese puntos necesarios para canjear"
+                            class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="tipo-de-oferta" required>Tipo de oferta *</label>
+
+                        <select id="tipo-de-oferta" name="tipo-de-oferta[]" required
+                            onchange="actualizarOpcionesColab()">
+                            <option value="-1" disabled selected>Seleccione tipo de oferta<div
+                                    class="flecha-despegable">▼</div>
+                            </option>
+                            <option value="1">Producto</option>
+                            <option value="2">Servicio</option>
+                        </select>
+
+                    </div>
+
+                    <div class="grid-item">
+                        <br>
+                        <label for="file-upload" class="file-label">Subir imagen</label>
+                        <input type="file" id="file-upload" class="file-input" />
+                    </div>
+
+
+
+                </form>
+
+                <div class=footer-form>
+
+                    <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+
+                    <button type="button" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar
+                        formulario</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contactanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script src="js/utils/envioFormGenerico.js"></script>
+<script src="../../../../src/main/resources/public/js/utils/formularios/envioFormGenerico.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="../../../../src/main/resources/public/js/utils/select2.js"></script>

@@ -1,0 +1,167 @@
+{{#partial "estilo-contenido-pagina"}}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/registro/formulariosRegistro.css">
+
+    <title>Formulario Registro Persona Juridica</title>
+{{/partial}}
+
+{{#partial "contenido-subpagina"}}
+
+    <div class="main-container">
+
+        <div class="form-container">
+
+            <div class="form-title-container">
+                <h3>Registro Persona Jurídica</h3>
+
+                <nav>
+                    <a href="personas-humanas" class="nav-btn"> IR A REGISTRO PERSONA HUMANA </a>
+                </nav>
+
+            </div>
+
+            <div class = "form-y-envio-container">
+
+                <form class="" id="formulario-registro" action="/personas-juridicas" method="POST" enctype="multipart/form-data">
+                    <div class="grid-item">
+                        <label for="razon-social">Razon social *</label>
+                        <input id="razon-social" type="text" name="razon-social" value="" placeholder="Ingrese la razón social" class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="select-rubro" class="label-select2"> Rubro *</label>
+                        <select id="select-rubro" required name="rubro" oninput="updateSelect2(this.id);">
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="tipo-org">Tipo de organización *</label>
+                        <select id="tipo-org" name="tipo-organizacion" required oninput="updateColorSelect(this.id);">
+                            <option value="-1" disabled selected hidden class="opcion-placeholder">Seleccione el tipo de organización </option>
+                            <option value="GUBERNAMENTAL">Gubernamental</option>
+                            <option value="EMPRESA">ONG</option>
+                            <option value="ONG">Empresa</option>
+                            <option value="INSTITUCION">Institución</option>
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="prov">Provincia <div class="modalidad-domicilio">*</div> </label>
+                        <select id="provincia" name="provincia" class="input-domicilio" oninput="updateSelect2(this.id); cargarLocalidades();">
+                            <option value="-1" hidden disabled selected class="opcion-placeholder">Seleccione la provincia del domicilio </option>
+                            <option value="BUENOS_AIRES">Buenos Aires</option>
+                            <option value="CABA">CABA</option>
+                            <option value="CATAMARCA">Catamarca</option>
+                            <option value="CHACO">Chaco</option>
+                            <option value="CHUBUT">Chubut</option>
+                            <option value="CORDOBA">Córdoba</option>
+                            <option value="CORRIENTES">Corrientes</option>
+                            <option value="ENTRE_RIOS">Entre Ríos</option>
+                            <option value="FORMOSA">Formosa</option>
+                            <option value="JUJUY">Jujuy</option>
+                            <option value="LA_PAMPA">La Pampa</option>
+                            <option value="LA_RIOJA">La Rioja</option>
+                            <option value="MENDOZA">Mendoza</option>
+                            <option value="MISIONES">Misiones</option>
+                            <option value="NEUQUEN">Neuquén</option>
+                            <option value="RIO_NEGRO">Río Negro</option>
+                            <option value="SALTA">Salta</option>
+                            <option value="SAN_JUAN">San Juan</option>
+                            <option value="SAN_LUIS">San Luis</option>
+                            <option value="SANTA_CRUZ">Santa Cruz</option>
+                            <option value="SANTA_FE">Santa Fe</option>
+                            <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                            <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                            <option value="TUCUMAN">Tucumán</option>
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio">Localidad <div class="modalidad-domicilio">*</div></label>
+                        <select id="select-localidad" class = "input-domicilio" name="localidad" >
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="calle">Calle <div class="modalidad-domicilio">*</div></label>
+                        <input type="text" name="calle" id="calle" class="input-domicilio" value="" placeholder="Ingrese la calle del domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="altura" >Altura <div class="modalidad-domicilio">*</div></label>
+                        <input type="text" id="altura" class="input-domicilio" name="altura" value="" placeholder="Ingrese la altura del domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="formas-de-colaboracion">Formas de colaboración *</label>
+                        <div id = "colaboraciones-container">
+                            <div class="colab-container">
+                                <select id="formas-de-colaboracion" name="formas-de-colaboracion[]" required oninput="updateColorSelect(this.id);" onchange="actualizarOpcionesColabPersonaJuridica()">
+                                    <option value="-1" disabled hidden selected class="opcion-placeholder">Seleccione un tipo de colaboración </option>
+                                    <option value="DONACION_DINERO">Donación de dinero</option>
+                                    <option value="HACERSE_CARGO_DE_HELADERAS">Hacerse cargo de una heladera</option>
+                                    <option value="OFERTA_PRODUCTOS_Y_SERVICIOS">Oferta de productos y servicios</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" id="colab-add-btn" onclick="addFormaColabPersonaJuridica()" class="btn-secundario">Agregar forma de colaboracion </button>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="contactos-select">Contactos *</label>
+                        <div id="contactos-container">
+                            <div class="contacto-container">
+                                <select id="contactos-select" name="tipo-contacto[]" oninput="updateColorSelect(this.id);" onchange="updatePlaceholder(this)" required>
+                                    <option value="-1" hidden disabled selected class="opcion-placeholder">Seleccione el tipo de contacto </option>
+                                    <option value="TELEGRAM">Telegram</option>
+                                    <option value="WHATSAPP">WhatsApp</option>
+                                    <option value="CORREO">Email</option>
+                                </select>
+                                <input id="contactos-input-principal" type="text" name="contacto[]" placeholder="Ingrese el contacto" class="text-input-contactos">
+                            </div>
+                        </div>
+                        <button type="button" id="contact-add-btn" onclick="addContact()" class="btn-secundario">Agregar contacto </button>
+                    </div>
+
+                    {{> templates/bases/preguntas_dinamicas}}
+
+                </form>
+
+                <div class = footer-form id="footer-form-container">
+
+                    <div id = "aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+
+                    <div id="btn-envio-form-container">
+                        <button type="button" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar formulario</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina"}}
+
+    <script src="/js\registro\formColaboradores.js" charset="utf-8"> </script>
+    <script src="/js\registro\formPersonaJuridica.js" charset="utf-8"> </script>
+    <script src="/js/registro/popUpsUserSignUp.js"></script>
+    <script src="/js/utils/formularios/localidades.js"></script>
+
+{{/partial}}
+
+{{>templates/sinUsuario/registro_usuarios_base}}

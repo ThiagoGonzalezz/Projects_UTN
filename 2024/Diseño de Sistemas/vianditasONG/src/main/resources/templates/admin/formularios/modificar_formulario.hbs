@@ -1,0 +1,156 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/gestionarFormularios/modificarFormulario.css">
+
+    <title>Gestionar Formularios</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+
+        <div class="menu">
+
+            <button id="volver-btn" class="accion-btn" onclick="volver()">
+                <i class="fas fa-arrow-left"></i> Volver
+            </button>
+
+            <div class="titulo-con-boton">
+                <h1 id="editable-titulo" {{#orEquals tipoForm "No Establecido"}}contenteditable="true" onblur="actualizarNombreForm()"{{/orEquals}}>{{nombreForm}}</h1>
+            {{#orEquals tipoForm "No Establecido"}}
+            <button class="accion-btn editar-nombre" onclick="focusTitulo()" title="Editar Nombre">
+                    <i class="fas fa-edit"></i>
+            </button>
+            {{/orEquals}}
+            </div>
+
+            <div class="formularios-container" id ="pregs-container">
+
+                {{#each preguntas}}
+
+                <div class="formulario" id="{{this.id}}">
+                    <div class="encabezado">
+                        <h2>{{this.enunciado}}</h2>
+                        <div class="acciones">
+                            {{#orEquals this.tipoDinamismo "DINAMICA"}}
+                            <button class="accion-btn" title="Editar" onclick="formEditarPregunta(this)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="accion-btn" title="Eliminar" onclick="popUpEliminar(this)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            {{/orEquals}}
+                        </div>
+                    </div>
+                    <div class="detalle">
+                        <p>{{this.modalidad}}</p>
+                        <p>{{this.tipoPregunta}}</p>
+                        {{#orEquals this.tipoPregunta "Respuesta Libre"}}
+                        <p>Respuesta tipo {{this.tipoRespuesta}}</p>
+                        {{else}}
+                        <div class="dropdown">
+                            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                                Opciones
+                            </button>
+                            <ul class="dropdown-menu" id="color-favorito">
+                                {{#each opciones}}
+                                    <li id="{{this.id}}" value="{{this.id}}">{{this.descripcion}}</li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        {{/orEquals}}
+                    </div>
+                </div>
+
+                {{/each}}
+
+                <!-- Agregar nuevo formulario -->
+                <div id = "boton-nueva-preg" class="nuevo-formulario" onclick="formAgregarPregunta()">
+                    <i class="fas fa-plus"></i> Agregar Nueva Pregunta
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="pop-up-eliminar">
+        <div class="pop-up-container-interior">
+            <h2>¿Seguro que desea la eliminar la pregunta?</h2>
+            <h4 id = "pregunta">pregunta</h4>
+            <div class="botones">
+                <button class="confirmar-boton" onclick="confirmarEliminar('6')">Confirmar</button>
+                <button class="cancelar-boton" onclick="cerrarEliminar()">Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="modalAgregarPregunta">
+        <div class="pop-up-container-interior-mod-preg">
+            <h2 id = "titulo-accion-pop-up">Agregar Nueva Pregunta</h2>
+
+            <!-- Enunciado -->
+            <label for="enunciado">Enunciado:</label>
+            <input type="text" id="enunciado" maxlength="255" placeholder="Escribe el enunciado de la pregunta" />
+
+            <!-- Modalidad -->
+            <label for="modalidad">Modalidad:</label>
+            <select id="modalidad">
+                <option value="Obligatoria">Obligatoria</option>
+                <option value="Opcional">Opcional</option>
+            </select>
+
+            <!-- Tipo de Pregunta -->
+            <label for="tipo-pregunta">Tipo de Pregunta:</label>
+            <select id="tipo-pregunta" onchange="actualizarFormPregunta()">
+                <option value="Selección Única">Selección Única</option>
+                <option value="Selección Múltiple">Selección Múltiple</option>
+                <option value="Respuesta Libre">Respuesta Libre</option>
+            </select>
+
+            <!-- Opciones -->
+            <div id="opciones-container">
+                <label>Opciones:</label>
+                <div class="opciones">
+                    <div class = "opcion-container">
+                        <input type="text" class="opcion" placeholder="Escribe una opción">
+                        <button class="accion-btn" title="Eliminar" onclick="eliminarOpcion(1)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="button-form-preg" id="agregar-opcion" onclick="agregarOpcion()">Agregar Opción</button>
+            </div>
+
+            <!-- Tipo de Entrada (Si Respuesta Libre) -->
+            <div id="tipo-entrada-container" style="display: none;">
+                <label for="tipo-entrada">Tipo de Entrada:</label>
+                <select id="tipo-entrada">
+                    <option value="EMAIL">EMAIL</option>
+                    <option value="NUMBER">NUMBER</option>
+                    <option value="TEXT">TEXT</option>
+                    <option value="DATE">DATE</option>
+                    <option value="DATETIME">DATETIME</option>
+                    <option value="COLOR">COLOR</option>
+                    <option value="TIME">TIME</option>
+                    <option value="TEL">TEL</option>
+                    <option value="MONTH">MONTH</option>
+                    <option value="YEAR">YEAR</option>
+                </select>
+            </div>
+
+            <!-- Botones -->
+            <div class="botones-mod-preg">
+                <button id="boton-confirm-preg" class="confirmar-preg-boton" onclick="crearPregunta()">Guardar</button>
+                <button class="cancelar-preg-boton" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/gestionarFormularios/modificarFormulario.js" charset="utf-8"></script>
+{{/partial}}
+
+{{>templates/bases/base_admin}}

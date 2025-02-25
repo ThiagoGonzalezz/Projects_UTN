@@ -1,0 +1,224 @@
+.heladeras-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #ffebcc);
+    min-height: 100vh;
+}
+
+ h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+     margin-bottom: 20px;
+}
+
+.heladeras-list {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.heladera-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+}
+
+.heladera-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.heladera-header {
+    background-color: #0c9db3;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.heladera-body {
+    padding: 15px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.heladera-body p {
+    margin: 8px 0;
+}
+
+.heladera-body strong {
+    color: #555;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.ver-incidentes-btn {
+    /* margin-left: 57%; */
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ver-incidentes-btn:hover {
+    background-color: #e68c00;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center; /* Asegura el centrado del texto */
+    color: #0c9db3;
+    font-weight: bold; /* Asegura que el texto sea llamativo */
+    display: flex; /* Flexbox para centrado */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical si aplica */
+}
+
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+#incidentes-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.incidente-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.incidente-item p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.incidente-item img {
+    max-width: 100%;
+    height: auto;
+    display: none; /* Imagen oculta por defecto */
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.ver-foto-btn {
+    background-color: #ff9900;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.ver-foto-btn:hover {
+    background-color: #eb950d;
+}
+
+.historial-fallas-foto img {
+    display: block;
+    margin: 10px auto;
+    max-width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#incidentes-list p {
+    font-size: 1.2em; /* Tamaño más grande */
+    color: #333; /* Color más suave */
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    background: #f9f9f9; /* Fondo claro */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem; /* Tamaño suficiente para ser visible */
+    color: #333; /* Color oscuro */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la cruz */
+    font-weight: bold; /* Asegura que sea visible */
+}
+
+.close-popup:hover {
+    color: #ff0000; /* Cambia el color al pasar el mouse para mayor visibilidad */
+}
+
+.popup-content {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima */
+}
+
+.close-popup {
+    z-index: 3; /* Asegura que la cruz esté aún más arriba */
+}
+
+

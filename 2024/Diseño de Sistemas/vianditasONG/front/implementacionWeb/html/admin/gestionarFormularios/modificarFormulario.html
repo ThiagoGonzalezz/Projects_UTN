@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/general/footer.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/general/header.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/general/notificacionesAdmin.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/gestionarFormularios/modificarFormulario.css">
+
+    <link rel="icon" type="image/png" href="../../../../../src/main/resources/public/img/registro/logoNaranja.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+
+    <script src="../../../../../src/main/resources/public/js/admin/notificacion/notificacionAdmin.js"></script>
+    <script src="../../../../../src/main/resources/public/js/admin/gestionarFormularios/modificarFormulario.js"></script>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modificar Formulario</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>VIANDITAS ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../admin/menuAdmin.html">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="user-profile">
+                    <img src="../../../../../src/main/resources/public/img/iconosHeader/user-profile.png" alt="Perfil de Usuario" class="circular-image">
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        
+
+        <div class="menu">
+            
+            <button id="volver-btn" class="accion-btn" onclick="volver()">
+                <i class="fas fa-arrow-left"></i> Volver
+            </button>
+
+            <div class="titulo-con-boton">
+                <h1 id="editable-titulo" contenteditable="true">Formulario Registro Persona Humana</h1>
+                <button class="accion-btn editar-nombre" onclick="focusTitulo()" onchange="actualizarNombreForm()" title="Editar Nombre">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+
+            <div class="formularios-container" id ="pregs-container">
+                <!-- Formulario de ejemplo -->
+                <div class="formulario">
+                    <div class="encabezado">
+                        <h2>¿Cuál es tu color favorito?</h2>
+                        <div class="acciones">
+                            <button class="accion-btn" title="Editar" onclick="editarFormulario(1)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="accion-btn" title="Eliminar" onclick="popUpEliminar(this)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="detalle">
+                        <p>Obligatoria</p>
+                        <p>Selección Multiple</p>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                                Opciones
+                            </button>
+                            <ul class="dropdown-menu" id="color-favorito">
+                                <li>Rojo</li>
+                                <li>Azul</li>
+                                <li>Verde</li>
+                                <li>Amarillo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="formulario">
+                    <div class="encabezado">
+                        <h2>¿Cuál es tu nombre?</h2>
+                        <div class="acciones">
+                            <button class="accion-btn" title="Editar" onclick="editarFormulario(1)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="accion-btn" title="Eliminar" onclick="popUpEliminar(this)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="detalle">
+                        <p>Obligatoria</p>
+                        <p>Respuesta libre</p>
+                        <p>Respuesta tipo texto</p>
+                    </div>
+                </div>
+    
+                <div class="formulario" id='777'>
+                    <div class="encabezado">
+                        <h2>¿Qué idiomas hablas?</h2>
+                        <div class="acciones">
+                            <button class="accion-btn" title="Editar" onclick="editarFormulario(1)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="accion-btn" title="Eliminar" onclick="popUpEliminar(this)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="detalle">
+                        <p>Opcional</p>
+                        <p>Seleccion Múltiple</p>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                                Opciones
+                            </button>
+                            <ul class="dropdown-menu" id="color-favorito">
+                                <li>Rojo</li>
+                                <li>Azul</li>
+                                <li>Verde</li>
+                                <li>Amarillo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formulario">
+    <div class="encabezado">
+        <h2>¿Cuál es tu color favorito de cuando eras niño?</h2>
+        <div class="acciones">
+            <button class="accion-btn" title="Editar" onclick="editarFormulario(1)">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="accion-btn" title="Eliminar" onclick="popUpEliminar(this)">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+    <div class="detalle">
+        <p>Obligatoria</p>
+        <p>Selección Múltiple</p>
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">
+                Opciones
+            </button>
+            <ul class="dropdown-menu" id="color-favorito">
+                <li>Rojo</li>
+                <li>Azul</li>
+                <li>Verde</li>
+                <li>Amarillo</li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+        <!-- Agregar nuevo formulario -->
+        <div id = "boton-nueva-preg" class="nuevo-formulario" onclick="formAgregarPregunta()">
+            <i class="fas fa-plus"></i> Agregar Nueva Pregunta
+        </div>
+    </div>
+</div>
+</main>
+
+    <dialog id="pop-up-eliminar">
+        <div class="pop-up-container-interior">
+            <h2>¿Seguro que desea la eliminar la pregunta?</h2>
+            <h4 id = "pregunta">pregunta</h4>
+            <div class="botones">
+                <button class="confirmar-boton" onclick="confirmarEliminar('6')">Confirmar</button>
+                <button class="cancelar-boton" onclick="cerrarEliminar()">Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="modalAgregarPregunta">
+        <div class="pop-up-container-interior-mod-preg">
+            <h2>Agregar Nueva Pregunta</h2>
+    
+            <!-- Enunciado -->
+            <label for="enunciado">Enunciado:</label>
+            <input type="text" id="enunciado" maxlength="255" placeholder="Escribe el enunciado de la pregunta" />
+    
+            <!-- Modalidad -->
+            <label for="modalidad">Modalidad:</label>
+            <select id="modalidad">
+                <option value="Obligatoria">Obligatoria</option>
+                <option value="Opcional">Opcional</option>
+            </select>
+    
+            <!-- Tipo de Pregunta -->
+            <label for="tipo-pregunta">Tipo de Pregunta:</label>
+            <select id="tipo-pregunta" onchange="actualizarFormPregunta()">
+                <option value="Selección Única">Selección Única</option>
+                <option value="Selección Múltiple">Selección Múltiple</option>
+                <option value="Respuesta Libre">Respuesta Libre</option>
+            </select>
+    
+            <!-- Opciones -->
+            <div id="opciones-container">
+                <label>Opciones:</label>
+                    <div class="opciones">
+                        <div class = "opcion-container">
+                            <input type="text" class="opcion" placeholder="Escribe una opción">
+                            <button class="accion-btn" title="Eliminar" onclick="eliminarOpcion(1)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                <button class="button-form-preg" id="agregar-opcion" onclick="agregarOpcion()">Agregar Opción</button>
+            </div>
+
+            <!-- Tipo de Entrada (Si Respuesta Libre) -->
+            <div id="tipo-entrada-container" style="display: none;">
+                <label for="tipo-entrada">Tipo de Entrada:</label>
+                <select id="tipo-entrada">
+                    <option value="email">Correo Electrónico</option>
+                    <option value="numero">Número</option>
+                    <option value="texto">Texto</option>
+                    <option value="fecha">Fecha</option>
+                    <option value="datetime">Fecha y Hora</option>
+                    <option value="color">Color</option>
+                </select>
+            </div>
+    
+            <!-- Botones -->
+            <div class="botones-mod-preg">
+                <button class="confirmar-preg-boton" onclick="guardarPregunta()">Guardar</button>
+                <button class="cancelar-preg-boton" onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contactanos</h2>
+            <p>Ante cualquier inconveniente o consulta acerca del sistema, por favor comunicarse a través de los medios brindados.</p>
+        </div>
+
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>VONGSoporte@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+/* ------------------------------------------------------------------------------------------
+// -- Footer --
+// -----------------------------------------------------------------------------------------*/
+
+footer {
+    background-color: #262626;
+    height: auto;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-radius: 80px 80px 0 0;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 -10px 12px rgba(0, 0, 0, 0.3);
+    margin-top: 4rem; /* Espacio entre el contenido y el footer */
+}
+
+footer h2 {
+    text-align: center;
+    margin-bottom: 1rem; /* Espacio inferior reducido */
+    font-size: 1.5rem; /* Tamaño de fuente consistente */
+    font-family: "Exo", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+footer p {
+    font-family: 'Poppins', sans-serif;
+    width: 70%; /* Ajustado a un ancho del 70% */
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 0.875rem; /* Tamaño de texto más pequeño */
+    line-height: 1.25rem; /* Altura de línea ajustada */
+    font-weight: 400;
+    margin-bottom: 1rem; /* Añadido un margen inferior */
+}
+
+.nuestros-contactos-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Menor espacio entre los contactos */
+    width: 80%; 
+    margin: 0 auto; /* Mantenido el centrado */
+    padding-top: 1rem; /* Reducido el padding superior */
+    flex-wrap: wrap;
+}
+
+.contacto-nuestro {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem; /* Reducido el padding para menor tamaño del botón */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    height: 50px;
+}
+
+.contacto-nuestro img {
+    width: 35px; 
+    height: 35px;
+    margin-right: 10px;
+}
+
+#mail-png{
+    width: 45px; 
+    height: 45px;
+}
+
+.contact-info {
+    margin-left: 10px; /* Ajuste del margen izquierdo para mover las palabras hacia la izquierda */
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem; /* Ajustado el tamaño del texto */
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+}
+
+.contact-info p {
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; /* Tamaño de texto más pequeño */
+    margin: 0;
+    font-weight: 400;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.contacto-nuestro:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}

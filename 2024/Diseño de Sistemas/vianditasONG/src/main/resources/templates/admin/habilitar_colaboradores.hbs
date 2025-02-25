@@ -1,0 +1,206 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/gestionarColaboradores/gestionarColaboradores.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href = "https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/2.1.6/js/dataTables.min.js"></script>
+    <script src="/js/admin/gestionarColaboradores/gestionarColaboradores.js"></script>
+
+
+    <title>Habilitar Colaboradores</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+        <section class="seccion-visualizar-colaboradores">
+            <h2>Habilitar Colaboradores</h2>
+
+            <div class="toggle-container">
+                <span class="toggle-label">Personas Humanas</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-switch" onchange="toggleTables()">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label">Personas Jurídicas</span>
+            </div>
+
+            <div class="results">
+                <div id="tabla-humanos-container">
+                    <table id="tabla-humanos">
+                        <thead>
+
+                            <tr>
+                                <th>Fecha de Solicitud</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Provincia</th>
+                                <th>Localidad</th>
+                                <th>Direccion</th>
+                                <th>Contactos</th>
+                                <th>Formas de Colaboracion</th>
+                                <th class="no-sort-th">Accion</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        {{#each solicitudes-humanos}}
+
+                            <tr id="{{this.idColab}}">
+                                <td>{{this.fechaSolicitud}}</td>
+                                <td>{{this.nombre}}</td>
+                                <td>{{this.apellido}}</td>
+                                <td>{{this.fechaNacimiento}}</td>
+                                <td>{{this.provincia}}</td>
+                                <td>{{this.localidad}}</td>
+                                <td>{{this.direccion}}</td>
+                                <td class="contact-td">
+                                    <ul>
+                                        {{#each contactos}}
+                                            <li>{{this.tipoContacto}}: {{this.detalleContacto}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </td>
+                                <td>{{this.tiposColaboracion}}</td>
+                                <td>
+                                    <div class="icon-buttons">
+                                        <button title="Aceptar solicitud" class="icon-button edit" onclick="habilitarColaborador('{{this.nombre}} {{this.apellido}}', {{this.idColab}},'humanos')">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        <button title="Rechazar solicitud" class="icon-button delete" onclick="popUpRechazo('{{this.nombre}} {{this.apellido}}',{{this.idColab}},'humanos')">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                        <button title="Visualizar formulario" onclick="visualizarFormulario({{this.idColab}},'humanos')" class="icon-button form">
+                                            <i class="fas fa-file-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        {{/each}}
+
+                        <tbody>
+                    </table>
+                </div>
+
+                <div id = "tabla-personas-juridicas-container" style="display: none;">
+
+                    <table id="tabla-personas-juridicas">
+
+                        <thead>
+                        <tr>
+                            <th>Fecha de Solicitud</th>
+                            <th>Razon Social</th>
+                            <th>Rubro</th>
+                            <th>Tipo de Organizacion</th>
+                            <th>Provincia</th>
+                            <th>Localidad</th>
+                            <th>Direccion</th>
+                            <th>Contactos</th>
+                            <th>Formas de Colaboracion</th>
+                            <th class="no-sort-th">Accion</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {{#each solicitudes-personas-juridicas}}
+
+                            <tr id="{{this.idColab}}">
+                                <td>{{this.fechaSolicitud}}</td>
+                                <td>{{this.razonSocial}}</td>
+                                <td>{{this.rubro}}</td>
+                                <td>{{this.tipoOrganizacion}}</td>
+                                <td>{{this.provincia}}</td>
+                                <td>{{this.localidad}}</td>
+                                <td>{{this.direccion}}</td>
+                                <td class="contact-td">
+                                    <ul>
+                                        {{#each contactos}}
+                                        <li>{{this.tipoContacto}}: {{this.detalleContacto}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </td>
+                                <td>{{this.tiposColaboracion}}</td>
+                                <td>
+                                    <div class="icon-buttons">
+                                        <button title="Aceptar solicitud" class="icon-button edit" onclick="habilitarColaborador('{{this.razonSocial}}', {{this.idColab}},'personas-juridicas')">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        <button title="Rechazar solicitud" class="icon-button delete" onclick="popUpRechazo('{{this.razonSocial}}', {{this.idColab}},'personas-juridicas')">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                        <button title="Visualizar formulario" class="icon-button form" onclick="visualizarFormulario({{this.idColab}},'personas-juridicas')" >
+                                            <i class="fas fa-file-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="pop-up-formulario">
+        <div class="pop-up-container-interior" id="pop-up-formulario-interior">
+
+            <h2> {{!-- Aca se inserta el titulo en js --}} </h2>
+
+
+            <div id="respuestas">
+
+                {{!-- Aca se insertan las respuestas en js --}}
+
+            </div>
+
+            <button class="cerrar-boton" onclick="cerrarFormulario()">Cerrar</button>
+        </div>
+    </dialog>
+
+    <dialog id="pop-up-rechazo">
+        <div class="pop-up-container-interior">
+            <h2>¿Seguro que desea rechazar la solicitud de Juan Perez?</h2>
+            <label for="motivo">Ingrese un motivo:</label>
+            <textarea id="motivo" rows="4" placeholder="Escriba aquí el motivo..."></textarea>
+            <div class="botones">
+                <button class="cancelar-boton" onclick="cerrarRechazo()">Cancelar</button>
+                <button class="confirmar-boton" onclick="confirmarRechazo('Juan Perez', document.getElementById('motivo').value)">Confirmar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog id="pop-up-exito-rechazo" class="pop-up-confirmacion-accion">
+        <div class="pop-up-container-interior">
+            <h2>Colaborador Rechazado con Éxito</h2>
+            <div class="detalles">
+                <p id="nombre-colaborador"><strong>Colaborador:</strong> Juan Pérez</p>
+                <p id="motivo-rechazo"><strong>Motivo:</strong> Ingreso no válido, tiene graves antecedentes penales a lo largo de todo el país. Es un hijo de remil puta.</p>
+            </div>
+            <button class="cerrar-boton" onclick="cerrarExitoRechazo()">Cerrar</button>
+        </div>
+    </dialog>
+
+    <dialog id="pop-up-exito-habilitacion" class="pop-up-confirmacion-accion">
+        <div class="pop-up-container-interior">
+            <h2>Colaborador Habilitado con Éxito</h2>
+            <div class="detalles">
+                <p id="nombre-colaborador-exito"><strong>Colaborador:</strong> Juan Pérez</p>
+            </div>
+            <button class="cerrar-boton" onclick="cerrarExito()">Cerrar</button>
+        </div>
+    </dialog>
+
+{{/partial}}
+
+
+{{>templates/bases/base_admin}}

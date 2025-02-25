@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Falla Técnica - Vianditas ONG</title>
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/reporteFallaTecnica/styles.css"> <!-- Estilo específico del formulario -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Enlaces a Leaflet para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../colaboradores/menuHumano.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../reporteFallaTecnica/reportar_falla_tecnica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/herramienta.png" alt="Inicio">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../catalogoOfertas/catalogoOfertas.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="reportar-falla">
+            <h2>Reportar Falla Técnica</h2>
+            <div class="form-map-container">
+                <div class="form-container">
+                    <form id="reportarFallaForm">
+                        <div class="input-group">
+                            <label for="heladeraId">Heladera con falla técnica:</label>
+                            <input type="text" id="heladeraId" placeholder="ID de Heladera" required>
+                        </div>
+    
+                        <div class="input-group">
+                            <label for="descripcionFalla">Descripción de la falla:</label>
+                            <textarea id="descripcionFalla" rows="4" placeholder="Descripción de la falla" required></textarea>
+                        </div>
+    
+                        <div class="input-group">
+                            <label for="imagenesFalla">Añadir Imágenes:</label>
+                            <input type="file" id="imagenesFalla" multiple>
+                        </div>
+    
+                        <button type="submit" id="enviarButton">Enviar</button>
+                    </form>
+                </div>
+    
+                <div class="mapa-container">
+                    <div id="mapid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contáctanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../../src/main/resources/public/js/reporteFallaTecnica/scripts.js"></script>
+    <script src="../../../../src/main/resources/public/js/reporteFallaTecnica/mapaHeladeras.js"></script>
+</body>
+
+</html>

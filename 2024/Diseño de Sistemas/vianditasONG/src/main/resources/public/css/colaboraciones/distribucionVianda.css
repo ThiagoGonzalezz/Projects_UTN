@@ -1,0 +1,54 @@
+.grid-item input[type="text"],
+input[type="date"],
+select {
+    background: #b9ecf4;
+    cursor: text;
+}
+
+
+.form-container {
+    width: 55%;
+}
+
+form{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#heladera-destino, #heladera-origen{
+    width: 80%;
+
+}
+
+#mapid-destino, #mapid-origen {
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    overflow: hidden; 
+    height: 400px; 
+    width: 95%;
+    margin-bottom: 25px;
+}
+
+
+.leaflet-popup-content button {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    color: #0c9db3;
+    background-color: linear-gradient(135deg, #f6efd8 25%, #ff9900 100%);
+    border: 1px solid #0c9db3;
+    border-radius: 20px;
+    font-size: 10px;
+    padding: 10px 25px 10px 25px;
+    margin-top: 5%;
+    margin-left: 25%;
+    
+}
+
+.leaflet-popup-content button:hover {
+    background-color: #a2c8eb;
+}
+
+#heladera-origen-nombre, #heladera-destino-nombre{
+    margin-bottom: 20px;;
+}

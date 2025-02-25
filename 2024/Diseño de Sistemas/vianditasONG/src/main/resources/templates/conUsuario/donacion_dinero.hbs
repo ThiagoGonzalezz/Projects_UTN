@@ -1,0 +1,102 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="/css/general/reset.css">
+    <link rel="stylesheet" href="/css/registro/formulariosRegistro.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/general/notificaciones.css">
+    <link rel="stylesheet" href="/css/colaboraciones/donacionDinero.css">
+    <link rel="stylesheet" href="/css/colaboraciones/formsColaboraciones.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Donación de Dinero</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        {{#orEquals tipoRol "PERSONA_HUMANA"}}
+        <a href="/menu-persona">
+        {{else}}
+        <a href="/menu-personaJuridica">
+        {{/orEquals}}
+        <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+        <p>Inicio</p>
+    </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+
+
+
+        <div class="main-container">
+            <div class="form-container">
+                <div class="form-title-container">
+                    <h3>Formulario de Donación de Dinero</h3>
+                </div>
+
+                <div class="form-y-envio-container">
+                    <form class="dinero-form" id="donacionDineroForm">
+                        <div class="grid-item">
+                            <label for="Monto">Monto *</label>
+                            <input id="Monto" type="number" name="Monto" placeholder="Ingrese el monto a donar" class="text-input" required min="5" step="5">
+                        </div>
+
+                        <div class="grid-item">
+                            <label for="frecuenciaDonacion">Frecuencia *</label>
+                            <select id="frecuenciaDonacion" name="frecuenciaDonacion" required>
+                                <option value="0" disabled selected>Seleccione la frecuencia</option>
+                                <option value="0">Sólo por esta vez</option>
+                                <option value="1">cada una semana</option>
+                                <option value="15">cada tres semanas</option>
+                                <option value="30">cada cuatro semanas</option>
+                            </select>
+                        </div>
+
+                        {{> templates/bases/preguntas_dinamicas}}
+                    </form>
+                    <div class="footer-form" id="footer-form-container">
+                        <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+                        <div id="btn-envio-form-container">
+                            <button type="submit" form="donacionDineroForm" id="btn-envio-form" class="btn">Enviar Donación</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <dialog id="pop-up-bienvenido">
+            {{#orEquals tipoRol "PERSONA_HUMANA"}}
+                <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+                    <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+                    <h2> ¡Gracias por tu colaboración!</h2>
+                    <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+                    <nav> <a href="menu-persona" class="pop-up-btn"> Volver al inicio  </a></nav>
+                </div>
+             {{else}}
+                    <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+                        <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+                        <h2> ¡Gracias por tu colaboración!</h2>
+                        <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+                        <nav> <a href="menu-personaJuridica" class="pop-up-btn"> Volver al inicio  </a></nav>
+                    </div>
+            {{/orEquals}}
+        </dialog>
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="/js/colaboraciones/donacionDinero.js"></script>
+    <script src="/js/colaboraciones/colaboracionCompletada.js" ></script>
+{{/partial}}
+
+{{> templates/bases/base_colaborador}}
+
+
+

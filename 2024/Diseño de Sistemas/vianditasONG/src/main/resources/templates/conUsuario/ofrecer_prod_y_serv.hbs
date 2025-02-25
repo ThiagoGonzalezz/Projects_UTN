@@ -1,0 +1,111 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../../css\registro\formulariosRegistro.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+
+        <title>Formulario Oferta</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-personaJuridica">
+            <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+<div class="main-container">
+
+        <div class="form-container">
+
+            <div class="form-title-container">
+                <h3>Formulario para ofrecer productos y servicios</h3>
+
+            </div>
+
+            <div class="form-y-envio-container">
+
+                <form class="form-grid" action="/oferta-productos-y-servicios" method="POST" enctype="multipart/form-data">
+                    <div class="grid-item">
+                        <label for="">Descripción *</label>
+                        <input type="text" name="descripcion" value="" placeholder="Ingrese descripción de la oferta"
+                            class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Rubro *</label>
+
+                        <select id="miSelect" name="rubro" required>
+                                <option value="-1" disabled selected>Seleccione rubro<div class="flecha-despegable">▼</div>
+                                </option>
+                                {{#each rubros}}
+                                    <option value="{{this.id}}">{{this.descripcion}}</option>
+                                {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Puntos necesarios *</label>
+                        <input type="text" name="puntosNecesarios" value="" placeholder="Ingrese puntos necesarios para canjear"
+                            class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="tipo-de-oferta" required>Tipo de oferta *</label>
+
+                        <select id="tipo-de-oferta" name="tipoOferta" required
+                            onchange="actualizarOpcionesColab()">
+                            <option value="-1" disabled selected>Seleccione tipo de oferta<div
+                                    class="flecha-despegable">▼</div>
+                            </option>
+                            <option value="1">Producto</option>
+                            <option value="2">Servicio</option>
+                        </select>
+                    </div>
+
+                    {{> templates/bases/preguntas_dinamicas}}
+
+                    <div class="grid-item">
+                        <br>
+                        <label for="file-upload" class="file-label">Subir imagen(.jpg)</label>
+                        <input name="imagen" type="file" id="file-upload" class="file-input" required/>
+                    </div>
+
+                    <div class=footer-form>
+                        <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+                        <button type="submit" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar
+                            formulario</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</div>
+<dialog id="pop-up-bienvenido">
+
+    <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+        <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+        <h2> ¡Gracias por tu colaboración!</h2>
+        <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+        <nav> <a href="menu-persona-juridica" class="pop-up-btn"> Volver al inicio  </a></nav>
+    </div>
+
+</dialog>
+{{/partial}}
+{{#partial "js-contenido-pagina-colaborador"}}
+<script src="js/utils/formularios/envioFormGenerico.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="js/utils/select2.js"></script>
+{{/partial}}
+
+{{>templates/bases/base_colaborador}}

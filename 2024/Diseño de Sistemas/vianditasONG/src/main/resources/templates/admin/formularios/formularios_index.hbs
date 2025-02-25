@@ -1,0 +1,63 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/gestionarFormularios/gestionarFormularios.css">
+
+    <title>Gestionar Formularios</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+        <h1 id="titulo-gestionar">Gestionar Formularios</h1>
+
+        <div id="menu-formularios" class="menu-formularios">
+
+        {{#each formularios}}
+            <div class="formulario-rectangulo" data-id="1" id="{{this.id}}">
+                <div class="formulario-contenido">
+                    <h2 id = "nombre-{{this.id}}" class="formulario-nombre">{{this.nombre}}</h2>
+                    <div class="formulario-detalles">
+                        <p>Preguntas Totales: {{this.pregTotales}}</p>
+                        <p>Preguntas Obligatorias: {{this.pregObliTotales}}</p>
+                        <p>Preguntas Opcionales: {{this.pregOpcioTotales}}</p>
+                    </div>
+                </div>
+                <div class="acciones">
+                    <button class="accion-btn" title="Editar" onclick="editarFormulario({{this.id}})">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                {{#orEquals this.tipoForm "No Establecido"}}
+                    <button class="accion-btn" title="Eliminar" onclick="popUpEliminarFormulario({{this.id}})">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                {{/orEquals}}
+                </div>
+            </div>
+        {{/each}}
+
+            <!-- Agregar nuevo formulario -->
+            <div class="nuevo-formulario" onclick="crearNuevoForm()">
+                <i class="fas fa-plus"></i> Agregar Nuevo Formulario
+            </div>
+
+        </div>
+    </main>
+
+    <dialog id="pop-up-eliminar">
+        <div class="pop-up-container-interior">
+            <h2>¿Seguro que desea la eliminar el formulario?</h2>
+            <h4 id = "pregunta">Formulario</h4>
+                <div class="botones">
+                    <button class="confirmar-boton" onclick="confirmarEliminar()">Confirmar</button>
+                    <button class="cancelar-boton" onclick="cerrarEliminar()">Cancelar</button>
+                </div>
+        </div>
+    </dialog>
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/gestionarFormularios/gestionarFormularios.js" charset="utf-8"></script>
+{{/partial}}
+
+{{>templates/bases/base_admin}}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/general/reset.css">
+    <link rel="stylesheet" href="css/general/header.css">
+    <link rel="stylesheet" href="css/general/footer.css">
+    <link rel="stylesheet" href="css/general/notificaciones.css">
+    <link rel="stylesheet" href="css/colaboradores/colaboradores.css">
+    <link rel="icon" type="image/png" href="/img/registro/logoNaranja.png">
+    {{#block "estilo-contenido-pagina-colaborador"}}
+    {{/block}}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                {{#block "redireccion-home"}}
+                {{/block}}
+
+                {{#orEquals tipoRol "PERSONA_HUMANA"}}
+                <div class="nav-item">
+                    <a href="/reportar-falla-tecnica">
+                        <img src="../../img/iconosHeader/herramienta.png" alt="Reportar Falla Técnica">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                {{/orEquals}}
+                <div class="nav-item">
+                    <a href="/catalogo-productos-y-servicios">
+                        <img src="../../img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="/historial-puntos">
+                        <img src="../../img/iconosHeader/historial.png" alt="Soporte">
+                        <p>Historial</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="logout">
+                    <a href="#" onclick="confirmLogout()" class="logout-button">
+                        <img src="../../img/iconosHeader/logout.png" alt="Cerrar sesión">
+                        <p>Cerrar Sesión</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+            <h2>Notificaciones</h2>
+            <button id="close-chat" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p id="no-notifications">No hay notificaciones pendientes</p>
+        </div>
+    </div>
+
+    {{#block "contenido-pagina-colaborador"}}
+    {{/block}}
+
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contáctanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {{#block "suscripciones"}}
+    {{/block}}
+
+    {{#block "js-contenido-pagina-colaborador"}}
+    {{/block}}
+
+    <div id="confirmation-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>¿Estás seguro de que quieres cerrar sesión?</p>
+            <div class="modal-buttons">
+                <button class="modal-button confirm" onclick="logout()">Confirmar</button>
+                <button class="modal-button cancel" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/notificaciones/notificaciones.js"></script>
+    <script src="js/utils/logout.js"></script>
+
+</body>
+
+</html>

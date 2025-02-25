@@ -1,0 +1,242 @@
+/* ------------------------------------------------------------------------------------------
+// -- Main Section --
+// -----------------------------------------------------------------------------------------*/
+.import-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 6vw;
+}
+
+.import-section:hover{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.import-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #262626;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.import-section p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.import-section h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #333; /* Ajusta el color según el esquema de tu diseño */
+    margin-top: 1.4rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Upload Area --
+// -----------------------------------------------------------------------------------------*/
+.upload-area {
+    margin-bottom: 2rem;
+}
+
+.uploaded-file-container h3{
+    font-weight: bold;
+}
+
+.file-label {
+    background-color: #e68a00;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.file-label:hover {
+    transform: scale(1.05);
+    background-color: #cf7e06;
+}
+
+#file-upload {
+    display: none;
+}
+
+.csv-example {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.csv-example table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.csv-example th, .csv-example td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.csv-example th {
+    background-color: #262626;
+    color: white;
+}
+
+.select-muestra-formato{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width:100%;
+}
+
+
+#download-example-csv {
+    background-color: transparent;
+    color: #8b8888;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5%;
+}
+
+#download-example-csv:hover {
+    text-decoration: underline;
+}
+
+
+/* ------------------------------------------------------------------------------------------
+// -- Actions --
+// -----------------------------------------------------------------------------------------*/
+.actions {
+    margin-bottom: 2rem;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.btn.primary {
+    background-color: #e68a00;
+    color: #fff;
+}
+
+.btn.secondary {
+    background-color: #ccc;
+    color: #333;
+}
+
+.btn.primary:hover{
+    transform: scale(1.05);
+}
+
+.btn.secondary:hover{
+    transform: scale(1.05);
+    background-color: rgb(179, 51, 51);
+    color: #ffffff;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Progress Bar --
+// -----------------------------------------------------------------------------------------*/
+.progress-bar-container {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 50%;
+    background-color: #262626;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- File Selected --
+// -----------------------------------------------------------------------------------------*/
+
+.uploaded-file-container {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background-color: rgba(148, 148, 148, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+    height: 4vw;
+}
+
+.uploaded-file-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgba(148, 148, 148, 0.15);
+}
+
+.uploaded-file-container h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #262626;
+    margin-bottom: 0.4rem;
+    margin-top:-5px;
+}
+
+.file-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-display i {
+    font-size: 1.6rem; /* Aumentado el tamaño del ícono */
+    color: #262626;
+    margin-top: -30px;
+}
+
+#file-selected {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    background: none;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    margin-top: 0px;
+    margin-left: -10px;
+}
+
+/* Estilo del mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Estilo del icono de error */
+.icono-error {
+    color: red;
+    font-size: 1rem;
+}
+

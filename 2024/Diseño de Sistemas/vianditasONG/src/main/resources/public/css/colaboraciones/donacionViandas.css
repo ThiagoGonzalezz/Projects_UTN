@@ -1,0 +1,121 @@
+.grid-item input[type="text"],
+input[type="date"],
+select {
+    cursor: text;
+    background: #b9ecf4;
+}
+
+.grid-item input[type="date"],
+select{
+    cursor:auto;
+    background: #b9ecf4;
+}
+
+#fecha-caducidad{
+    width: 91%;
+}
+
+#btn-agregar-vianda{
+    background: #ffffff;
+    margin-right: 10px;
+    margin-left: 90%;
+    box-sizing: content-box;
+    height: 1%;
+    width: 70%;
+}
+
+.form-title-container h3{
+    margin-bottom: 3%;
+}
+
+.form-y-envio-container h3{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.8vw;
+    color: #619ca5;
+    padding: 1.5vw;
+    padding-bottom: 0vw;
+}
+
+#btn-envio-form{
+    margin-left: 10px;
+}
+.form-container {
+    width: 55%;
+}
+.vianda-form {
+    margin-bottom: 20px; 
+    background-color: #f9f9f9; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.form-y-envio-container .vianda-form:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/*MAPA*/
+.grid-item-mapa{
+    margin-left: 17%;
+    padding-top: 3%;
+    width: 70%;
+}
+
+
+.mapa-container {
+    position: relative;
+    padding: 1rem;
+    background-color: #0c9db3;
+    border-radius: 10vw;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    max-width: 60vw; 
+    min-width: 40vw;
+    max-height: 35vw;
+    margin-bottom: 4vw;
+}
+
+.mapa-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.mapa-y-titulo-container h3 {
+    font-family: "Monserrat", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #0c9db3;
+    font-size: 1.8rem; /* Ajustado para mejor escalabilidad */
+    margin-bottom: 2rem;
+    margin: auto;
+    text-align: center;
+    align-self: center;
+    margin-top: 5vw;
+    text-shadow: rgb(68, 66, 66) 0px 1px 3px;
+}
+
+#mapid {
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    overflow: hidden; 
+    height: 400px; 
+    width: 95%;
+    margin-bottom: 25px;
+}
+
+#mapid:hover {
+    transform: scale(1.05);
+}
+
+#aclaracion-obligatoriedad {
+    color: #0c9db3;
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-size: 90%;
+}

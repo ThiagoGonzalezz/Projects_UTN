@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/usuarioNoLoggeado/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/login/login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+</head>
+<body>
+    
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="login.html">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="mapa-y-titulo-container">
+            <h3>MAPA HELADERAS DISPONIBLES</h3>
+            <div class="mapa-container">    
+                <div id="mapid"></div>
+            </div>
+        </div>
+        <div class="cuadro-log-in-container">
+            <div class="dibujo-log-in-container">
+                <img id="logo-inicio-sesion" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h2>Iniciar Sesión</h2>
+            </div>
+            <div class="input-log-in-container">
+                <form id="registro-form" action="index.html" method="post">
+                    <div class="grid-item">
+                        <label id="usuario-label" class="login-label" for="usuario">Usuario</label>
+                        <input id="usuario" class="login-input" type="text" name="usuario" required>
+                    </div>
+                    <div class="grid-item">
+                        <label id="password-label" class="login-label" for="password-input">Contraseña</label>
+                        
+                        <div class="input-icon">
+                            <input id="password-input" class="login-input" type="password" name="password" required>
+                            <i class="fas fa-eye icono-ojo" id="toggle-password"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="botones-log-in-container">
+                <button type="button" onclick="iniciarSesion()" class="btn">Iniciar Sesión</button>
+                <div class="registro-container">
+                    <p id="leyenda-sin-usuario">¿No tienes usuario aún?</p>
+                    <a href="../registro/FormularioRegistroHumano.html" class="nav-btn">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contáctanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en comunicarte.</p>
+        </div>
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../../../../src/main/resources/public/js/login/scriptMapa.js"></script>
+    <script src="../../../../src/main/resources/public/js/login/logIn.js"></script>
+</body>
+</html>

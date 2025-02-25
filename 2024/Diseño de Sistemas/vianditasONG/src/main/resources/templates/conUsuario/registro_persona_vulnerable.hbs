@@ -1,0 +1,199 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../css/colaboraciones/formsColaboraciones.css">
+<link rel="stylesheet" href="../../css/registro/formulariosRegistro.css">
+<link rel="stylesheet" href="../../css/colaboraciones/registrarPersonaVulnerable.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<title>Formulario Registro Persona Vulnerable</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+<div class="nav-item">
+    <a href="/menu-persona">
+        <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+        <p>Inicio</p>
+    </a>
+</div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+<div class="main-container">
+
+    <div class="form-container">
+
+        <div class="form-title-container">
+            <h3>Formulario registro persona en situación vulnerable</h3>
+        </div>
+
+        {{#if registroExitoso}}
+            <dialog id="pop-up-bienvenido">
+                <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+                    <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+                    <h2> ¡Gracias por tu colaboración!</h2>
+                    <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos
+                        lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+                    <nav style="border: none;"> <a href="menu-persona" class="pop-up-btn"> Volver al inicio </a></nav>
+                </div>
+            </dialog>
+        {{/if}}
+
+        <div class="form-y-envio-container">
+
+            <form class="form-grid" action="/registro-persona-vulnerable" method="POST" id="form-principal">
+                <div class="grid-item">
+                    <label for="">Nombre *</label>
+                    <input type="text" name="nombre" value="" placeholder="Ingrese su nombre" class="text-input"
+                        required>
+                </div>
+
+                <div class="grid-item">
+                    <label for="">Apellido *</label>
+                    <input type="text" name="apellido" value="" placeholder="Ingrese su apellido" class="text-input"
+                        required>
+                </div>
+
+                <div class="grid-item">
+                    <label for="">Fecha Nacimiento *</label>
+                    <input type="date" id="fecha-nacimiento" name="fechaDeNacimiento" max="" value=""
+                        placeholder="Ingrese su fecha de nacimiento" class="fecha-input" required>
+                </div>
+
+                <div class="grid-item">
+                    <label for="tipo-de-documento" required>Tipo de documento</label>
+                    <div id="tipo-de-documento-container">
+                        <select id="tipo-de-documento" name="tipoDeDocumento">
+                            <option value="-1" disabled selected>Seleccione un tipo de documento <div
+                                    class="flecha-despegable">▼</div>
+                            </option>
+                            <option value="DNI">DNI</option>
+                            <option value="LC">Libreta cívica</option>
+                            <option value="LE">Libreta de enrolamiento</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-item">
+                    <label for="">Número de documento<div id="modalidad-domicilio"></div></label>
+                    <input type="number" name="numeroDeDocumento" value="" class="text-input"
+                        placeholder="Ingrese su número de documento">
+                </div>
+
+                <div class="grid-item">
+                    <label class="label-domicilio" for="provincia">Provincia <div class="modalidad-domicilio">*</div>
+                    </label>
+                    <select id="provincia" name="provincia" class="input-domicilio" oninput="cargarLocalidades()">
+                        <option value="-1" disabled selected class="opcion-placeholder">Seleccione la provincia de su
+                            domicilio </option>
+                        <option value="BUENOS_AIRES">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
+                        <option value="CATAMARCA">Catamarca</option>
+                        <option value="CHACO">Chaco</option>
+                        <option value="CHUBUT">Chubut</option>
+                        <option value="CORDOBA">Córdoba</option>
+                        <option value="CORRIENTES">Corrientes</option>
+                        <option value="ENTRE_RIOS">Entre Ríos</option>
+                        <option value="FORMOSA">Formosa</option>
+                        <option value="JUJUY">Jujuy</option>
+                        <option value="LA_PAMPA">La Pampa</option>
+                        <option value="LA_RIOJA">La Rioja</option>
+                        <option value="MENDOZA">Mendoza</option>
+                        <option value="MISIONES">Misiones</option>
+                        <option value="NEUQUEN">Neuquén</option>
+                        <option value="RIO_NEGRO">Río Negro</option>
+                        <option value="SALTA">Salta</option>
+                        <option value="SAN_JUAN">San Juan</option>
+                        <option value="SAN_LUIS">San Luis</option>
+                        <option value="SANTA_CRUZ">Santa Cruz</option>
+                        <option value="SANTA_FE">Santa Fe</option>
+                        <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                        <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                        <option value="TUCUMAN">Tucumán</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="select-localidad" class="label-domicilio">Localidad <div class="modalidad-domicilio">*
+                        </div></label>
+                    <select id="select-localidad" class="input-domicilio" name="localidad">
+                        <option value="-1" disabled selected>Ingrese la localidad de su domicilio</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="calle" class="label-domicilio">Calle <div class="modalidad-domicilio">*</div></label>
+                    <input id="calle" class="input-domicilio" type="text" name="calle" value=""
+                        placeholder="Ingrese la calle de su domicilio" class="text-input" id="domicilio-input">
+                </div>
+
+                <div class="grid-item">
+                    <label for="altura" class="label-domicilio">Altura <div class="modalidad-domicilio">*</div></label>
+                    <input id="altura" class="input-domicilio" type="text" name="altura" value=""
+                        placeholder="Ingrese la altura de su domicilio" class="text-input" id="domicilio-input">
+                </div>
+
+                <div class="grid-item">
+                    <label for="">Codigo de Tarjeta *</label>
+                    <input type="text" name="codigoDeTarjeta" value=""
+                        placeholder="Ingrese el código de la tarjeta asociada" class="text-input" required>
+                </div>
+
+                <div class="grid-item">
+                    <label for="cantidad-menores">Cantidad de menores a cargo</label>
+                    <select id="cantidad-menores" name="cantidadDeMenores">
+                        <option value="-1">Seleccione una cantidad</option>
+                        <!-- Opciones del 1 al 10 -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                {{> templates/bases/preguntas_dinamicas}}
+
+                <div class="footer-form">
+                    <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+                    <button type="submit" id="btn-envio-form" class="btn">Enviar formulario</button>
+                </div>
+            </form>
+
+        </div>
+        <div id="formularios-menores-container"></div>
+    </div>
+</div>
+{{/partial}}
+
+{{#partial "js-contenido-pagina-colaborador"}}
+<script src="js/colaboraciones/dinamicaMenores.js" charset="utf-8"></script>
+<script src="js/utils/formularios/envioFormGenerico.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="js/utils/formularios/localidades.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    if ({{registroExitoso}}) {
+        const popUp = document.getElementById('pop-up-bienvenido');
+        if (popUp) {
+            popUp.showModal();
+        }
+    }
+});
+</script>
+{{/partial}}
+
+{{>templates/bases/base_colaborador}}

@@ -1,0 +1,96 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="css/historialPuntos/historialPuntos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Historial de puntos</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        {{#orEquals tipoRol "PERSONA_JURIDICA"}}
+        <a href="/menu-personaJuridica">
+        {{else}}
+        <a href="/menu-persona">
+        {{/orEquals}}
+        <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+        <p>Inicio</p>
+    </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+    <div class="historial">
+        <div class="header-historial">
+            <div class="header-top">
+                <div class="titulo">Historial de puntos</div>
+                <div class="puntos-usuario">
+                    <p class="score">Puntos disponibles: {{this.puntosDisponibles}} </p>
+                    <img src="img/iconosHeader/puntos.png" class="puntos-icon" alt="Puntos">
+                </div>
+            </div>
+        </div>
+        <div class="grafico">
+            <canvas id="puntosChart"></canvas>
+        </div>
+        <div class="items">
+            {{#each historial}}
+                <div class="item">
+                    <img src="{{this.imagen}}" alt="{{this.descripcion}}">
+                    <div class="nombre">{{this.tipo}}</div>
+                    <div class="puntos {{#orEquals this.tipo "Canje"}}canje{{else}}{{#orEquals this.tipo "Donacion"}}donacion{{else}}oferta{{/orEquals}}{{/orEquals}}">
+                        {{this.puntos}} puntos
+                    </div>
+                    <div class="descripcion">{{this.descripcion}}</div>
+                    <div class="fechaYHora">{{this.fechaYHora}}</div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/partial}}
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('puntosChart').getContext('2d');
+        const puntosPorDia = JSON.parse('{{{puntosPorDia}}}'); // Parse JSON string
+        const labels = Object.keys(puntosPorDia);
+        const data = Object.values(puntosPorDia);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Puntos por día',
+                    data: data,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            tooltipFormat: 'yyyy-MM-dd', // Format for tooltip
+                            displayFormats: {
+                                day: 'yyyy-MM-dd' // Format for x-axis labels
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+    </script>
+    <!--<script src="js/historialPuntos/script.js" charset="utf-8"> </script>-->
+{{/partial}}
+
+{{>templates/bases/base_colaborador}}

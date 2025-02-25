@@ -1,0 +1,25 @@
+
+{{#each preguntas}}
+    {{#orEquals this.tipoPregunta "MULTIPLE_CHOICE" "SINGLE_CHOICE"}}
+
+        <div class="grid-item">
+            <label for="{{this.id}}"> {{this.enunciado}}</label>
+            <div>
+                <select id="{{this.id}}" name="{{this.id}}" {{this.requiredValue}} {{this.tipoSelect}} oninput="updateColorSelect(this.id)">
+                    <option value="-1" disabled selected hidden >{{this.placeholder}} </option>
+                    {{#each opciones}}
+                        <option value="{{this.id}}">{{this.descripcion}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+    {{else}}
+        <div>
+            <div class="grid-item">
+                <label for="{{this.id}}"> {{this.enunciado}} </label>
+                <input id="{{this.id}}" type="{{this.tipoEntrada}}" name="{{this.id}}" value="" placeholder="{{this.placeholder}}"  {{this.requiredValue}} >
+            </div>
+        </div>
+    {{/orEquals}}
+
+{{/each}}

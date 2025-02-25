@@ -1,0 +1,133 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="/css/general/reset.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/general/notificaciones.css">
+    <link rel="stylesheet" href="/css/registro/formulariosRegistro.css">
+    <link rel="stylesheet" href="/css/colaboraciones/distribucionVianda.css">
+    <link rel="stylesheet" href="/css/colaboraciones/colocarHeladera.css">
+    <link rel="stylesheet" href="/css/colaboraciones/formsColaboraciones.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Formulario Colocación Heladera</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="menu-personaJuridica">
+            <img src="/img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+
+    <main>
+        <div class="main-container">
+            <div class="form-container">
+                <div class="form-title-container">
+                    <h3>Colocar una nueva heladera</h3>
+                </div>
+
+                <div class="form-y-envio-container">
+                    <form class="heladera-form" id="registro-form">
+                        <div class="grid-item">
+                            <label for="heladeraModelo">Modelo de Heladera:</label>
+                            <select id="heladeraModelo" name="heladeraModelo" required>
+                                {{#each modelosHeladera}}
+                                    <option value="{{this.id}}">{{this.descripcion}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="grid-item">
+                            <label for="nombre">Nombre *</label>
+                            <input id="nombre" type="text" name="nombre" placeholder="Ingrese el nombre de la heladera" required>
+                        </div>
+
+                        {{> templates/bases/preguntas_dinamicas}}
+                        
+                        <div class="grid-item grid-item-mapa">
+                            <label for="punto-colocacion">Punto de colocación *</label>
+                            <div class="grid-item">
+                                <label>Seleccione en el mapa el punto donde desea colocar su heladera. Recuerde que puede
+                                    solicitar una recomendación haciendo <a href="#" id="recommend-link">click
+                                        aquí</a>.</label>
+                            </div>
+                            <div id="mapid-destino"></div>
+                            <label for="punto-colocacion-direccion">Dirección de la Heladera:</label>
+                            <input type="text" id="punto-colocacion-direccion" name="punto-colocacion-direccion" required>
+                        </div>
+
+                    </form>
+
+                    <div class="footer-form" id="footer-form-container">
+                        <div id="btn-ver-mis-heladeras-container">
+                            <a href="/heladeras-a-cargo" id="btn-ver-mis-heladeras" class="btn">Ver mis heladeras</a>
+                        </div>
+                        <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+                        <div id="btn-envio-form-container">
+                            <button type="submit" id="btn-envio-form" class="btn">Enviar formulario</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <dialog id="pop-up-bienvenido">
+
+        <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+            <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+            <h2> ¡Gracias por tu colaboración!</h2>
+            <P class="parrafo-pop-up"> Tu apoyo es fundamental para ayudarnos a construir un mundo mejor. Juntos, podemos lograr grandes cosas y marcar una diferencia positiva en la vida de quienes más lo necesitan. </P>
+
+            <nav> <a href="menu-personaJuridica" class="pop-up-btn"> Volver al inicio  </a></nav>
+        </div>
+
+    </dialog>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>En unos instantes recibirá una notificación con las direcciones recomendadas.</p>
+            <button id="accept-button" class="modal-button">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="chat-container" class="chat-container">
+        <div class="chat-header">
+            <h2>Notificaciones</h2>
+            <button id="close-chat" aria-label="Cerrar chat">×</button>
+        </div>
+        <div class="chat-body">
+            <p id="no-notifications">No hay notificaciones pendientes</p>
+            <!-- Acá se agregarían los mensajes -->
+        </div>
+    </div>
+
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/js/colaboraciones/seleccionarPunto.js"></script>
+    <script src="/js/colaboraciones/recomendarPunto.js"></script>
+    <script src="/js/colaboraciones/colaboracionCompletada.js" ></script>
+{{/partial}}
+
+{{> templates/bases/base_colaborador}}
+
+
+

@@ -1,0 +1,118 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+
+    <link rel="stylesheet" href="css/colaboraciones/colocarHeladera.css">
+    <link rel="stylesheet" href="css/colaboradores/colaboradores.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <title>Menú Persona Jurídica</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-personaJuridica">
+            <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+    <div class="menu-title-container">
+        <h3>¡Ayudá con tu colaboración!</h3>
+    </div>
+
+    <div class="collaboration-container">
+        {{#each formas-de-colaboracion}}
+            <div class="collaboration-card {{#if this.activada}}active{{else}}disabled{{/if}}" data-href="{{this.href}}">
+                <a href="{{#if this.activada}}{{this.href}}{{else}}#{{/if}}">
+                    <img src="{{this.imagen}}" alt="Icono {{this.nombre}}">
+                    <h4>{{this.nombre}}</h4>
+                </a>
+                <p>{{this.descripcion}}</p>
+                <script type="text/javascript">
+                    const tieneDireccion = {{#if tieneDireccion}}true{{else}}false{{/if}};
+                </script>
+                {{#unless this.activada}}
+                    <div class="overlay"></div>
+                    <div class="interest-banner">También te podría interesar</div>
+                    <form action="/menu-personaJuridica" method="POST" onsubmit="return handleCollaboration(this);">
+                        <input type="hidden" name="stringEnum" value="{{this.stringEnum}}">
+                        <button type="submit" class="enableCardButton">Añadir forma de colaboración</button>
+                    </form>
+                {{/unless}}
+            </div>
+        {{/each}}
+    </div>
+    <div class="pop-up-container" id="address-popup" style="display:none;">
+        <div class="pop-up-content">
+            <h2>Ingrese su dirección</h2>
+
+            <!-- Selección de provincia -->
+            <div class="form-y-envio-container">
+                <div class="grid-item">
+                    <label class="label-domicilio" for="provincia">Provincia* <div class="modalidad-domicilio"></div></label>
+                    <select id="provincia" name="provincia" class="input-domicilio" oninput="cargarLocalidades()">
+                        <option value="-1" disabled selected class="opcion-placeholder">Seleccione la provincia de su domicilio</option>
+                        <option value="BUENOS_AIRES">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
+                        <option value="CATAMARCA">Catamarca</option>
+                        <option value="CHACO">Chaco</option>
+                        <option value="CHUBUT">Chubut</option>
+                        <option value="CORDOBA">Córdoba</option>
+                        <option value="CORRIENTES">Corrientes</option>
+                        <option value="ENTRE_RIOS">Entre Ríos</option>
+                        <option value="FORMOSA">Formosa</option>
+                        <option value="JUJUY">Jujuy</option>
+                        <option value="LA_PAMPA">La Pampa</option>
+                        <option value="LA_RIOJA">La Rioja</option>
+                        <option value="MENDOZA">Mendoza</option>
+                        <option value="MISIONES">Misiones</option>
+                        <option value="NEUQUEN">Neuquén</option>
+                        <option value="RIO_NEGRO">Río Negro</option>
+                        <option value="SALTA">Salta</option>
+                        <option value="SAN_JUAN">San Juan</option>
+                        <option value="SAN_LUIS">San Luis</option>
+                        <option value="SANTA_CRUZ">Santa Cruz</option>
+                        <option value="SANTA_FE">Santa Fe</option>
+                        <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                        <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                        <option value="TUCUMAN">Tucumán</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="select-localidad" class="label-domicilio">Localidad* <div class="modalidad-domicilio"></div></label>
+                    <select id="select-localidad" class="input-domicilio" name="localidad">
+                        <option value="-1" disabled selected>Ingrese la localidad de su domicilio</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="calle" class="label-domicilio">Calle* <div class="modalidad-domicilio"></div></label>
+                    <input id="calle" class="input-domicilio" type="text" name="calle" placeholder="Ingrese la calle de su domicilio">
+                </div>
+
+                <div class="grid-item">
+                    <label for="altura" class="label-domicilio">Altura* <div class="modalidad-domicilio"></div></label>
+                    <input id="altura" class="input-domicilio" type="text" name="altura" placeholder="Ingrese la altura de su domicilio">
+                </div>
+            </div>
+
+            <input type="hidden" id="popup-stringEnum">
+            <div class="button-container">
+                <button class="pop-up-btn" onclick="submitAddress()">Enviar</button>
+                <button class="pop-up-btn cancel" onclick="closePopup()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="js/colaboradores/menuColaborador.js"></script>
+    <script src="js/utils/formularios/localidades.js"></script>
+{{/partial}}
+{{>templates/bases/base_colaborador}}
+

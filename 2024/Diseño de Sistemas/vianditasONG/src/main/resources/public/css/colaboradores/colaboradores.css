@@ -1,0 +1,441 @@
+
+.menu-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4vw;
+}
+
+.menu-title-container h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 2vw;
+    color: #0c9db3;
+    margin-left: 5%;
+}
+
+.collaboration-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto; 
+    padding: 20px;
+    max-width: 1200px; 
+}
+
+.collaboration-container-humano {
+    max-width: 1500px; 
+}
+.collaboration-card {
+    background-color: #e9f7ff; 
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    width: 30%;
+    margin: 1%;
+    padding: 30px 20px; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 550px;
+    position: relative;
+}
+
+
+.collaboration-card-humano{
+    width: 90%;
+}
+
+.collaboration-card img {
+    max-width: 200px;
+    margin-bottom: 15px;
+    height: 200px;
+}
+
+
+.collaboration-card:hover {
+    transform: translateY(-5px);
+    background-color: #f1f1f1;
+}
+
+
+.collaboration-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #005b7f; 
+    letter-spacing: 0.5px;
+    min-height: 60px;
+}
+
+.collaboration-card a{
+    text-decoration: none;
+}
+
+
+.collaboration-card .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1; 
+    width: 100%;
+    text-align: left;
+}
+
+.collaboration-card p {
+    font-family: 'Poppins', sans-serif;
+    color: #666666; 
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #009688;
+    margin-top: 20px;
+}
+
+
+#confirmationModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out; 
+}
+
+
+#confirmationModal .modal-content {
+    background-color: #ffffff;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+#confirmationModal .modal-button {
+    background-color: #0c9db3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#confirmationModal .modal-button:hover {
+    background-color: #0056b3;
+}
+
+h2{
+    font-weight: bold;
+}
+
+
+.mapa-box{
+    background-color: #e9f7ff; 
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    width: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;  
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+.grid-item-mapa {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 8px;
+    overflow: hidden; 
+    margin-top: 2%;
+    margin-left: 4.2%;
+}
+
+
+.texto-suscripcion{
+    font-family: 'Poppins', sans-serif;
+    color: #666666; 
+    line-height: 1.6;
+    margin-top: 0.7vw ;
+    margin-bottom: 0; 
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-weight: 500;
+}
+
+/********************************************************************************************/
+.collaboration-card.disabled {
+    background-color: #d3d3d3;
+    border: 1px solid #a9a9a9;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.collaboration-card.disabled::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(211, 211, 211, 0.5);
+    z-index: 1; /* Mantiene la superposición detrás del botón */
+}
+
+.collaboration-card.active {
+    opacity: 1;
+}
+
+.interest-banner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 2; /* Asegura que el banner esté por encima */
+    width: calc(100% - 20px);
+    text-align: center;
+    transform: skewY(-2deg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+.enableCardButton {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    background-color: #ff9900;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
+    margin-top:30px;
+}
+
+.enableCardButton:hover {
+    background-color: #e6b800;
+}
+/* Contenedor del pop-up */
+.pop-up-container {
+    position: fixed;             /* Fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;                /* Ocupa todo el ancho de la ventana */
+    height: 100vh;               /* Ocupa todo el alto de la ventana */
+    display: flex;               /* Flexbox para centrar */
+    justify-content: center;     /* Centrado horizontal */
+    align-items: center;         /* Centrado vertical */
+    background-color: rgba(0, 0, 0, 0.7);  /* Fondo oscuro semi-transparente */
+    z-index: 1000;               /* Asegurar que esté por encima de otros elementos */
+    animation: fadeIn 0.3s ease; /* Animación de entrada */
+}
+
+/* Animación para que el pop-up aparezca suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contenido del pop-up */
+.pop-up-content {
+    background-color: #fff;      /* Fondo blanco */
+    border-radius: 15px;         /* Bordes más redondeados */
+    padding: 25px 30px;          /* Más espacio interno */
+    max-width: 450px;            /* Ancho máximo */
+    width: 90%;                  /* Ancho responsivo */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    display: flex;
+    flex-direction: column;      /* Flex en columna */
+    align-items: center;         /* Centrar contenido */
+    animation: scaleUp 0.3s ease; /* Animación suave de escalado */
+}
+
+/* Animación de escalado al abrir */
+@keyframes scaleUp {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
+
+/* Campo de entrada */
+.input-field {
+    width: 100%;                 /* Ancho completo */
+    padding: 12px 15px;          /* Más espaciado interno */
+    margin-bottom: 20px;         /* Espacio inferior */
+    border: 1px solid #ddd;      /* Borde más suave */
+    border-radius: 8px;          /* Bordes más redondeados */
+    font-size: 1.1em;            /* Tamaño de fuente mayor */
+    background: #e0fbff;   /* Fondo suave */
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto de foco en el campo de entrada */
+.input-field:focus {
+    border-color: #ff9900;       /* Cambio de color de borde en foco */
+    background-color: #fff;      /* Fondo blanco al hacer foco */
+    outline: none;               /* Elimina el borde de foco predeterminado */
+}
+
+/* Estilo para botones */
+.pop-up-btn {
+    background-color: #ff9900;   /* Color de fondo */
+    color: #fff;                 /* Color de texto */
+    border: none;                /* Sin borde */
+    border-radius: 8px;          /* Bordes redondeados */
+    padding: 12px 20px;          /* Espaciado mayor */
+    font-size: 1.1em;            /* Tamaño de fuente */
+    cursor: pointer;             /* Cursor de mano */
+    margin: 10px 5px;            /* Espacio entre botones */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover en los botones */
+.pop-up-btn:hover {
+    background-color: #e68a00;   /* Color de fondo al pasar el mouse */
+    transform: translateY(-3px); /* Efecto de elevarse al pasar el mouse */
+}
+
+/* Estilo para el botón de cancelar */
+.pop-up-btn.cancel {
+    background-color: #ccc;      /* Fondo gris */
+    color: #333;                 /* Color del texto */
+}
+
+.pop-up-btn.cancel:hover {
+    background-color: #bbb;      /* Fondo más oscuro al pasar el mouse */
+}
+
+/* Estilo del título */
+.pop-up-content h2 {
+    margin-bottom: 20px;         /* Espacio inferior mayor */
+    font-size: 1.8em;            /* Tamaño del texto más grande */
+    text-align: center;          /* Centrado */
+    color: #333;                 /* Color del texto */
+    font-weight: bold;           /* Texto en negrita */
+}
+
+/* Mejora el diseño de los select */
+.input-domicilio {
+    width: 100%;                 /* Ancho completo */
+    padding: 10px;               /* Espaciado interno */
+    margin-bottom: 20px;         /* Espacio inferior */
+    border: 1px solid #ddd;      /* Borde gris suave */
+    border-radius: 8px;          /* Bordes redondeados */
+    font-size: 1.1em;            /* Tamaño de fuente */
+    background: #e0fbff;  /* Fondo claro */
+    transition: border-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover y focus en el select */
+.input-domicilio:hover,
+.input-domicilio:focus {
+    border-color: #ff9900;       /* Cambio de color de borde */
+}
+
+/* Estilo general para etiquetas */
+.label-domicilio {
+    font-size: 1.1em;            /* Tamaño de fuente más grande */
+    font-weight: bold;           /* Negrita */
+    color: #333;                 /* Color del texto */
+    margin-bottom: 8px;          /* Espacio inferior */
+    display: block;              /* Bloque completo para la etiqueta */
+}
+
+
+/*Cerrar sesión*/
+.modal-buttons {
+    display: flex;
+    justify-content: center; /* Centrar los botones */
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio sobre los botones */
+    width: 100%;
+}
+
+/* Estilo de los botones */
+.modal-button {
+    background-color: #0c9db3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Asegura que los botones tengan un tamaño apropiado */
+}
+
+/* Botón Confirmar */
+.modal-button.confirm {
+    background-color: #0c9db3;
+}
+
+.modal-button.confirm:hover {
+    background-color: #007ba7;
+    transform: scale(1.05);
+}
+
+/* Botón Cancelar */
+.modal-button.cancel {
+    background-color: white; /* Fondo blanco */
+    color: #0c9db3; /* Letra celeste */
+    border: 2px solid #0c9db3; /* Borde celeste */
+}
+.modal-button.cancel:hover {
+    background-color: #e0f7fa; /* Fondo celeste claro al hacer hover */
+    color: #007ba7; /* Letra más oscura al pasar el mouse */
+    border-color: #007ba7; /* Borde más oscuro al hacer hover */
+    transform: scale(1.05);
+}
+
+
+.modal-content {
+    max-height: 130px;
+    background-color: #ffffff;
+    margin: 10% auto;
+    max-height: 130px;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}

@@ -1,0 +1,46 @@
+.pop-up-container-interior {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+dialog img {
+    height: 12vw;
+    width: auto;
+    align-self: center;
+    margin-top: 0px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog .pop-up-btn {
+    background-color: #ff9900;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+    text-decoration: none;
+    align-self: center;
+    border-radius: 50px;
+    max-width: 20vw;
+    min-width: 20vw;
+}
+
+dialog nav {
+    border: none;
+}
+
+dialog nav:hover {
+    background-color: transparent;
+}

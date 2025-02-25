@@ -1,0 +1,39 @@
+.grid-item-mapa {
+    width: 215%;
+}
+
+#mapid-destino {
+    width: 95%;
+    margin-top: 2%;
+    padding: 0;
+}
+
+#punto-colocacion-direccion {
+    width: 70%;
+}
+#btn-ver-mis-heladeras-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#btn-ver-mis-heladeras {
+    background-color: #0c9db3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 12px;
+    padding: 10px 25px 10px 25px;
+
+}
+
+#btn-ver-mis-heladeras:hover {
+    background-color: #0091b3;
+}
+

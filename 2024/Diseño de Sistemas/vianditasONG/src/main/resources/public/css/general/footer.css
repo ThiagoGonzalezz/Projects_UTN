@@ -1,0 +1,90 @@
+/* ------------------------------------------------------------------------------------------
+// -- Footer --
+// -----------------------------------------------------------------------------------------*/
+
+footer {
+    background-color: #0c9db3;
+    height: auto;
+    width: 100%;
+    padding: 2rem 0; /* Ajustado para mejor escalabilidad */
+    margin-top: 10%;
+    border-top-left-radius: 10vw;
+    border-top-right-radius: 10vw;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer h2 {
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 2%;
+    font-size: 1.5rem; /* Ajustado para mejor escalabilidad */
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+footer p {
+    font-family: 'Montserrat', sans-serif;
+    width: 80%; /* Ajustado a 80% para mejor adaptabilidad */
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.nuestros-contactos-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 80%; /* Ajustado a 80% para mejor adaptabilidad */
+    margin: 0 auto;
+    padding-top: 3%;
+    flex-wrap: wrap; /* Para mejor responsividad */
+}
+
+.contacto-nuestro {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.contacto-nuestro:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.contacto-nuestro img {
+    width: 30px; /* Ajustado para mejor escalabilidad */
+    height: 30px; /* Ajustado para mejor escalabilidad */
+    margin-right: 10px;
+}
+
+#mail-png{
+    width: 40px; 
+    height: 40px;
+}
+
+.contact-info {
+    text-align: left;
+    white-space: nowrap;
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.contact-info p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: 300;
+}

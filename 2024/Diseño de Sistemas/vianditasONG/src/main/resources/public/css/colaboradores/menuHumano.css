@@ -1,0 +1,418 @@
+.enableCardButton {
+    padding: 10px 10px;
+    margin-top:15px;
+}
+
+.modal {
+    display: none; /* Se oculta por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    justify-content: center; /* Alinear el contenido en el centro */
+    align-items: center; /* Centrar verticalmente */
+    display: flex; /* Usar flex para centrar el contenido */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Asegúrate de que esté sobre el fondo oscuro */
+}
+
+/***************/
+#pop-up-bienvenido {
+    border: none;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #0c9db3; /* Color de fondo del popup */
+}
+
+.pop-up-container-interior {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    width: 700px;
+    align-items: center;
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco del contenido del popup */
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pop-up-bienvenido img {
+    height: 12vw;
+    width: auto;
+    align-self: center;
+    margin-top: 0px; /* Espaciado superior de la imagen */
+}
+
+/* Estilo del backdrop cuando el popup está activo */
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+}
+
+/* Estilos para el botón en el popup */
+#pop-up-bienvenido .pop-up-btn {
+    background-color: #ff9900; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+    text-decoration: none;
+    align-self: center;
+    border-radius: 50px; /* Bordes redondeados del botón */
+    max-width: 20vw; /* Ancho máximo */
+    min-width: 20vw; /* Ancho mínimo */
+    margin: 0px;
+}
+
+/* Estilos para el encabezado del popup */
+#pop-up-bienvenido h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: center; /* Centrar texto */
+    color: #ff9900; /* Color del texto del encabezado */
+    font-size: 25px; /* Tamaño de fuente del encabezado */
+    margin: -2vw 0 1vw; /* Margen superior e inferior */
+}
+
+/* Estilos para el párrafo del popup */
+#pop-up-bienvenido p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #0c9db3; /* Color del texto del párrafo */
+    font-size: 15px; /* Tamaño de fuente del párrafo */
+    align-self: center; /* Centrar el párrafo */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilos para el nav dentro del popup */
+#pop-up-bienvenido nav {
+    margin: 2vw 0; /* Margen superior e inferior */
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #ffffff; /* Color del texto del nav */
+    border-radius: 30px; /* Bordes redondeados del nav */
+}
+
+/* Estilos para los enlaces dentro del nav */
+#pop-up-bienvenido nav a {
+    align-self: center; /* Centrar el enlace */
+}
+
+/* Efecto de hover sobre el nav */
+#pop-up-bienvenido nav:hover {
+    background-color: #ffae34; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escalado */
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda */
+    padding: 20px; /* Espaciado interno */
+}
+
+h2 {
+    width: 100%; /* Asegura que h2 ocupe el ancho completo */
+    text-align: left; /* Alinear a la izquierda */
+    margin: 10px 0; /* Espaciado vertical consistente */
+}
+
+label {
+    display: flex;
+    align-items: center; /* Alinear verticalmente el texto y la casilla de verificación */
+    margin-bottom: 10px; /* Espacio entre los elementos */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre la casilla y el texto */
+}
+
+select {
+    width: 100%; /* Hacer que el select ocupe el ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espacio bajo el select */
+}
+
+.modal-button {
+    margin-top: 10px; /* Espacio sobre los botones */
+    /* Eliminar ancho completo para que se mantenga como antes */
+    padding: 10px 20px; /* Espaciado interno para que se vea mejor */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #0c9db3; /* Color de fondo */
+    color: #ffffff; /* Color de texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor a mano */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.modal-button:hover {
+    background-color: #0095b5; /* Color de fondo en hover */
+}
+
+input[type="number" i] {
+    background-color: #e0fbff;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+
+.map-suscripciones-container {
+    display: flex;                       /* Usamos flexbox para alinear los elementos */      /* Espacio entre los elementos */
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.suscripciones-container {
+    width: 50%;                          /* Ancho del contenedor de suscripciones */
+    margin-left: 20px;                  /* Espacio entre mapa y suscripciones */
+    background-color: #e9f7ff;          /* Fondo de las suscripciones */
+    border-radius: 15px;                 /* Bordes redondeados */
+    padding: 20px;                       /* Espaciado interno */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra */
+    height: 450px;                       /* Altura fija para igualar con el mapa */
+    display: flex;                       /* Flexbox para alinear los elementos internos */
+    flex-direction: column;              /* Alinear en columna */
+    justify-content: flex-start;         /* Alinear al principio del contenedor */
+    min-width: 300px;                    /* Aseguramos que no sea más pequeño */
+}
+
+.suscripciones-list {
+    margin-top: 10px;                    /* Espacio entre el título y la lista */
+}
+
+.suscripcion-item {
+    background-color: #ffffff;           /* Fondo blanco para los items */
+    margin: 10px 0;                      /* Margen entre items */
+    padding: 15px;                       /* Espaciado interno */
+    border-radius: 10px;                 /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.suscripcion-item:hover {
+    transform: translateY(-5px);         /* Efecto de elevar el item al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hacer hover */
+}
+
+.suscripcion-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #005b7f;                      /* Color del texto */
+    margin-bottom: 5px;                  /* Margen inferior */
+    font-size: 1.2rem;                   /* Tamaño de fuente mayor */
+}
+
+.suscripcion-item p {
+    font-family: 'Poppins', sans-serif;
+    color: #666666;                      /* Color del texto */
+    line-height: 1.6;                    /* Altura de línea */
+}
+
+.grid-item-mapa {
+    width: 100%;                         /* El mapa ocupará todo el espacio disponible */
+    height: 100%;                        /* Aseguramos que el mapa tenga altura */
+    border-radius: 8px;                 /* Bordes redondeados */
+    overflow: hidden;                    /* Evitamos desbordes */
+    margin-top: 2%;                      /* Margen superior */
+    margin-left: 4.2%;                   /* Margen izquierdo */
+}
+
+.suscripciones-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0px;
+    color: #0c9db3;}
+
+#mapid-destino, #mapid-origen {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    height: 95%;
+    width: 95%;
+    margin-bottom: 25px;
+}
+
+.mapa-box{
+    background-color: #e9f7ff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 0%;
+    height: auto;
+}
+
+.suscripciones-container > *:not(.suscripciones-title) {
+    margin-top: 10px;                   /* Espacio entre el título y el resto del contenido */
+}
+
+.suscripciones-list {
+    overflow-y: auto;                    /* Habilitar desplazamiento vertical solo para la lista */
+    max-height: 350px;                   /* Altura máxima para la lista de suscripciones */
+}
+
+.suscripcion-card {
+    background-color: #fff;              /* Fondo blanco para cada tarjeta de suscripción */
+    border-radius: 10px;                 /* Bordes redondeados para tarjetas */
+    padding: 10px;                       /* Espacio interno */
+    margin: 5px 0;                       /* Margen entre tarjetas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para tarjetas */
+}
+
+.suscripciones-list::-webkit-scrollbar {
+    width: 8px;                         /* Ancho de la barra de desplazamiento */
+}
+
+.suscripciones-list::-webkit-scrollbar-track {
+    background: #f1f1f1;               /* Color del fondo de la barra de desplazamiento */
+    border-radius: 10px;                /* Bordes redondeados de la pista */
+}
+
+.suscripciones-list::-webkit-scrollbar-thumb {
+    background: #0c9db3;               /* Color de la parte deslizante de la barra */
+    border-radius: 10px;                /* Bordes redondeados de la parte deslizante */
+}
+
+.suscripciones-list::-webkit-scrollbar-thumb:hover {
+    background: #005b7f;                /* Color de la parte deslizante al pasar el ratón */
+}
+
+.confirm-modal {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+
+ .confirm-modal-content {
+     background-color: #fefefe;
+     margin: 15% auto;
+     padding: 20px;
+     border: 1px solid #888;
+     width: 80%;
+     max-width: 300px;
+ }
+
+ #cancelButton, #confirmButton {
+     margin: 5px;
+ }
+
+.suscripcion-item {
+    display: flex;
+    justify-content: space-between; /* Alinea el contenido de la suscripción y el botón */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.suscripcion-info {
+    flex-grow: 1; /* Permite que la información crezca y ocupe el espacio disponible */
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 20px; /* Tamaño más grande para la X */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+.delete-button:hover {
+    color: darkred; /* Color más oscuro al pasar el mouse */
+}
+
+.confirm-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro y translúcido */
+}
+
+.confirm-modal-content {
+    background-color: #fff; /* Fondo blanco para el contenido */
+    margin: 15% auto; /* Centrando el modal */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 90%;
+    max-width: 400px; /* Ancho máximo */
+    text-align: center; /* Centrando el texto */
+}
+
+.confirm-modal-content p {
+    margin-bottom: 20px; /* Espacio inferior */
+    font-size: 18px; /* Tamaño de fuente más grande */
+}
+
+#cancelButton, #confirmButton {
+    background-color: #00a2eb; /* Color azul */
+    color: white; /* Texto blanco */
+    border: 2px solid #00a2eb;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+#cancelButton:hover, #confirmButton:hover {
+    background-color: #0056b3;
+    border: 2px solid #0056b3;/* Color más oscuro al pasar el mouse */
+}
+
+#cancelButton {
+    color: #000000;
+    background-color: #ffffff; /* Color rojo para cancelar */
+    border: 2px solid #00c7ff;
+}
+
+#cancelButton:hover {
+    background-color: #83dcf8;
+    border: 2px solid #0086b1; /* Color más oscuro al pasar el mouse */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    max-height: 1360px;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}

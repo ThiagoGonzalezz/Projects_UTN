@@ -1,0 +1,191 @@
+.catalogo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: 98%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    /* Alinear todo el texto a la izquierda */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Espacio entre los elementos */
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.producto .nombre {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.producto .puntos {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: bold;
+    /* Hacer los puntos en negrita */
+}
+
+.producto .boton {
+    background-color: #FFA500;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-end;
+    /* Alinear el botón a la derecha */
+}
+
+.producto .boton:hover {
+    background-color: #FF8C00;
+}
+
+.puntos-usuario {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    display: flex;
+}
+
+.puntos-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+
+}
+
+.header-catalogo {
+    position: sticky;
+    top: 0;
+    margin-bottom: 10px;
+    z-index: 1000;
+    width: 98.5%;
+    border-radius: 10px;
+    padding: 10px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    /* Gradiente de blanco a gris claro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Añade una sombra para destacar el header */
+}
+
+/* Estilos para el pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 5px solid #0c9db3;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 20px;
+    min-height: 20vw;
+    max-height: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-inner {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pop-up-btn {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 30px;
+    min-height: 3vw;
+    max-height: 3vw;
+    min-width: 10vw;
+    max-width: 10vw;
+    cursor: pointer;
+}
+
+.pop-up-btn:hover {
+    background-color: #ffae34;
+    transform: scale(1.05);
+}
+
+.label-pop-up {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ff9900;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    text-align: center;
+}

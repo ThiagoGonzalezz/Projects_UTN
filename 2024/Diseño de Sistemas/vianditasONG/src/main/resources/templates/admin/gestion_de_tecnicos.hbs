@@ -1,0 +1,219 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/gestionTecnicos/gestionTecnicos.css">
+    <title>Gestión de Técnicos</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+        <section class="gestion-tecnicos-content">
+            <h2>Gestión de Técnicos</h2>
+
+            <div class="gestion-tecnicos-filter-container">
+                <label for="searchInput"></label>
+                <input type="text" id="searchInput" placeholder="Filtrar por DNI de Técnico">
+                <button id="addButton">AÑADIR TÉCNICO</button>
+            </div>
+
+            <div class="gestion-tecnicos-list" id="tecnicoList">
+                {{#each tecnicos}}
+                    <button class="gestion-tecnicos-item" data-id="{{this.cuil}}">
+                        Técnico {{this.cuil}}
+                    </button>
+                    <div class="gestion-tecnicos-details" id="details-{{this.cuil}}" style="display: none;">
+                        <div><strong>Nombre:</strong> {{this.nombre}}</div>
+                        <div><strong>Apellido:</strong> {{this.apellido}}</div>
+                        <div><strong>Tipo de Documento:</strong> {{this.tipoDeDocumento}}</div>
+                        <div><strong>Número de Documento:</strong> {{this.numeroDeDocumento}}</div>
+                        <div><strong>Contacto:</strong> {{this.contacto}}</div>
+                        <div><strong>Medio de Aviso:</strong> {{this.medioDeAviso}}</div>
+                        <div><strong>Área de Cobertura:</strong> {{this.areaDeCobertura}}</div>
+                        <div><strong>Activo:</strong> {{this.activo}}</div>
+                        <div class="gestion-tecnicos-actions">
+                            <button class="edit-btn" data-id="{{this.id}}">Modificar</button>
+                            <button class="delete-btn" data-id="{{this.id}}">Eliminar</button>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+
+        <div id="addTecnicoModal" class="gestion-tecnicos-modal">
+            <div class="gestion-tecnicos-modal-content">
+                <span class="close">&times;</span>
+                <h2>Añadir Técnico</h2>
+                <form id="addTecnicoForm">
+                    <label for="nombreTecnico">Nombre:</label>
+                    <input type="text" id="nombreTecnico" name="nombreTecnico" required>
+
+                    <label for="apellidoTecnico">Apellido:</label>
+                    <input type="text" id="apellidoTecnico" name="apellidoTecnico" required>
+
+                    <label for="tipoDocumento">Tipo de Documento:</label>
+                    <select id="tipoDocumento" name="tipoDocumento" required>
+                        <option value="DNI">DNI</option>
+                        <option value="LE">LE</option>
+                        <option value="LC">LC</option>
+                        <option value="NINGUNO">NINGUNO</option>
+                    </select>
+
+                    <label for="numeroDocumento">Número de Documento:</label>
+                    <input type="text" id="numeroDocumento" name="numeroDocumento" required>
+
+                    <label for="cuilTecnico">CUIL:</label>
+                    <input type="text" id="cuilTecnico" name="cuilTecnico" required>
+
+                    <label for="tipoContacto">Tipo de Contacto:</label>
+                    <select id="tipoContacto" name="tipoContacto" required>
+                        <option value="CORREO">Mail</option>
+                        <option value="WHATSAPP">Whatsapp</option>
+                        <option value="TELEGRAM">Telegram</option>
+                    </select>
+
+                    <label for="contacto">Contacto:</label>
+                    <input type="text" id="contacto" name="contacto" required>
+
+                    <label for="areaCoberturaKM">Área de Cobertura (km):</label>
+                    <input type="number" id="areaCoberturaKM" name="areaCoberturaKM" required>
+
+                    <!-- Nuevos campos de Provincia, Localidad, Calle y Altura -->
+                    <label for="provincia">Provincia:</label>
+                    <select id="provincia" name="provincia" class="input-domicilio" oninput="cargarLocalidades()" required>
+                        <option value="-1" disabled selected>Seleccione la provincia de su domicilio</option>
+                        <option value="BUENOS_AIRES">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
+                        <option value="CATAMARCA">Catamarca</option>
+                        <option value="CHACO">Chaco</option>
+                        <option value="CHUBUT">Chubut</option>
+                        <option value="CORDOBA">Córdoba</option>
+                        <option value="CORRIENTES">Corrientes</option>
+                        <option value="ENTRE_RIOS">Entre Ríos</option>
+                        <option value="FORMOSA">Formosa</option>
+                        <option value="JUJUY">Jujuy</option>
+                        <option value="LA_PAMPA">La Pampa</option>
+                        <option value="LA_RIOJA">La Rioja</option>
+                        <option value="MENDOZA">Mendoza</option>
+                        <option value="MISIONES">Misiones</option>
+                        <option value="NEUQUEN">Neuquén</option>
+                        <option value="RIO_NEGRO">Río Negro</option>
+                        <option value="SALTA">Salta</option>
+                        <option value="SAN_JUAN">San Juan</option>
+                        <option value="SAN_LUIS">San Luis</option>
+                        <option value="SANTA_CRUZ">Santa Cruz</option>
+                        <option value="SANTA_FE">Santa Fe</option>
+                        <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                        <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                        <option value="TUCUMAN">Tucumán</option>
+                    </select>
+
+                    <label for="select-localidad">Localidad:</label>
+                    <select id="select-localidad" name="localidad" required>
+                        <option value="-1" disabled selected>Seleccione la localidad de su domicilio</option>
+                    </select>
+
+                    <label for="calle">Calle:</label>
+                    <input id="calle" class="input-domicilio" type="text" name="calle" placeholder="Ingrese la calle de su domicilio">
+
+                    <label for="altura">Altura:</label>
+                    <input id="altura" class="input-domicilio" type="text" name="altura" placeholder="Ingrese la altura de su domicilio">
+
+                    <button type="submit">Añadir</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="editTecnicoModal" class="gestion-tecnicos-modal">
+            <div class="gestion-tecnicos-modal-content">
+                <span class="close-edit">&times;</span>
+                <h2>Modificar Técnico</h2>
+                <form id="editTecnicoForm">
+
+                    <label for="editCuilTecnico">CUIL:</label>
+                    <input type="text" id="editCuilTecnico" readonly required>
+
+                    <label for="editNombreTecnico">Nombre:</label>
+                    <input type="text" id="editNombreTecnico" required>
+
+                    <label for="editApellidoTecnico">Apellido:</label>
+                    <input type="text" id="editApellidoTecnico" required>
+
+                    <label for="editTipoDocumento">Tipo de Documento:</label>
+                    <select id="editTipoDocumento" required>
+                        <option value="DNI">DNI</option>
+                        <option value="LE">LE</option>
+                        <option value="LC">LC</option>
+                        <option value="NINGUNO">NINGUNO</option>
+                    </select>
+
+                    <label for="editNumeroDocumento">Número de Documento:</label>
+                    <input type="text" id="editNumeroDocumento" required>
+
+                    <label for="editTipoContacto">Tipo de Contacto:</label>
+                    <select id="editTipoContacto" required>
+                        <option value="CORREO">Email</option>
+                        <option value="WHATSAPP">Whatsapp</option>
+                        <option value="TELEGRAM">Telegram</option>
+                    </select>
+
+                    <label for="editContacto">Contacto:</label>
+                    <input type="text" id="editContacto" required>
+
+                    <label for="editAreaCoberturaKM">Área de Cobertura (km):</label>
+                    <input type="number" id="editAreaCoberturaKM" required>
+
+                    <!-- Campos adicionales para dirección -->
+                    <label for="editProvincia">Provincia:</label>
+                    <select id="editProvincia" name="provincia" class="input-domicilio" oninput="cargarLocalidadesEdit()" required>
+                        <option value="-1" disabled selected>Seleccione la provincia</option>
+                        <option value="BUENOS_AIRES">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
+                        <option value="CATAMARCA">Catamarca</option>
+                        <option value="CHACO">Chaco</option>
+                        <option value="CHUBUT">Chubut</option>
+                        <option value="CORDOBA">Córdoba</option>
+                        <option value="CORRIENTES">Corrientes</option>
+                        <option value="ENTRE_RIOS">Entre Ríos</option>
+                        <option value="FORMOSA">Formosa</option>
+                        <option value="JUJUY">Jujuy</option>
+                        <option value="LA_PAMPA">La Pampa</option>
+                        <option value="LA_RIOJA">La Rioja</option>
+                        <option value="MENDOZA">Mendoza</option>
+                        <option value="MISIONES">Misiones</option>
+                        <option value="NEUQUEN">Neuquén</option>
+                        <option value="RIO_NEGRO">Río Negro</option>
+                        <option value="SALTA">Salta</option>
+                        <option value="SAN_JUAN">San Juan</option>
+                        <option value="SAN_LUIS">San Luis</option>
+                        <option value="SANTA_CRUZ">Santa Cruz</option>
+                        <option value="SANTA_FE">Santa Fe</option>
+                        <option value="SANTIAGO_DEL_ESTERO">Santiago del Estero</option>
+                        <option value="TIERRA_DEL_FUEGO">Tierra del Fuego</option>
+                        <option value="TUCUMAN">Tucumán</option>
+                    </select>
+
+                    <label for="editLocalidad">Localidad:</label>
+                    <select id="editLocalidad" required>
+                        <option value="-1" disabled selected>Seleccione la localidad</option>
+                    </select>
+
+                    <label for="editCalle">Calle:</label>
+                    <input type="text" id="editCalle" placeholder="Ingrese la calle" required>
+
+                    <label for="editAltura">Altura:</label>
+                    <input type="text" id="editAltura" placeholder="Ingrese la altura" required>
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+{{/partial}}
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/gestionDeTecnicos/gestionTecnicos.js"></script>
+{{/partial}}
+
+{{> templates/bases/base_admin}}

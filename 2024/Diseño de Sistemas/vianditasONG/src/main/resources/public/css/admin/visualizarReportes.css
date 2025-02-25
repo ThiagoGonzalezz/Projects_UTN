@@ -1,0 +1,221 @@
+/* ------------------------------------------------------------------------------------------
+// -- Main Section --
+// -----------------------------------------------------------------------------------------*/
+.seccion-visualizarReportes {
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 6vw;
+}
+.seccion-visualizarReportes:hover{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+.seccion-visualizarReportes h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.seccion-visualizarReportes p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+.seccion-visualizarReportes h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 1.4rem;
+    text-align: left;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Filters --
+// -----------------------------------------------------------------------------------------*/
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    height: 6rem;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(148, 148, 148, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.filters label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 9rem;
+    display: block;
+    text-align: left;
+}
+.filters select,
+.filters input[type="date"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 8.5rem;
+}
+
+
+.filters-container {
+    padding: 1.5rem;
+    border: 2px solid #e68a00; /* Color del borde */
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Actions --
+// -----------------------------------------------------------------------------------------*/
+.actions {
+    margin-top: 1rem;
+}
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-left: 25%;
+}
+
+.btn.primary {
+    background-color: #e68a00;
+    color: #fff;
+}
+
+.btn.primary:hover{
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Results --
+// -----------------------------------------------------------------------------------------*/
+.results table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+
+.results th {
+    background-color: #262626;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.results tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+.results tbody::-webkit-scrollbar {
+    width: 10px;
+}
+
+.results tbody::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1;
+    border-radius: 5px;
+    border: 2px solid #f9f9f9;
+}
+
+.results tbody::-webkit-scrollbar-thumb:hover {
+    background-color: #808080;
+}
+
+.results tbody::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+/* Estilo del mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Estilo del icono de error */
+.icono-error {
+    color: red;
+    font-size: 1rem;
+}
+
+.fas.fa-file-pdf {
+    color: #1A1A1A;
+    margin-right: 0.5rem;
+}
+
+
+a{
+    text-decoration: none;
+    color: #002ead;
+}
+
+.chat-header h2 {
+    color: #f9f9f9;
+}
+
+
+
+#tabla-reportes colgroup col {
+    width: 1000px; /* Permitir que las columnas se ajusten automáticamente */
+}
+
+.results {
+    max-width: 100%;
+}
+
+#tabla-reportes {
+    width: 100%;
+    border-collapse: collapse; /* Para eliminar espacios entre celdas */
+    margin-top: 1rem;
+}
+
+#tabla-reportes th,
+#tabla-reportes td {
+    padding: 1rem; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
+    width: 370px;
+}
+
+#tabla-reportes tbody tr:hover {
+    background-color: #f9f9f9; /* Color de fondo al pasar el mouse */
+}
+
+#tabla-reportes th,
+#tabla-reportes td {
+    width: auto; /* Cambia de 370px a auto */
+}

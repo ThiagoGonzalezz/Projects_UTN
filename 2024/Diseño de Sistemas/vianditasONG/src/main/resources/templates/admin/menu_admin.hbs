@@ -1,0 +1,77 @@
+
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/colaboraciones/distribucionVianda.css">
+    <link rel="stylesheet" href="/css/admin/menuAdmin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Menú Administrador</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+<div class="menu-title-container">
+    <h3>Menú Administrador</h3>
+</div>
+
+<main>
+    <div class="opcionAdmin-container">
+        <a href="/admin/visualizacion-reportes" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoVisualizarReportes.png" alt="Visualizar Reportes">
+            <div class="text-container">
+                <h4>Visualizar Reportes</h4>
+            </div>
+        </a>
+        <a href="/colaboraciones/importacion" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoImportarColab.png" alt="Importar Colaboraciones">
+            <div class="text-container">
+                <h4>Importar Colaboraciones</h4>
+            </div>
+        </a>
+        <a href="/admin/gestion-de-heladeras" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoGestionHeladeras.png" alt="Gestionar Heladeras">
+            <div class="text-container">
+                <h4>Gestionar Heladeras</h4>
+            </div>
+        </a>
+        <a href="/admin/colaboradores/recomendacion" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoAltaPersonaVulnerable.png" alt="Dar de alta Persona en Situación Vulnerable">
+            <div class="text-container">
+                <h4>Recomendar colaboradores</h4>
+            </div>
+        </a>
+        <a href="/formularios" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoFormulario.png" alt="Gestionar Formularios">
+            <div class="text-container">
+                <h4>Gestionar Formularios</h4>
+            </div>
+        </a>
+        <a href="/gestion-de-tecnicos" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoTecnico.png" alt="Gestionar Técnicos">
+            <div class="text-container">
+                <h4>Gestionar Técnicos</h4>
+            </div>
+        </a>
+        <a href="colaboradores/solicitudes" class="opcionAdmin-card">
+            <img src="/img/iconosAdmin/iconoGestionColab.png" alt="Gestionar Colaboradores">
+            <div class="text-container">
+                <h4>Habilitar Colaboradores</h4>
+            </div>
+        </a>
+    </div>
+</main>
+{{/partial}}
+
+{{#partial "js-contenido-pagina"}}
+
+<script src="/js/notificaciones/notificaciones.js"></script>
+
+{{/partial}}
+
+{{>templates/bases/base_admin}}
+
+

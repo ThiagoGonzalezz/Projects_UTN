@@ -1,0 +1,92 @@
+{{#partial "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/importarColaboraciones/importarColaboraciones.css">
+
+    <title>Importar Colaboraciones</title>
+{{/partial}}
+
+{{#partial "contenido-pagina"}}
+
+    <main>
+        <section class="import-section">
+            <h2>Importar Colaboraciones</h2>
+            <p>Cargá un archivo CSV con los datos de colaboraciones para migrarlos a nuestro sistema.</p>
+
+            <div class="upload-area">
+                <label for="file-upload" class="file-label">
+                    <input id="file-upload"  name="csv-importacion" type="file" accept=".csv" class="file-input">
+                    Seleccionar archivo CSV
+                </label>
+
+                <div class="uploaded-file-container">
+                    <h3>Archivo seleccionado:</h3>
+                    <div class="file-display">
+                        <i class="fas fa-file-csv"></i>
+                        <p id="file-selected">Ningún archivo seleccionado</p>
+                    </div>
+                </div>
+
+                <div class="csv-example">
+                    <h3>Formato esperado:</h3>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Tipo Doc</th>
+                            <th>Doc</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Fecha de Colaboración</th>
+                            <th>Tipo de Colaboración</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <select class="select-muestra-formato" id="formato-tipo-doc">
+                                    <option value="1">DNI</option>
+                                    <option value="2">LE</option>
+                                    <option value="3">LC</option>
+                                </select></td>
+                            <td>12345678</td>
+                            <td>Juan</td>
+                            <td>Pérez</td>
+                            <td>18/12/2022</td>
+                            <td>
+                                <select class="select-muestra-formato" id="formato-donaciones">
+                                    <option value="1">DONACION_VIANDAS</option>
+                                    <option value="2">DINERO</option>
+                                    <option value="3">REDISTRIBUCION_VIANDAS</option>
+                                    <option value="3">ENTREGA_TARJETAS</option>
+                                </select>
+                            </td>
+                            <td>5</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="download-example">
+                        <button id="download-example-csv">Descargar archivo CSV de ejemplo</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="actions" id="actions-container">
+                <button class="btn primary">Iniciar Migración</button>
+                <button class="btn secondary">Cancelar</button>
+            </div>
+
+            <div class="progress-bar-container" id="barra-progreso-container">
+                <div class="progress-bar"></div>
+            </div>
+        </section>
+
+    </main>
+
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/importarColaboraciones/importarColaboraciones.js" charset="utf-8"></script>
+{{/partial}}
+
+{{>templates/bases/base_admin}}

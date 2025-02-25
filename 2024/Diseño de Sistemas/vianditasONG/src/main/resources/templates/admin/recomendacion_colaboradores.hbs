@@ -1,0 +1,55 @@
+
+{{#partial  "estilos-contenido-pagina"}}
+    <link href = "https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/visualizarColaboradores.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Recomendacion colaboraciones</title>
+{{/partial}}
+
+
+{{#partial "contenido-pagina"}}
+    <main>
+        <section class="seccion-visualizarColaboradores">
+            <h2>Recomendar Colaboradores</h2>
+
+            <div class="results">
+                <table id="tabla-colaboradores">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Puntos</th>
+                        <th>Fecha de registro</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each colaboradores}}
+                        <tr data-id="{{this.id}}" data-tipo="{{this.tipo}}" >
+                            <td>
+                                <i class="select-icon" style="cursor: pointer;"></i> {{this.nombre}}
+                            </td>
+                            <td>{{this.usuario}}</td>
+                            <td>{{this.puntos}}</td>
+                            <td>{{this.fecha_registro}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+
+                <div class="actions">
+                    <button class="btn primary" id="recomendar-btn">Realizar recomendación</button>
+                </div>
+                <div class="selected-message"></div>
+            </div>
+        </section>
+    </main>
+
+{{/partial}}
+
+{{#partial "js-contenido-pagina"}}
+    <script src="https://cdn.datatables.net/2.1.6/js/dataTables.min.js"></script>
+    <script src="/js/admin/recomendarColaboradores/recomendarColaboradores.js"></script>
+{{/partial}}
+
+{{>templates/bases/base_admin}}

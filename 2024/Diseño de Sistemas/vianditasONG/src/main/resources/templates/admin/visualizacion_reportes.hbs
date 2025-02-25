@@ -1,0 +1,72 @@
+
+{{#partial  "estilos-contenido-pagina"}}
+    <link rel="stylesheet" href="/css/admin/visualizarReportes.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href = "https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.min.css" rel="stylesheet">
+
+    <title>Visualizar Reportes</title>
+{{/partial}}
+
+
+{{#partial "contenido-pagina"}}
+<main>
+    <section class="seccion-visualizarReportes">
+        <h2>Visualizar Reportes</h2>
+
+        <div class="csv-example">
+            <h3>Filtros de búsqueda</h3>
+        </div>
+
+        <div class="filters">
+            <label for="tipo-reporte">Tipo de Reporte</label>
+            <select id="tipo-reporte">
+                <option value="">Seleccione un tipo</option>
+                <option value="falla">Fallas por heladera</option>
+                <option value="viandas-donadas-retiradas">Viandas Donadas/Retiradas por heladera</option>
+                <option value="viandas-donadas-colab">Viandas Donadas por colaborador</option>
+            </select>
+
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha">
+
+            <div class="actions">
+                <button class="btn primary">Filtrar</button>
+            </div>
+        </div>
+
+        <div class="results">
+            <table id="tabla-reportes">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo de Reporte</th>
+                    <th>Fecha de realización</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each reportes}}
+                <tr data-tipo="{{this.tipoReporte}}" data-fecha="{{this.fecha}}">
+                    <td>
+                        <a href="/{{this.rutaPDF}}" target="_blank">
+                            <i class="fas fa-file-pdf"></i> {{this.nombre}}
+                        </a>
+                    </td>
+                    <td>{{this.leyenda}}</td>
+                    <td>{{this.fecha}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+{{/partial}}
+
+{{#partial "js-contenido-pagina"}}
+    <script src="/js/admin/filtrarReportes.js"></script>
+    <script src="https://cdn.datatables.net/2.1.6/js/dataTables.min.js"></script>
+{{/partial}}
+
+{{>templates/bases/base_admin}}

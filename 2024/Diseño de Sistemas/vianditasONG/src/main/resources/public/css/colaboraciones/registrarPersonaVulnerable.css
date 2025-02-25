@@ -1,0 +1,49 @@
+#formularios-menores-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.formulario-menor {
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 3%;
+}
+
+.formulario-menor h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #0c9db3;
+    margin-bottom: 20px;
+}
+
+.formulario-menor .grid-item {
+    margin-bottom: 20px;
+}
+
+.formulario-menor label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: #555;
+}
+
+.formulario-menor .text-input,
+.formulario-menor .select-input,
+.formulario-menor .fecha-input {
+    width: 97%;
+    background-color: #b9ecf4;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+}

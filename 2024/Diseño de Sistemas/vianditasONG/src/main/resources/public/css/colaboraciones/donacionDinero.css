@@ -1,0 +1,11 @@
+.grid-item input[type="text"],
+input[type="date"],
+select {
+    cursor: text;
+    background: #e0fbff;
+}
+
+
+.form-container {
+    width: 65%;
+}

@@ -1,0 +1,53 @@
+{{#partial "contenido-pagina"}}
+
+    {{#block "contenido-subpagina"}}
+
+    {{/block}}
+
+    <dialog id="pop-up-envio-registro">
+
+        <div class="pop-up-container-interior" id="pop-up-registro-interior">
+            <img class="logo-pop-up-bienvenido" src="/img/login/logo.png" alt="logo VianditasONG">
+            <h2> ¡Formulario enviado con éxito!</h2>
+            <P class="parrafo-pop-up" id="ultimo-paso-p"> Ahora solo falta un último paso: crea tu cuenta eligiendo un nombre de usuario y estableciendo una contraseña segura. </P>
+
+            <div class="grid-item-pop-up">
+                <label for="usuario-input" class="label-pop-up">Nombre de usuario </label>
+                <input id="usuario-input" onblur="validarNombreUsuario()" oninput="borrarErrorNombreUsuarioExistente()" class="input-pop-up" type="text" name="username" value="" class="text-input">
+            </div>
+
+            <div class="grid-item-pop-up">
+                <label for="contra-input" class="label-pop-up">Contraseña </label>
+                <div class="input-icon">
+                    <input id="contra-input" class="input-pop-up" onblur="validarPassword()" oninput="borrarErrorPasswordInvalida(); validarCoincidencia(); " class="text-input" type="password" name="password" required>
+                    <i class="fas fa-eye icono-ojo" id="toggle-password"></i>
+                </div>
+            </div>
+
+            <div class="grid-item-pop-up">
+                <label for="contra-confirm-input" class="label-pop-up">Confirmar contraseña </label>
+                <div class="input-icon">
+                    <input id="contra-confirm-input" class="input-pop-up" oninput="validarCoincidencia()" class="text-input" type="password" name="password" required>
+                    <i class="fas fa-eye icono-ojo" id="toggle-password-confirm"></i>
+                </div>
+            </div>
+
+            <button id="boton-registrarse" onclick="crearCuenta()" class="btn-registrado-desactivado" disabled> Registrarse</button>
+        </div>
+
+    </dialog>
+
+    <dialog id="pop-up-bienvenido">
+
+        <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+            <img id="logo-pop-up-bienvenido" src="/img/login/logo.png" alt="logo VianditasONG">
+            <h2> ¡Bienvenido a VIANDITAS ONG!</h2>
+            <P class="parrafo-pop-up"> Te notificaremos por el medio de contacto proporcionado una vez que tu cuenta haya sido activada. Gracias por colaborar y ayudar a construir un mundo mejor. </P>
+
+            <nav> <a href="/logout" class="pop-up-btn"> Volver al inicio  </a></nav>
+        </div>
+
+    </dialog>
+{{/partial}}
+
+{{>templates/bases/base_sin_usuario}}

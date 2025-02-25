@@ -1,0 +1,55 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="/css/colaboraciones/heladerasACargo.css">
+    <title>Heladeras a Cargo</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-personaJuridica">
+            <img src="/img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+{{#partial "contenido-pagina-colaborador"}}
+    <main>
+        <section class="heladeras-content">
+            <h3>Heladeras a Cargo</h3>
+            <div class="heladeras-list" id="heladerasList">
+                {{#each heladeras}}
+                    <div class="heladera-item">
+                        <div class="heladera-header">
+                            <h4>{{this.nombre}}</h4>
+                        </div>
+                        <div class="heladera-body">
+                            <p><strong>ID Heladera:</strong> {{this.heladeraId}}</p>
+                            <p><strong>Ubicación:</strong> {{this.direccion}}</p>
+                            <p><strong>Estado:</strong> {{this.estado}}</p>
+                            <p><strong>Fecha de colocación:</strong> {{this.fechaColocacion}}</p>
+                            <button class="ver-incidentes-btn" data-heladera-id="{{this.heladeraId}}">Ver incidentes</button>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+
+        <div id="popup-incidentes" class="popup">
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <h3>Incidentes de la Heladera</h3>
+                <div id="incidentes-list">
+                    <!-- Los incidentes se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </main>
+{{/partial}}
+
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="/js/colaboraciones/heladerasACargo.js"></script>
+{{/partial}}
+
+{{> templates/bases/base_colaborador}}
+
+

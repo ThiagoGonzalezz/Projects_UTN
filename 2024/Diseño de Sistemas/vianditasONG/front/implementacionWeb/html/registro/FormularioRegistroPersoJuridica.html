@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/reset.css">
+        <link rel="stylesheet" href="../../css\registro\formulariosRegistro.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/usuarioNoLoggeado/header.css">
+        <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Formulario Registro Persona Jurídica</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container-header">
+                <div class="header-left">
+                    <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                    <h1>Vianditas ONG</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../login/login.html">Inicio</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="main-container">
+
+            <div class="form-container">
+            
+                <div class="form-title-container">
+                    <h3>Registro Persona Jurídica</h3>
+
+                    <nav>
+                        <a href="FormularioRegistroHumano.html" class="nav-btn"> IR A REGISTRO PERSONA HUMANA </a>
+                    </nav>
+                
+                </div>
+
+                <div class = "form-y-envio-container">
+
+                <form class="" id="registro-form" action="index.html" method="post">
+                    <div class="grid-item">
+                        <label for="razon-social">Razon social *</label>
+                        <input id="razon-social" type="text" name="" value="" placeholder="Ingrese la razón social" class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="rubro" >Rubro *</label>
+                        <input type="text" id="rubro" name="" value="" placeholder="Ingrese el rubro" class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="tipo-org">Tipo de organización *</label>
+                        <select id="tipo-org" name="tipo-de-organizacion" required>
+                            <option value="-1" disabled selected class="opcion-placeholder">Seleccione el tipo de organización </option>
+                            <option value="1">Gubernamental</option>
+                            <option value="2">ONG</option>
+                            <option value="3">Empresa</option>
+                            <option value="4">Institución</option>
+                            </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="prov">Provincia <div class="modalidad-domicilio">*</div> </label>
+                        <select id="prov" name="provincia" class="input-domicilio">
+                            <option value="-1" disabled selected class="opcion-placeholder">Seleccione la provincia del domicilio </option>
+                            <option value="1">Buenos Aires</option>
+                            <option value="2">CABA</option>
+                            <option value="3">Catamarca</option>
+                            <option value="4">Chaco</option>
+                            <option value="5">Chubut</option>
+                            <option value="6">Córdoba</option>
+                            <option value="7">Corrientes</option>
+                            <option value="8">Entre Ríos</option>
+                            <option value="9">Formosa</option>
+                            <option value="10">Jujuy</option>
+                            <option value="11">La Pampa</option>
+                            <option value="12">La Rioja</option>
+                            <option value="13">Mendoza</option>
+                            <option value="14">Misiones</option>
+                            <option value="15">Neuquén</option>
+                            <option value="16">Río Negro</option>
+                            <option value="17">Salta</option>
+                            <option value="18">San Juan</option>
+                            <option value="19">San Luis</option>
+                            <option value="20">Santa Cruz</option>
+                            <option value="21">Santa Fe</option>
+                            <option value="22">Santiago del Estero</option>
+                            <option value="23">Tierra del Fuego</option>
+                            <option value="24">Tucumán</option>
+                            </select>
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="localidad">Localidad <div class="modalidad-domicilio">*</div></label>
+                        <input type="text" id="localidad" name="" class="input-domicilio" value="" placeholder="Ingrese la localidad del domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="calle">Calle <div class="modalidad-domicilio">*</div></label>
+                        <input type="text" name="" id="calle" class="input-domicilio" value="" placeholder="Ingrese la calle del domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="altura" >Altura <div class="modalidad-domicilio">*</div></label>
+                        <input type="text" id="altura" class="input-domicilio" name="" value="" placeholder="Ingrese la altura del domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="formas-de-colaboracion">Formas de colaboración *</label>
+                            <div id = "colaboraciones-container">
+                                <div class="colab-container">
+                                    <select id="formas-de-colaboracion" name="formas-de-colaboracion[]" required onchange="actualizarOpcionesColab()">
+                                    <option value="-1" disabled selected class="opcion-placeholder">Seleccione un tipo de colaboración </option>
+                                    <option value="1">Donación de dinero</option>
+                                    <option value="2">Hacerse cargo de una heladera</option>
+                                    <option value="3">Oferta de productos y servicios</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <button type="button" id="colab-add-btn" onclick="addFormaColab()" class="btn-secundario">Agregar forma de colaboracion </button>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="contactos-select">Contactos *</label>
+                        <div id="contactos-container">
+                            <div class="contacto-container">
+                                <select id="contactos-select" name="tipo-contacto[]" onchange="updatePlaceholder(this)" required>
+                                    <option value="-1" disabled selected class="opcion-placeholder">Seleccione el tipo de contacto </option>
+                                    <option value="1">Telegram</option>
+                                    <option value="2">WhatsApp</option>
+                                    <option value="3">Email</option>
+                                </select>
+                                <input id="contactos-input-principal" type="text" name="contacto[]" placeholder="Ingrese el contacto" class="text-input-contactos">
+                            </div>
+                        </div>
+                        <button type="button" id="contact-add-btn" onclick="addContact()" class="btn-secundario">Agregar contacto </button>
+                    </div>
+
+                </form>
+
+                <div class = footer-form id="footer-form-container">
+
+                    <div id = "aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+
+                    <div id="btn-envio-form-container">
+                        <button type="button" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar formulario</button>
+                    </div>
+                </div>
+            </div>        
+                
+
+            </div>
+
+            </div>
+        </div>
+
+        <dialog id="pop-up-envio-registro">
+
+            <div class="pop-up-container-interior" id="pop-up-registro-interior">
+                <img class="logo-pop-up-bienvenido" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h2> ¡Formulario enviado con éxito!</h2>
+                <P class="parrafo-pop-up" id="ultimo-paso-p"> Ahora solo falta un último paso: crea tu cuenta eligiendo un nombre de usuario y estableciendo una contraseña segura. </P>
+
+                <div class="grid-item-pop-up">
+                    <label for="usuario-input" class="label-pop-up">Nombre de usuario </label>
+                    <input id="usuario-input" oninput="validarNombreUsuario()" class="input-pop-up" type="text" name="" value="" class="text-input">
+                </div>
+
+                <div class="grid-item-pop-up">
+                    <label for="contra-input" class="label-pop-up">Contraseña </label>
+                    <div class="input-icon">
+                        <input id="contra-input" class="input-pop-up" oninput="validarPassword()" class="text-input" type="password" name="password" required>
+                        <i class="fas fa-eye icono-ojo" id="toggle-password"></i>
+                    </div>
+                </div>
+
+                <div class="grid-item-pop-up">
+                    <label for="contra-confirm-input" class="label-pop-up">Confirmar contraseña </label>
+                    <div class="input-icon">
+                        <input id="contra-confirm-input" class="input-pop-up" oninput="validarCoincidencia()" class="text-input" type="password" name="password" required>
+                        <i class="fas fa-eye icono-ojo" id="toggle-password-confirm"></i>
+                    </div>
+                </div>
+
+                <button id="boton-registrarse" onclick="crearCuenta()" class="btn-registrado-desactivado" disabled> Registrarse</a></button>
+            </div>
+
+        </dialog>
+
+        <dialog id="pop-up-bienvenido">
+
+            <div class="pop-up-container-interior" id="pop-up-bienvenido-interior">
+                <img id="logo-pop-up-bienvenido" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h2> ¡Bienvenido a VIANDITAS ONG!</h2>
+                <P class="parrafo-pop-up"> Te notificaremos por el medio de contacto proporcionado una vez que tu cuenta haya sido activada. Gracias por colaborar y ayudar a construir un mundo mejor. </P>
+
+                <nav> <a href="../login/login.html" class="pop-up-btn"> Volver al inicio  </a></nav>
+            </div>
+
+        </dialog>
+        
+        <footer>
+            <div class="footer-content">
+                <h2>Contáctanos</h2>
+                <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en comunicarte.</p>
+            </div>
+            <div class="nuestros-contactos-container">
+                <div class="contacto-nuestro">
+                    <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                    <div class="contact-info">
+                        <h3>Teléfono</h3>
+                        <p>+54 9 11 3808 5884</p>
+                    </div>
+                </div>
+                <div class="contacto-nuestro">
+                    <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                    <div class="contact-info">
+                        <h3>Mail</h3>
+                        <p>vianditasONG@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>
+
+<script src="../../js\registro\formulariosRegistro\preconfiguracion.js" charset="utf-8"> </script>
+<script src="../../js\registro\formulariosRegistro\navegabilidadFormHumano.js" charset="utf-8"> </script>
+<script src="../../../../src/main/resources/public/js/registro/envioForm.js"></script>
+<script src="../../../../src/main/resources/public/js/registro/popUpsUserSignUp.js"></script>

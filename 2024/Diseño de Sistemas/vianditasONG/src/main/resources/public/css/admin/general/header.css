@@ -1,0 +1,90 @@
+/* ------------------------------------------------------------------------------------------
+// -- Header --
+// -----------------------------------------------------------------------------------------*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f6efd8 25%, #ff9900 100%);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+     display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+}
+
+header {
+    background-color: #262626;
+    padding: 1.5rem 2rem;
+    color: #ffffff;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.3); /* Aumentado el sombreado */
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px; /* Ampliar la altura del header */
+    overflow: hidden;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+#logo-header {
+    height: 60px; /* Ajusta la altura del logo si es necesario */
+    width: auto;
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+header h1 {
+    font-family: 'Exo', sans-serif; /* Cambiar la fuente a Exo */
+    font-size: 2rem; /* Aumentar el tamaño de la fuente */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    flex-grow: 1;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 30px;
+    filter: invert(1);
+}
+
+.nav-item img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-item p {
+    display: none; /* Ocultar las palabras debajo de los íconos */
+}
+
+.circular-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+#user-profile{
+    filter: none;
+    color: #262626;
+}
+
+#user-profile img{
+width: 40px;
+height: 40px;
+}

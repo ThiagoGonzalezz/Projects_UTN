@@ -1,0 +1,719 @@
+/* ------------------------------------------------------------------------------------------
+// -- Body --
+// -----------------------------------------------------------------------------------------*/
+
+body {
+    background-color: #e4e2e2;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    width: 70%;
+}
+
+.form-y-envio-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2vw;
+}
+
+.form-y-envio-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.form-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4vw;
+}
+
+.form-title-container h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 2vw;
+    color: #0c9db3;
+    margin-top: 2.5vw;
+}
+
+.nav-btn {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    color: #0c9db3;
+    background-color: linear-gradient(135deg, #f6efd8 25%, #ff9900 100%);
+    border: 1px solid #0c9db3;
+    border-radius: 20px;
+    font-size: 10px;
+    padding: 10px 25px 10px 25px;
+    margin-top: 2vw;
+    margin-left: 2vw;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    color: #0c9db3;
+    background-color: #e4e2e2;
+    border: 1px solid #0c9db3;
+    border-radius: 20px;
+    font-size: 10px;
+    padding: 10px 25px 10px 25px;
+    margin-top: 2vw;
+    margin-left: 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.nav-btn:hover {
+    border: 2px solid #0c9db3;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 15px;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: auto auto auto;
+    margin-top: 45px;
+    margin-bottom: 15px;
+    padding: 5%;
+}
+
+.grid-item label {
+    display: block;
+    margin-bottom: 10px;
+    align-self: center;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-size: 75%;
+}
+
+.grid-item .text-input {
+    width: 100%;
+    background-color: #020607;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 75%;
+    outline: none;
+}
+
+.radio-item {
+    display: inline-block;
+}
+
+.radio-item input,
+.radio-item label {
+    display: inline-block;
+    font-size: 75%;
+}
+
+.grid-item select {
+    width: 100%;
+    background-color: #e4e2e2;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 75%;
+    cursor: pointer;
+    outline: none;
+    placeholder: gray
+}
+
+.grid-item select::placeholder {
+    color: gray;
+}
+
+.grid-item select::-ms-expand {
+    display: none;
+}
+
+.grid-item .select-container {
+    position: relative;
+}
+
+.grid-item input[type="text"],
+input[type="date"],
+input[type="checkbox"],
+select {
+    width: 90%;
+    background-color: #b9ecf4;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 75%;
+    cursor: pointer;
+    outline: none;
+}
+
+#contactos-container {
+    background-color: #b9ecf4;
+    border-radius: 20px;
+    padding: 10px;
+    width: 90%;
+}
+
+.btn-secundario {
+    color: #0c9db3;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.grid-item select{
+color: grey;
+}
+
+.btn-secundario:hover {
+    color: #087a8d;
+    transform: scale(1.05);
+}
+
+.modalidad-domicilio {
+    display: none;
+}
+
+#fecha-caducidad {
+    width: 200px;
+}
+
+#colaboraciones-container {
+    background-color: #b9ecf4;
+    border-radius: 20px;
+}
+
+
+#tipo-de-documento {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tipo-de-documento-container {
+    width: 95%;
+}
+
+
+/* Ocultar el input de tipo file */
+.file-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Estilos para el label que actúa como botón */
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    margin-top: 10px
+}
+
+.file-label:hover {
+    background-color: #cc7a00;
+}
+
+#btn-envio-form {
+    justify-self: end;
+    background-color: #ff9900;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+}
+
+#btn-envio-form:hover {
+    background-color: #ffae34;
+    transform: scale(1.05);
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#aclaracion-obligatoriedad {
+    margin-top: 5%;
+    color: #0c9db3;
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-size: 90%;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------
+// -- Errores formulario --
+// -----------------------------------------------------------------------------------------*/
+
+/* Estilo para el borde y el texto del input en caso de error */
+.input-error {
+    border: solid 3px red;
+    color: red;
+}
+
+.input-error::placeholder {
+    color: red;
+}
+
+/* Estilo del mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: -35px;
+    margin-left: 90px;
+}
+
+/* Estilo del icono de error */
+.icono-error {
+    margin-right: 5px;
+    color: red;
+    font-size: 0.8rem;
+}
+
+.label-error {
+    color: red;
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Pop ups formulario exitoso --
+// -----------------------------------------------------------------------------------------*/
+
+#pop-up-bienvenido {
+    border: none;
+    align-items: center;
+    border-radius: 20px;
+    align-content: center;
+    background-color: #0c9db3;
+}
+
+.pop-up-container-interior {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+dialog img {
+    height: 12vw;
+    width: auto;
+    align-self: center;
+    margin-top: 0px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog .pop-up-btn {
+    background-color: #ff9900;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border: none;
+    text-decoration: none;
+    align-self: center;
+    border-radius: 50px;
+    max-width: 20vw;
+    min-width: 20vw;
+}
+
+dialog h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    max-width: 40vw;
+    min-width: 40vw;
+    text-align: center;
+    color: #ff9900;
+    font-size: 25px;
+    margin-top: -2vw;
+    margin-bottom: 1vw;
+}
+
+dialog p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #0c9db3;
+    font-size: 15px;
+    max-width: 30vw;
+    min-width: 30vw;
+    align-self: center;
+    text-align: center;
+}
+
+dialog nav {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    border: 10px solid #ff9900;
+    border-radius: 30px;
+}
+
+dialog nav a {
+    align-self: center;
+}
+
+dialog nav:hover {
+    background-color: #ffae34;
+    transform: scale(1.05);
+}
+
+/*/////////////////////////////////////////////////////////////////*/
+
+#pop-up-envio-registro {
+    border: none;
+    align-items: center;
+    border-radius: 20px;
+    align-content: center;
+    background-color: #0c9db3;
+    min-height: 40vw;
+    max-height: 60vw;
+}
+
+.pop-up-btn {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    border: 10px solid #ff9900;
+    border-radius: 30px;
+    min-height: 3vw;
+    max-height: 3vw;
+    min-width: 3vw;
+    max-width: 3vw;
+    cursor: pointer;
+}
+
+dialog button:hover {
+    background-color: #ffae34;
+    transform: scale(1.05);
+}
+
+.label-pop-up {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ff9900;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.input-pop-up {
+    width: 100%;
+    background: #b9ecf4;
+    border: solid 1.5px #e2e2e2;
+    font-size: 1rem;
+    padding: 10px 10px 10px 0px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s ease-in-out;
+    max-width: 300px;
+    min-width: 300px;
+    position: relative;
+}
+
+.input-pop-up:focus {
+    border-color: #ff9900;
+    outline: none;
+}
+
+#ultimo-paso-p {
+    margin-bottom: 2vw;
+}
+
+.input-error-cuenta {
+    border: solid 1px red;
+    color: red;
+    margin-left: 2.8vw;
+}
+
+.input-error-cuenta:focus {
+    border-color: red;
+    outline: none;
+}
+
+.label-error-cuenta {
+    color: red;
+    margin-left: 2.8vw;
+}
+
+
+.mensaje-error-password-confirm-invalida,
+.mensaje-error-password-invalida,
+.mensaje-error-usuario-existente {
+    color: red;
+    font-size: 10px;
+    align-self: center;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+.icono-error-pop-up {
+    color: red;
+    font-size: 0.7rem;
+    margin-left: 2.8vw;
+}
+
+#texto-contra-invalida {
+    max-width: 300px;
+}
+
+.icono-ojo {
+    cursor: pointer;
+    color: #ff9900;
+    position: absolute;
+    left: 71.5%;
+    margin-top: 10px;
+}
+
+.icono-ojo-error {
+    color: red;
+}
+
+.btn-registrado-desactivado {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    align-self: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #ffffff;
+    border: 10px solid #d3966d;
+    background-color: #d3966d;
+    border-radius: 30px;
+    min-height: 3vw;
+    max-height: 3vw;
+    min-width: 50%;
+    max-width: 50%;
+    cursor: default;
+}
+
+
+.btn-registrado-desactivado:hover {
+    transform: scale(1);
+    background-color: #d3966d;
+}
+
+/*//////////////////////SELECT2//////////////////////*/
+
+/* General input, select and select2 styling */
+.grid-item select,
+.grid-item input[type="text"],
+.grid-item input[type="NUMBER"],
+.select2-container .select2-selection--single {
+    width: 100%;
+    background-color: #b9ecf4;
+    border: none;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    line-height: normal; /* Establecer line-height consistente */
+}
+
+.grid-item input[type="date"]{
+  min-height: 22px;
+  font-size: 14px;
+  color: grey;
+}
+
+/* Asegura que el select y input tengan la misma altura */
+.grid-item select,
+.grid-item input[type="text"],
+.grid-item input[type="NUMBER"],
+.select2-container .select2-selection--single {
+    height: 42px; /* Altura unificada para todos */
+}
+
+/* Estilos específicos para select2 para que coincidan con los select e input normales */
+.select2-container .select2-selection--single {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    max-height: 100%;
+    outline: none;
+}
+
+/* Ícono de "clear" */
+.select2-selection__clear {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    font-size: 14px; /* Aumenta el tamaño de la cruz */
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Flecha de selección del select2 ajustada */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    width: auto;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+/* Placeholder y texto del select2 ajustados */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 14px; /* Asegura que el font-size sea consistente */
+    padding: 0 10px;
+    line-height: 1.5; /* Ajusta para centrar verticalmente */
+    text-align: left;
+    border:none;
+    outline: none;
+}
+
+/* Opciones dentro del dropdown del select2 */
+.select2-container--default .select2-results__option {
+    background-color: #e4e2e2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Asegura que las opciones tengan el mismo tamaño de texto */
+    line-height: 1.5;
+    background-color: #e4e2e2;
+    border:none;
+    outline: none;
+}
+
+/* Input de búsqueda dentro del dropdown del select2 */
+.select2-search.select2-search--dropdown .select2-search__field {
+    font-size: 14px; /* Asegura el tamaño de fuente igualado */
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.select2-search.select2-search--dropdown{
+    background-color: #e4e2e2;
+    outline: none;
+}
+
+/* Opciones del dropdown */
+.select2-container--default .select2-results__option {
+    background-color: #e4e2e2;
+}
+
+/* Opción destacada en hover */
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #c2c2c2;
+    color: #333;
+}
+
+/* Fondo del dropdown */
+.select2-container--default .select2-dropdown {
+    background-color: #e4e2e2;
+    border: none;
+}
+
+/* Barra de búsqueda dentro del dropdown */
+.select2-search.select2-search--dropdown .select2-search__field {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+}
+
+/* Placeholder de la barra de búsqueda */
+.select2-search--dropdown .select2-search__field::placeholder {
+    color: gray;
+}
+
+/* Efecto de focus en la barra de búsqueda */
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+    border: none;
+    outline: none;
+}
+
+.grid-item option{
+color: black;
+}
+.grid-item option:disabled{
+color: grey;
+}
+
+
+/*/////////////////////////////////////////////////////////////*/
+
+/* Estilo para selects nativos */
+.input-error {
+    border: 2px solid red; /* Borde rojo para inputs y selects con error */
+}
+
+/* Estilo para labels en error */
+.label-error {
+    color: red; /* Cambiar el color del label a rojo */
+}
+
+.select2-error .select2-selection__placeholder {
+      color: red !important;
+}
+
+.select2-error .select2-search__field::placeholder {
+      color: red !important;
+}

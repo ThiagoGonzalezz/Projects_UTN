@@ -1,0 +1,212 @@
+
+.chat-container {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: scale(0); 
+}
+
+.chat-container.show {
+    display: block;
+    transform: scale(1); 
+}
+
+.chat-header {
+    background-color: #262626;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    border-bottom: 2px solid #262626;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#close-chat {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+}
+
+.chat-body {
+    padding: 15px;
+    height: calc(100% - 60px); 
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+#no-notifications {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin: 0;
+}
+
+
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Ocultar el modal inicialmente */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    animation: fadeIn 0.3s ease-in-out; /* Animación de aparición */
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto; /* Centrarse verticalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Botón de aceptar */
+.modal-button {
+    background-color: #262626;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.modal-button:hover {
+    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+@keyframes highlight {
+    0% { background-color: #ffff99; }
+    100% { background-color: transparent; }
+}
+
+.notification {
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+.notification-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.notification-content {
+    font-weight: 400;
+}
+
+
+#notifications .notification-dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: none; 
+}
+
+
+/*Cerrar sesión*/
+.modal-buttons {
+    display: flex;
+    justify-content: center; /* Centrar los botones */
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio sobre los botones */
+    width: 100%;
+}
+
+/* Estilo de los botones */
+.modal-button {
+    background-color: #0c9db3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Asegura que los botones tengan un tamaño apropiado */
+}
+
+/* Botón Confirmar */
+.modal-button.confirm {
+    background-color: #2d2d29;
+}
+
+.modal-button.confirm:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+}
+
+/* Botón Cancelar */
+.modal-button.cancel {
+    background-color: white; /* Fondo blanco */
+    color: #000000; /* Letra celeste */
+    border: 2px solid #000000; /* Borde celeste */
+}
+.modal-button.cancel:hover {
+    background-color: #ffffff; /* Fondo celeste claro al hacer hover */
+    color: #000000; /* Letra más oscura al pasar el mouse */
+    border-color: #000000; /* Borde más oscuro al hacer hover */
+    transform: scale(1.05);
+}
+.modal-content {
+    max-height:130px;
+}

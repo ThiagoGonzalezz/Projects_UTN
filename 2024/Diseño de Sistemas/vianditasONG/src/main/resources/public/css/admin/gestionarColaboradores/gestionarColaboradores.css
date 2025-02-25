@@ -1,0 +1,589 @@
+/* ------------------------------------------------------------------------------------------
+// -- Main Section --
+// -----------------------------------------------------------------------------------------*/
+.seccion-visualizar-colaboradores {
+    padding: 2rem;
+    max-width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: 6vw;
+}
+
+.seccion-visualizar-colaboradores:hover{
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.seccion-visualizar-colaboradores h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.seccion-visualizar-colaboradores p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.seccion-visualizar-colaboradores h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 1.4rem;
+    text-align: left;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------
+// -- Actions --
+// -----------------------------------------------------------------------------------------*/
+
+.actions {
+    margin-top: 1rem;
+}
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+    margin-left: 25%;
+}
+
+.btn.primary {
+    background-color: #e68a00;
+    color: #fff;
+}
+
+.btn.primary:hover{
+    transform: scale(1.05);
+}
+
+/* Contenedor para alinear los iconos en columna */
+.icon-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Espacio entre iconos */
+}
+
+/* Estilo general de los botones */
+.icon-button {
+    border: none;
+    background: none;
+    font-size: 24px; /* Tamaño de los iconos */
+    cursor: pointer;
+}
+
+/* Colores específicos para cada acción */
+.icon-button.edit {
+    color: green;
+}
+
+.icon-button.delete {
+    color: red;
+}
+
+.icon-button.form {
+    color: rgb(255, 145, 0);
+}
+
+.icon-button.edit:hover {
+    color: rgb(3, 81, 3);
+}
+
+.icon-button.delete:hover {
+    color: rgb(174, 4, 4);
+}
+
+.icon-button.form:hover{
+    color: rgb(213, 122, 3);
+}
+
+
+
+/* ------------------------------------------------------------------------------------------
+// -- Results --
+// -----------------------------------------------------------------------------------------*/
+
+.results {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto; /* Añade scroll horizontal si el contenido se desborda */
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.results table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Permite que las columnas se ajusten automáticamente */
+}
+
+.results th,
+.results td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #262626;
+    word-wrap: break-word; /* Asegura que el texto se ajuste dentro de cada celda */
+}
+
+.results th {
+    background-color: #262626;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.results td li{
+    white-space: nowrap;
+}
+
+.results tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.results tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Elimina display:block y max-height para evitar el desajuste */
+.results tbody {
+    overflow-y: auto;
+}
+
+.results tbody::-webkit-scrollbar {
+    width: 10px;
+}
+
+.results tbody::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1;
+    border-radius: 5px;
+    border: 2px solid #f9f9f9;
+}
+
+.results tbody::-webkit-scrollbar-thumb:hover {
+    background-color: #808080;
+}
+
+.results tbody::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Estilo del mensaje de error */
+.mensaje-error {
+    color: red;
+    font-size: 0.875rem;
+}
+
+/* Estilo del icono de error */
+.icono-error {
+    color: red;
+    font-size: 1rem;
+}
+
+.fas.fa-file-pdf {
+    color: #1A1A1A;
+    margin-right: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #002ead;
+}
+
+.chat-header h2 {
+    color: #f9f9f9;
+}
+
+#tabla-colaboradores {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#tabla-colaboradores th,
+#tabla-colaboradores td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#tabla-colaboradores tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* Limita el ancho del scroll horizontal al contenedor */
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+    max-width: 100%; /* Asegura que no se desborde el contenedor */
+}
+
+#tabla-colaboradores {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+}
+
+.fila-blanca {
+    background-color: white !important; /* Color blanco */
+}
+.fila-gris {
+    background-color: #f5f5f5 !important; /* Color gris claro */
+}
+
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+    max-width: 100%; /* Asegura que no se desborde el contenedor */
+    position: relative; /* Para posicionar elementos dentro de este contenedor */
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    position: sticky !important; /* Fija la posición al desplazarse */
+    top: 0 !important; /* Fija al borde superior */
+    background: white !important; /* Fondo blanco para que se vea claro */
+    z-index: 1000 !important; /* Asegura que estos elementos se muestren sobre otros */
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Alternar entre humanos y PJs --
+// -----------------------------------------------------------------------------------------*/
+
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:50px;
+    margin-bottom: 0px;
+}
+
+.toggle-label {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #fdb14c, #ff9900);
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background: linear-gradient(135deg, #4aeeee, #0c9db3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+/* ------------------------------------------------------------------------------------------
+// -- Pop ups formulario respondido --
+// -----------------------------------------------------------------------------------------*/
+
+/* Estilos para el diálogo */
+dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    z-index: 1000;
+}
+
+dialog[open]{
+    display:flex;
+}
+
+
+#pop-up-formulario {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pop-up-container-interior {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ff9900; /* Borde anaranjado */
+}
+
+.pop-up-container-interior h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #ff9900;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#respuestas {
+    width: 100%;
+    width: 100%;
+    max-height: 300px; /* Altura máxima para el contenedor de respuestas */
+    overflow-y: auto; /* Activa el scroll vertical */
+    padding-right: 10px;
+}
+
+#respuestas::-webkit-scrollbar {
+    width: 8px;
+}
+
+#respuestas::-webkit-scrollbar-thumb {
+    background-color: #ff9900; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 10px;
+}
+
+#respuestas::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+    border-radius: 10px;
+}
+
+.respuesta {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pregunta {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #262626;
+    font-size: 16px;
+}
+
+.respuesta-detalle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #555555;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.cerrar-boton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #ff9900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cerrar-boton:hover {
+    background-color: #e08500;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*///////////////////////RECHAZAR POP UP/////////////////*/
+
+.cancelar-boton, .confirmar-boton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelar-boton {
+    background-color: #d12222; 
+    color: white;
+}
+
+.confirmar-boton {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.cancelar-boton:hover {
+    background-color: #b91f1f; 
+}
+
+.confirmar-boton:hover {
+    background-color: #429645; 
+}
+
+
+#pop-up-rechazo label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+#pop-up-rechazo textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Cambiado a un gris más suave */
+    border-radius: 5px;
+    resize: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9; /* Color de fondo más suave */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el placeholder */
+#pop-up-rechazo  textarea::placeholder {
+    color: #888; /* Color gris más suave para el placeholder */
+    opacity: 1; /* Asegura que el placeholder sea visible */
+}
+
+#pop-up-rechazo textarea:focus {
+    outline: none; /* Elimina el contorno predeterminado */
+}
+
+
+/*/////////////////////// POP UP CONFIRMACIONES ////////////////*/
+.pop-up-confirmacion-accion .pop-up-container-interior {
+    width: 90%;
+    max-width: 420px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 2px solid #ff9900; /* Borde anaranjado */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); /* Sombra más suave y difusa */
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.pop-up-confirmacion-accion h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    color: #ff9900; /* Color anaranjado para destacar el título */
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pop-up-confirmacion-accion .detalles {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.6; /* Más espaciado entre líneas para mayor legibilidad */
+}
+
+.pop-up-confirmacion-accion .detalles p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #444; /* Color más suave para el texto */
+    margin: 8px 0;
+}
+
+.pop-up-confirmacion-accion #nombre-colaborador strong,
+.pop-up-confirmacion-accion #pop-up-exito-rechazo a {
+    font-size: 16px;
+    color: #262626; /* Color anaranjado */
+    font-weight: 600;
+}
+
+.pop-up-confirmacion-accion .cerrar-boton {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ff9900;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.pop-up-confirmacion-accion .cerrar-boton:hover {
+    background-color: #e08500;
+    transform: scale(1.05); /* Efecto de agrandamiento al pasar el mouse */
+}
+
+.pop-up-confirmacion-accion .detalles p strong {
+    font-weight: 600;
+    color: #333; /* Color más oscuro para el label */
+}

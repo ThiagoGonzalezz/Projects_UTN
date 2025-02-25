@@ -1,0 +1,29 @@
+
+/* Footer */
+footer {
+    background-color: #6C6C6C;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h2 {
+    font-family: 'Exo', sans-serif;
+    font-size: 1.5rem;
+}
+
+footer p {
+    font-family: 'Exo', sans-serif;
+    font-size: 1rem;
+}
+
+.footer-contact p {
+    margin: 0;
+}
+
+.underline {
+    text-decoration: underline;
+}

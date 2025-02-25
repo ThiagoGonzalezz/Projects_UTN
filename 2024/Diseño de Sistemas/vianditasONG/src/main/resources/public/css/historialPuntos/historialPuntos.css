@@ -1,0 +1,105 @@
+.historial {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.puntos-usuario {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.puntos-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+}
+
+.header-historial {
+    position: sticky;
+    top: 0;
+    margin-bottom: 10px;
+    z-index: 1000;
+    width: 98.5%;
+    border-radius: 10px;
+    padding: 10px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    /* Cambiado de 80% a 40% para reducir el tamaño a la mitad */
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.item .nombre {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.item .puntos {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.item .puntos.canje {
+    color: red;
+}
+
+.item .puntos.donacion {
+    color: green;
+}
+
+.item .puntos.oferta {
+    color: black;
+}
+
+.item .descripcion {
+    font-size: 14px;
+    color: #333;
+}
+
+.item .fechaYHora {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.grafico {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}

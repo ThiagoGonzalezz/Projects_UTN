@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/reset.css">
+    <link rel="stylesheet" href="../../css\registro\formulariosRegistro.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/header.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/general/footer.css">
+    <link rel="stylesheet" href="../../../../src/main/resources/public/css/colaboraciones/registrarPersonaVulnerable.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario Registro Persona Vulnerable</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>Vianditas ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../colaboradores/menuHumano.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../reporteFallaTecnica/reportar_falla_tecnica.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/herramienta.png" alt="Inicio">
+                        <p>Falla Técnica</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../catalogoOfertas/catalogoOfertas.html">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/carrito.png" alt="Inicio">
+                        <p>Canje</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <div class="form-container">
+
+            <div class="form-title-container">
+                <h3>Formulario registro persona en situación vulnerable</h3>
+
+            </div>
+
+            <div class="form-y-envio-container">
+
+                <form class="form-grid" action="index.html" method="" post>
+                    <div class="grid-item">
+                        <label for="">Nombre *</label>
+                        <input type="text" name="" value="" placeholder="Ingrese su nombre" class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Apellido *</label>
+                        <input type="text" name="" value="" placeholder="Ingrese su apellido" class="text-input"
+                            required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Fecha Nacimiento</label>
+                        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" max="" value=""
+                            placeholder="Ingrese su fecha de nacimiento" class="fecha-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="tipo-de-documento" required>Tipo de documento</label>
+                        <div id="tipo-de-documento-container">
+                            <select id="tipo-de-documento" name="tipo-de-documento[]"
+                                onchange="actualizarOpcionesColab()">
+                                <option value="-1" disabled selected>Seleccione un tipo de documento <div
+                                        class="flecha-despegable">▼</div>
+                                </option>
+                                <option value="1">DNI</option>
+                                <option value="2">Libreta cívica</option>
+                                <option value="3">Libreta de enrolamiento</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="">Número de documento<div id="modalidad-domicilio"></div></label>
+                        <input type="text" name="" value="" class="text-input"
+                            placeholder="Ingrese su número de documento">
+                    </div>
+
+                    <div class="grid-item">
+                        <label class="label-domicilio" for="provincia">Provincia *<div class="modalidad-domicilio">*
+                            </div> </label>
+                        <select id="provincia" name="provincia" class="input-domicilio" required>
+                            <option value="-1" disabled selected class="opcion-placeholder">Seleccione la provincia de
+                                su domicilio </option>
+                            <option value="1">Buenos Aires</option>
+                            <option value="2">CABA</option>
+                            <option value="3">Catamarca</option>
+                            <option value="4">Chaco</option>
+                            <option value="5">Chubut</option>
+                            <option value="6">Córdoba</option>
+                            <option value="7">Corrientes</option>
+                            <option value="8">Entre Ríos</option>
+                            <option value="9">Formosa</option>
+                            <option value="10">Jujuy</option>
+                            <option value="11">La Pampa</option>
+                            <option value="12">La Rioja</option>
+                            <option value="13">Mendoza</option>
+                            <option value="14">Misiones</option>
+                            <option value="15">Neuquén</option>
+                            <option value="16">Río Negro</option>
+                            <option value="17">Salta</option>
+                            <option value="18">San Juan</option>
+                            <option value="19">San Luis</option>
+                            <option value="20">Santa Cruz</option>
+                            <option value="21">Santa Fe</option>
+                            <option value="22">Santiago del Estero</option>
+                            <option value="23">Tierra del Fuego</option>
+                            <option value="24">Tucumán</option>
+                        </select>
+                    </div>
+                    <div class="grid-item">
+                        <label for="localidad">Localidad *<div id="modalidad-domicilio"></div></label>
+                        <select id="miSelect" required>
+                            <option value="" disabled selected>Ingrese la localidad de su domicilio</option>
+                            <option value="1">Villa Ballester</option>
+                            <option value="2">Villa Adelina</option>
+                            <option value="3">Tucuman</option>
+                        </select>
+                    </div>
+                    <div class="grid-item">
+                        <label for="calle" class="label-domicilio">Calle <div class="modalidad-domicilio">*</div>
+                        </label>
+                        <input id="calle" class="input-domicilio" type="text" name="" value=""
+                            placeholder="Ingrese la calle de su domicilio" class="text-input" id="domicilio-input">
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="altura" class="label-domicilio">Altura <div class="modalidad-domicilio">*</div>
+                        </label>
+                        <input id="altura" class="input-domicilio" type="text" name="" value=""
+                            placeholder="Ingrese la altura de su domicilio" class="text-input" id="domicilio-input">
+                    </div>
+                    <div class="grid-item">
+                        <label for="">Codigo de Tarjeta *
+                        </label>
+                        <input type="text" name="" value="" placeholder="Ingrese el código de la tarjeta asociada"
+                            class="text-input" required>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="cantidad-menores">Cantidad de menores a cargo</label>
+                        <select id="cantidad-menores" name="cantidad-menores" class="text-input">
+                            <option value="">Seleccione una cantidad</option>
+                            <!-- Opciones del 1 al 10 -->
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <div class=footer-form>
+
+                        <div id="aclaracion-obligatoriedad">Los campos marcados con (*) son obligatorios</div>
+
+                        <button type="button" id="btn-envio-form" onclick="enviarFormulario()" class="btn">Enviar
+                            formulario</button>
+                    </div>
+            </div>
+            <div id="formularios-menores-container"></div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Contactanos</h2>
+            <p>En Vianditas ONG dedicamos nuestro día a día a brindar alimentos a quienes más lo necesitan. Creemos en
+                la importancia de la solidaridad y trabajamos para hacer la diferencia. Cualquier consulta no dudes en
+                comunicarte.</p>
+        </div>
+
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>vianditasONG@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script src="../../../../src/main/resources/public/js/colaboraciones/dinamicaMenores.js" charset="utf-8"></script>
+<script src="js/utils/formularios/envioFormGenerico.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="../../../../src/main/resources/public/js/utils/select2.js"></script>

@@ -1,0 +1,63 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+    <link rel="stylesheet" href="/css/reporteFallaTecnica/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Reportar Falla Técnica</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        <a href="/menu-persona">
+            <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+            <p>Inicio</p>
+        </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+    <main>
+        <section class="reportar-falla">
+            <h3>Reportar Falla Técnica</h3>
+
+            <div class="boton-historial-container">
+                <a href="/historial-fallas" class="btn-ver-historial">Ver Historial</a>
+            </div>
+
+            <div class="form-map-container">
+                <div class="form-container">
+                    <form id="reportarFallaForm" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <label for="heladeraId">Heladera con falla técnica:</label>
+                            <input type="text" id="heladeraId" name="heladeraId" placeholder="ID de Heladera" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="descripcionFalla">Descripción de la falla:</label>
+                            <textarea id="descripcionFalla" name="descripcionFalla" rows="4" placeholder="Descripción de la falla" required></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="imagenesFalla">Añadir Imágenes:</label>
+                            <input type="file" id="imagenesFalla" name="imagenesFalla" multiple>
+                        </div>
+
+                        <button type="submit" id="enviarButton">Enviar</button>
+                    </form>
+                </div>
+
+                <div class="mapa-container">
+                    <div id="mapid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+{{/partial}}
+
+{{#partial "js-contenido-pagina-colaborador"}}
+    <script src="/js/reporteFallaTecnica/mapaHeladerasFallaTecnica.js"></script>
+    <script src="/js/reporteFallaTecnica/scripts.js"></script>
+{{/partial}}
+
+{{> templates/bases/base_colaborador}}
+
+

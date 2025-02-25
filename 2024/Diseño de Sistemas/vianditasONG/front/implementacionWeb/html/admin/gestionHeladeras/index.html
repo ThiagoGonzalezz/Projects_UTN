@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Enlaces a las fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Enlaces a CSS -->
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/general/reset.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/general/footer.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/general/header.css">
+    <link rel="stylesheet" href="../../../../../src/main/resources/public/css/admin/gestionHeladeras/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestión de Heladeras</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container-header">
+            <div class="header-left">
+                <img id="logo-header" src="../../../../../src/main/resources/public/img/login/logo.png" alt="logo VianditasONG">
+                <h1>VIANDITAS ONG</h1>
+            </div>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="../../admin/menuAdmin.html">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/casa.png" alt="Inicio">
+                        <p>Inicio</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/config.png" alt="Configuración">
+                        <p>Configuración</p>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/soporte.png" alt="Soporte">
+                        <p>Soporte</p>
+                    </a>
+                </div>
+                <div class="nav-item" id="notifications">
+                    <a href="#">
+                        <img src="../../../../../src/main/resources/public/img/iconosHeader/campana.png" alt="Notificaciones">
+                        <p>Notificaciones</p>
+                    </a>
+                </div>
+                <!-- Añadir imagen circular -->
+                <div class="nav-item" id="user-profile">
+                    <img src="../../../../../src/main/resources/public/img/iconosHeader/user-profile.png" alt="Perfil de Usuario" class="circular-image">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="content">
+            <h2>Gestión de Heladeras</h2>
+            <div class="filter-container">
+                <input type="text" id="searchInput" placeholder="Filtrar por ID">
+                <button id="addButton">AÑADIR HELADERA</button>
+            </div>
+            <div class="heladera-list" id="heladeraList">
+                <!-- Aquí irá la lista de heladeras -->
+            </div>
+        </div>
+
+        <!-- Modales -->
+        <div id="addHeladeraModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Añadir Heladera</h2>
+                <form id="addHeladeraForm">
+                    <label for="heladeraId">ID de Heladera:</label>
+                    <input type="text" id="heladeraId" required>
+
+                    <label for="heladeraModelo">Modelo de Heladera:</label>
+                    <input type="text" id="heladeraModelo" required>
+
+                    <label for="heladeraUbicacion">Ubicación de Heladera:</label>
+                    <input type="text" id="heladeraUbicacion" required>
+
+                    <button type="submit">Añadir</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="editHeladeraModal" class="modal">
+            <div class="modal-content">
+                <span class="close-edit">&times;</span>
+                <h2>Modificar Heladera</h2>
+                <form id="editHeladeraForm">
+                    <label for="editHeladeraId">ID de Heladera:</label>
+                    <input type="text" id="editHeladeraId" required readonly>
+
+                    <label for="editHeladeraModelo">Modelo de Heladera:</label>
+                    <input type="text" id="editHeladeraModelo" required>
+
+                    <label for="editHeladeraUbicacion">Ubicación de Heladera:</label>
+                    <input type="text" id="editHeladeraUbicacion" required>
+
+                    <label for="editHeladeraEstado">Estado de Heladera:</label>
+                    <input type="text" id="editHeladeraEstado" required>
+
+                    <label for="editHeladeraViandas">Cantidad de Viandas:</label>
+                    <input type="number" id="editHeladeraViandas" required>
+
+                    <label for="editHeladeraTemperatura">Temperatura:</label>
+                    <input type="number" step="0.1" id="editHeladeraTemperatura" required>
+
+                    <button type="submit">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2>Contactanos</h2>
+            <p>Ante cualquier inconveniente o consulta acerca del sistema, por favor comunicarse a través de los medios brindados.</p>
+        </div>
+
+        <div class="nuestros-contactos-container">
+            <div class="contacto-nuestro">
+                <img src="../../../../../src/main/resources/public/img/registro/logo-wpp.png" alt="logo teléfono">
+                <div class="contact-info">
+                    <h3>Teléfono</h3>
+                    <p>+54 9 11 3808 5884</p>
+                </div>
+            </div>
+            <div class="contacto-nuestro">
+                <img src="../../../../../src/main/resources/public/img/registro/logo-mail.png" alt="logo mail" id="mail-png">
+                <div class="contact-info">
+                    <h3>Mail</h3>
+                    <p>VONGSoporte@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../../../../src/main/resources/public/js/admin/gestionHeladeras/scripts.js"></script>
+    <script src="../../../../../src/main/resources/public/js/admin/notificacion/notificacionAdmin.js"></script>
+
+</body>
+</html>
+
+

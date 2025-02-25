@@ -1,0 +1,68 @@
+   {{#partial "estilo-contenido-pagina"}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="/css/login/login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Log in</title>
+    {{/partial}}
+
+   {{#partial "contenido-pagina"}}
+    <div class="main-container">
+        <div class="mapa-y-titulo-container">
+            <h3>MAPA HELADERAS DISPONIBLES</h3>
+            <div class="mapa-container">
+                <div id="mapid"></div>
+            </div>
+        </div>
+        <div class="cuadro-log-in-container">
+            <div class="dibujo-log-in-container">
+                <img id="logo-inicio-sesion" src="/img/login/logo.png" alt="logo VianditasONG">
+                <h2>Iniciar Sesión</h2>
+            </div>
+            <div class="input-log-in-container">
+                <form id="registro-form" action="index.html" method="post">
+                    <div class="grid-item">
+                        <label id="usuario-label" class="login-label" for="usuario">Usuario</label>
+                        <input id="usuario" class="login-input" type="text" name="usuario" required>
+                    </div>
+                    <div class="grid-item">
+                        <label id="password-label" class="login-label" for="password-input">Contraseña</label>
+
+                        <div class="input-icon">
+                            <input id="password-input" class="login-input" type="password" name="password" required>
+                            <i class="fas fa-eye icono-ojo" id="toggle-password"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="botones-log-in-container">
+                <button type="button" onclick="iniciarSesion()" class="btn">Iniciar Sesión</button>
+                <div class="registro-container">
+                    <p id="leyenda-sin-usuario">¿No tienes usuario aún?</p>
+                    <a href="/registro/personas-humanas" class="nav-btn">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   {{/partial}}
+
+
+   {{#partial "js-contenido-pagina"}}
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/js/login/scriptMapa.js"></script>
+    <script src="/js/login/logIn.js"></script>
+
+   {{/partial}}
+
+   {{>templates/bases/base_sin_usuario}}

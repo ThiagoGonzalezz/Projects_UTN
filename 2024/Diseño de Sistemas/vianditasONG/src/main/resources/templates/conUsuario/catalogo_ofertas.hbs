@@ -1,0 +1,89 @@
+{{#partial "estilo-contenido-pagina-colaborador"}}
+
+<link rel="stylesheet" href="css/catalogoOfertas/catalogoOfertas.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+<title>Catalogo Oferta</title>
+{{/partial}}
+
+{{#partial "redireccion-home"}}
+    <div class="nav-item">
+        {{#orEquals tipoRol "PERSONA_HUMANA"}}
+        <a href="/menu-persona">
+        {{else}}
+        <a href="/menu-personaJuridica">
+        {{/orEquals}}
+        <img src="../../img/iconosHeader/casa.png" alt="Inicio">
+        <p>Inicio</p>
+    </a>
+    </div>
+{{/partial}}
+
+{{#partial "contenido-pagina-colaborador"}}
+<div class="catalogo">
+    <div class="header-catalogo">
+        <div class="header-top">
+            <div class="titulo">Catálogo de productos y servicios</div>
+            <div class="puntos-usuario">
+                <p class="score">Puntos disponibles: {{this.puntosDisponibles}} </p>
+                <img src="img/iconosHeader/puntos.png" class="puntos-icon" alt="Puntos">
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search">
+        </div>
+    </div>
+    <div class="productos">
+        {{#each ofertas}}
+        <form class="producto" action="/canje-oferta/{{this.id}}" method="POST">
+            <img src="{{this.imagen}}" alt="Imagen del producto">
+            <div class="nombre">{{this.nombre}}</div>
+            <div class="puntos">{{this.puntosNecesarios}}</div>
+            <div class="ofertante">{{this.ofertante}}</div>
+            <button type="button" class="boton canjear-btn">Canjear</button>
+        </form>
+        {{/each}}
+
+        <!-- Agregar productos aca -->
+    </div>
+</div>
+</div>
+
+<!-- Pop-up de confirmación -->
+<div id="confirm-popup" class="popup">
+    <div class="popup-content" id="pop-up-envio-registro">
+        <p class="label-pop-up">¿Estás seguro de que deseas canjear este producto?</p>
+        <button id="confirm-btn" class="btn pop-up-btn">Sí</button>
+        <button id="cancel-btn" class="btn pop-up-btn">No</button>
+    </div>
+</div>
+
+<!-- Pop-up de confirmación de canje -->
+<div id="success-popup" class="popup" style="display: {{#if showSuccessPopup}}block{{else}}none{{/if}};">
+    <div class="popup-content">
+        <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+        <p class="label-pop-up">¡Canje confirmado exitosamente!</p>
+        <button id="success-close-btn" class="btn pop-up-btn">Cerrar</button>
+    </div>
+</div>
+
+<!-- Pop-up de confirmación de oferta -->
+<div id="success-popup-oferta" class="popup" style="display: {{#if showSuccessPopupOferta}}block{{else}}none{{/if}};">
+    <div class="popup-content">
+        <img id="logo-pop-up-bienvenido" src="../../img/login/logo.png" alt="logo VianditasONG">
+        <p class="label-pop-up">¡Oferta publicada exitosamente!</p>
+        <button id="success-close-btn-oferta" class="btn pop-up-btn">Cerrar</button>
+    </div>
+</div>
+
+
+{{/partial}}
+{{#partial "js-contenido-pagina-colaborador"}}
+<script src="js/catalogoOfertas/script.js" charset="utf-8"> </script>
+{{/partial}}
+{{>templates/bases/base_colaborador}}

@@ -1,0 +1,83 @@
+/* ------------------------------------------------------------------------------------------
+// -- General --
+// -----------------------------------------------------------------------------------------*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f6efd8 25%, #ff9900 100%);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1rem; /* Usar rem como base para escalabilidad */
+}
+
+/* ------------------------------------------------------------------------------------------
+// -- Header --
+// -----------------------------------------------------------------------------------------*/
+header {
+    background-color: #0c9db3;
+    padding: 1rem 2rem;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija del header */
+    overflow: hidden; /* Oculta la parte del logo que sobresalga del header */
+}
+
+#logo-header {
+    height: 100px; /* Tamaño del logo */
+    width: auto;
+    margin-right: 1rem;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin deformarse */
+    margin-left: -12px;
+}
+
+header h1 {
+    font-family: 'Montserrat';
+    font-size: 1.5rem; /* Ajustado para mejor escalabilidad */
+    margin: -8%;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 650;
+    display: flex;
+    align-items: center;
+    text-shadow: rgb(68, 66, 66) 0px 1px 5px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav ul li {
+    display: inline-block;
+}
+
+.main-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 550;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Montserrat';
+}
+
+.main-nav ul li a:hover {
+    color: #ff9900;
+}
